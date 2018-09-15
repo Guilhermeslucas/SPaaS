@@ -8,6 +8,7 @@ We will use this part to show you all the endpoints my application will offer in
 
 ### Create a new user
 ### Delete a user
+### Get all users
 ### Authenticate
 ### Submit a job to queue
 ### Get a job from the queue
