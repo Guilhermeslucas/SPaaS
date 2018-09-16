@@ -87,7 +87,9 @@ We will use this part to show you all the endpoints my application will offer in
 * **Response:**
 
 **200:** User successfully authenticated.
+
 **401:** Unauthorized. Wrong login infos.
+
 **404:** The user you are trying to authenticate doesn't exists.
 
 ### Submit a job to queue
@@ -98,8 +100,51 @@ We will use this part to show you all the endpoints my application will offer in
 
 ### Get status from all jobs
 
+* **Endpoint:** /api/jobs/
+
+* **Method:** GET
+
+* **Response:**
+
+**200:** The API was able to get the status of all jobs. Besides, it will return a json lije this:
+
+``` json
+
+[{
+    "id": "",
+    "duration": "",
+    "status": ""
+},
+{
+    "id": "",
+    "duration": "",
+    "status": ""
+}
+]
+
+```
 
 ### Get status of a specific job
+
+* **Endpoint:** /api/jobs/job_id/
+
+* **Method:** GET
+
+* **Response:**
+
+**200:** The API was able to get the status of the job you want. Besides, it will return a json lije this:
+
+``` json
+
+{
+    "id": "",
+    "duration": "",
+    "status": ""
+}
+
+```
+
+**404:** The job you are searching do not exists.
 
 
 ### Get the results from all jobs
