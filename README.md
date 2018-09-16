@@ -42,10 +42,68 @@ We will use this part to show you all the endpoints my application will offer in
 **404:** User id not found on database.
 
 ### Get all users
+
+* **Endpoint:** /api/users/
+
+* **Method:** GET
+
+* **Response:**
+
+**200:** Operation went ok. Besides, it will return the list of users like this:
+
+``` json
+[{
+    "id": "",
+    "name": "",
+    "username": "",
+    "email": "",
+    "company": ""
+},
+
+{
+    "id": "",
+    "name": "",
+    "username": "",
+    "email": "",
+    "company": ""
+}]
+
+```
+
 ### Authenticate
+
+* **Endpoint:** /api/users/authenticate/
+
+* **Method:** POST
+* **Body:**
+
+``` json
+{
+    "username": "",
+    "password": ""
+}
+```
+
+* **Response:**
+
+**200:** User successfully authenticated.
+**401:** Unauthorized. Wrong login infos.
+**404:** The user you are trying to authenticate doesn't exists.
+
 ### Submit a job to queue
+
+
 ### Get a job from the queue
+
+
 ### Get status from all jobs
+
+
 ### Get status of a specific job
+
+
 ### Get the results from all jobs
+
+
 ### Get the results from a specific job
+
