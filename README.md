@@ -59,7 +59,6 @@ We will use this part to show you all the endpoints my application will offer in
     "email": "",
     "company": ""
 },
-
 {
     "id": "",
     "name": "",
@@ -94,9 +93,48 @@ We will use this part to show you all the endpoints my application will offer in
 
 ### Submit a job to queue
 
+* **Endpoint:** /api/jobs/submit/
 
-### Get a job from the queue
+* **Method:** POST
 
+* **Body:**
+
+``` json
+{
+    "code": "",
+    "data": "",
+    "running_commands": ""
+}
+```
+
+* **Response:**
+
+**200:** Job successfully submited.
+
+### Get jobs from the queue
+
+* **Endpoint:** /api/jobs/get/
+
+* **Method:** GET
+
+* **Body:**
+
+``` json
+[{
+    "code": "",
+    "data": "",
+    "running_commands": ""
+},
+{
+    "code": "",
+    "data": "",
+    "running_commands": ""
+}]
+```
+
+* **Response:**
+
+**200:** Job successfully submited.
 
 ### Get status from all jobs
 
