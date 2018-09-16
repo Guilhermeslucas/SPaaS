@@ -113,7 +113,7 @@ We will use this part to show you all the endpoints my application will offer in
 
 ### Get jobs from the queue
 
-* **Endpoint:** /api/jobs/get/
+* **Endpoint:** /api/jobs/getqueue/
 
 * **Method:** GET
 
