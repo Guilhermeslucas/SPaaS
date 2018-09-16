@@ -119,8 +119,7 @@ We will use this part to show you all the endpoints my application will offer in
     "id": "",
     "duration": "",
     "status": ""
-}
-]
+}]
 
 ```
 
@@ -146,9 +145,49 @@ We will use this part to show you all the endpoints my application will offer in
 
 **404:** The job you are searching do not exists.
 
-
 ### Get the results from all jobs
 
+* **Endpoint:** /api/results/
+
+* **Method:** GET
+
+* **Response:**
+
+**200:** The API was able to get the results from all the jobs.
+
+``` json
+
+[{
+    "id": "",
+    "duration": "",
+    "results": {}
+},
+{
+    "id": "",
+    "duration": "",
+    "results": {}
+}]
+
+```
 
 ### Get the results from a specific job
 
+* **Endpoint:** /api/results/job_id/
+
+* **Method:** GET
+
+* **Response:**
+
+**200:** The API was able to get the results of the job you want. Besides, it will return a json lije this:
+
+``` json
+
+{
+    "id": "",
+    "duration": "",
+    "results": {}
+}
+
+```
+
+**404:** The job you are searching do not exists.
