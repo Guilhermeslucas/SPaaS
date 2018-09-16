@@ -24,18 +24,20 @@ We will use this part to show you all the endpoints my application will offer in
 ```
 
 * **Response:**
-* **201:** The user is created on database. Besides, it will return the user unique id.
-* **409:** Comflict. User not created.
+
+-- **201:** The user is created on database. Besides, it will return the user unique id.
+-- **409:** Comflict. User not created.
 
 ### Delete a user
 
-* **Endpoint:** /api/users/delete/<id>/
+* **Endpoint:** /api/users/delete/user_id/
 
 * **Method:** DELETE
 
 * **Response:**
-* **200:** The user has been deleted.
-* **404:** User id not found on database.
+
+-- **200:** The user has been deleted.
+-- **404:** User id not found on database.
 
 ### Get all users
 ### Authenticate
