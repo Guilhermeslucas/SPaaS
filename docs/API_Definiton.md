@@ -177,7 +177,7 @@ We will use this part to show you all the endpoints my application will offer in
 
 ```
 
-**404:** The job you are searching do not exists.
+**404:** The job you are searching does not exists.
 
 ### Get the results from all jobs
 
