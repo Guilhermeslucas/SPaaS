@@ -1,3 +1,72 @@
-<p>
-  results works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">SPaaS</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign out</button>
+      </form>
+    </div>
+  </nav>
+  
+  <div class="pagetitle">
+      <h2>Results</h2>
+  </div>
+  
+  <div class="sidemenu">
+      <ul class="list-group">
+          <li class="list-group-item">Definition</li>
+          <li class="list-group-item">Status</li>
+          <li class="list-group-item">Results</li>
+      </ul>
+  </div>
+  
+  <div class="container">
+      <div class="custom-table">
+          <form>
+                  <div class="custom-forms">
+                  <div class="form-group">
+                      <label for="jobname">Job Name</label>
+                      <input  class="form-control" id="jobname" placeholder="The name yout want for your job">
+                  </div> 
+                  <div class="form-group">
+                      <label for="codeinput">Source Code</label>
+                      <input  class="form-control" id="codeinput" placeholder="Place your code here">
+                  </div>
+                  <div class="form-group">
+                      <label for="scriptinput">Running Script</label>
+                      <input  class="form-control" id="scriptinput" placeholder="Place the running script here">
+                  </div>
+                  <div class="form-group">
+                      <label for="datainput">Job Data</label>
+                      <input class="form-control" id="datainput" placeholder="Place the data for the job here">
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+          </form>
+      </div>
+  </div>
