@@ -11,7 +11,8 @@
 
 .custom-table {
     position: absolute;
-    top: 110px;
+    top: 140px;
+    width: 1400px;
 }
 
 .custom-forms {
