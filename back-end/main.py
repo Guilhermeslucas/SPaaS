@@ -1,5 +1,8 @@
 from flask import Flask
+import pymongo
+
 app = Flask(__name__)
+db_client = pymongo.MongoClient('')
 
 @app.route("/")
 def hello():
@@ -51,4 +54,7 @@ def get_job_results(id):
 
 
 if __name__ == "__main__":
+    teste_collection = db_client.testdatabase.testcollection
+    dc = {'name': 'Guilherme', 'age': 24}
+    teste_collection.insert_one(dc)
     app.run('0.0.0.0', 5000)
