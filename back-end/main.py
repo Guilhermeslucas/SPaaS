@@ -12,7 +12,7 @@ def hello():
 def health():
     return "Everything is working"
 
-@app.route("/api/users/create/")
+@app.route("/api/users/create/", methods=['POST'])
 def create_user():
     raise NotImplementedError()
 
