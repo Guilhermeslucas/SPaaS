@@ -30,17 +30,17 @@
             <div class="custom-forms">
             <div class="form-group">
                 <label for="jobname">Email</label>
-                <input  class="form-control" id="jobname" placeholder="Email you want to create your account">
+                <input  class="form-control" id="jobname" placeholder="Email you want to create your account" [(ngModel)]="newEmail" name="newEmail">
             </div> 
             <div class="form-group">
-                <label for="codeinput">Password</label>
-                <input  class="form-control" id="codeinput" placeholder="The password you want to use">
+                <label for="passinput">Password</label>
+                <input  class="form-control" id="passinput" placeholder="The password you want to use" [(ngModel)]="newPass" name="newPass" type="password">
             </div>
             <div class="form-group">
-                <label for="codeinput"> Confirm your Password</label>
-                <input  class="form-control" id="codeinput" placeholder="Please confirm your password">
+                <label for="passconfirminput"> Confirm your Password</label>
+                <input  class="form-control" id="passconfirminput" placeholder="Please confirm your password" [(ngModel)]="newConfirmedPass" name="newConfirmedPass" type="password">
             </div>
-            <button type="submit" class="btn btn-primary">Create an Account</button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Create an Account</button>
             </div>
     </form>
 </div>
