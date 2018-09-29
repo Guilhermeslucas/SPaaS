@@ -8,6 +8,7 @@ import { StatusComponent } from './status/status.component';
 import { ResultsComponent } from './results/results.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
+import { AccountcreationComponent } from './accountcreation/accountcreation.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     DefinitionComponent,
     StatusComponent,
     ResultsComponent,
-    LoginComponent
+    LoginComponent,
+    AccountcreationComponent
   ],
   imports: [
     BrowserModule,
