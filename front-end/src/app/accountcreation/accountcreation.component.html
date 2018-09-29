@@ -41,6 +41,7 @@
                 <input  class="form-control" id="passconfirminput" placeholder="Please confirm your password" [(ngModel)]="newConfirmedPass" name="newConfirmedPass" type="password">
             </div>
             <button type="submit" class="btn btn-primary" (click)="onSubmit()">Create an Account</button>
+            <p>{{ alertMessage }}</p>
             </div>
     </form>
 </div>

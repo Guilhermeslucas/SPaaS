@@ -9,15 +9,24 @@ export class AccountcreationComponent implements OnInit {
   newEmail: string;
   newPass: string;
   newConfirmedPass: string;
+  finalObject: object;
+  alertMessage: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.finalObject = {};
+    this.alertMessage = '';
   }
 
   onSubmit() {
-    console.log(this.newEmail);
-    console.log(this.newPass);
-    console.log(this.newConfirmedPass);
+    if (this.newPass === this.newConfirmedPass) {
+      this.alertMessage = ' ';
+    } else {
+      this.alertMessage = 'The two passwords you are trying to use are different';
+    }
+
+    this.finalObject['email'] = this.newEmail;
+    this.finalObject['password'] = this.newPass;
   }
 }
