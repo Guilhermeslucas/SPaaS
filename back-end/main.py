@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, request, Response
+import json
 import pymongo
 
 app = Flask(__name__)
-db_client = pymongo.MongoClient('')
+db_client = pymongo.MongoClient('').spassDatabase
 
 @app.route("/")
 def hello():
@@ -14,10 +15,15 @@ def health():
 
 @app.route("/api/users/create/", methods=['POST'])
 def create_user():
-    raise NotImplementedError()
-
-@app.route("/api/users/delete/<id>")
-def delete_user(id):
+    user_data = request.get_json(force=True)
+    db_id = db_client.usersCollection.insert_one(user_data).inserted_id
+    if db_id:
+        return Response(status=200)
+    else:
+        return Response(status=409)
+    
+@app.route("/api/users/delete/<email>")
+def delete_user(email):
     raise NotImplementedError()
 
 @app.route("/api/users/")
@@ -54,7 +60,4 @@ def get_job_results(id):
 
 
 if __name__ == "__main__":
-    teste_collection = db_client.testdatabase.testcollection
-    dc = {'name': 'Guilherme', 'age': 24}
-    teste_collection.insert_one(dc)
     app.run('0.0.0.0', 5000)
