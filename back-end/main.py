@@ -22,9 +22,15 @@ def create_user():
     else:
         return Response(status=409)
     
-@app.route("/api/users/delete/<email>")
-def delete_user(email):
-    raise NotImplementedError()
+@app.route("/api/users/delete/", methods=['DELETE'])
+def delete_user():
+    user_email = request.get_json(force=True)['email']
+    result = db_client.usersCollection.delete_one({"email": user_email})
+    
+    if result.deleted_count:
+        return Response(status=200)
+    else:
+        return Response(status=404)
 
 @app.route("/api/users/")
 def list_users():
