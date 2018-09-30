@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { ResultsComponent } from './results/results.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { AccountcreationComponent } from './accountcreation/accountcreation.component';
+import { SpassService } from './spass.service';
 
 
 @NgModule({
@@ -24,9 +26,10 @@ import { AccountcreationComponent } from './accountcreation/accountcreation.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [SpassService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

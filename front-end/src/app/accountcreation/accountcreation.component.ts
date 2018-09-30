@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpassService } from '../spass.service';
 
 @Component({
   selector: 'app-accountcreation',
@@ -12,7 +13,7 @@ export class AccountcreationComponent implements OnInit {
   finalObject: object;
   alertMessage: string;
 
-  constructor() { }
+  constructor(private apiService: SpassService) { }
 
   ngOnInit() {
     this.finalObject = {};
@@ -28,5 +29,10 @@ export class AccountcreationComponent implements OnInit {
 
     this.finalObject['email'] = this.newEmail;
     this.finalObject['password'] = this.newPass;
+
+    this.apiService.createUser(this.finalObject)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 }
