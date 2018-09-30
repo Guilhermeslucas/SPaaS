@@ -2,6 +2,7 @@ from flask import Flask, request, Response
 import json
 import pymongo
 from flask_cors import CORS
+from bson.json_util import dumps
 
 app = Flask(__name__)
 CORS(app)
@@ -39,9 +40,11 @@ def delete_user():
     else:
         return Response(status=404)
 
-@app.route("/api/users/")
+@app.route("/api/users/", methods=['GET'])
 def list_users():
-    raise NotImplementedError()
+    result = db_client.usersCollection.find({})
+    print(result)
+    return Response(dumps(result), status=200)
 
 @app.route("/api/users/authenticate/", methods=['POST'])
 def authenticate():
