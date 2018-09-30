@@ -30,13 +30,13 @@
             <div class="custom-forms">
             <div class="form-group">
                 <label for="jobname">Email</label>
-                <input  class="form-control" id="jobname" placeholder="The email used to create the account">
+                <input  class="form-control" id="jobname" placeholder="The email used to create the account" [(ngModel)]="email" name="email">
             </div> 
             <div class="form-group">
                 <label for="codeinput">Password</label>
-                <input  class="form-control" id="codeinput" placeholder="Your password">
+                <input  class="form-control" id="codeinput" placeholder="Your password"  [(ngModel)]="pass" name="pass" type="password">
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">Login</button>
             </div>
     </form>
 </div>

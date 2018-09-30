@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpassService } from '../spass.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-accountcreation',
@@ -13,7 +14,7 @@ export class AccountcreationComponent implements OnInit {
   finalObject: object;
   alertMessage: string;
 
-  constructor(private apiService: SpassService) { }
+  constructor(private apiService: SpassService, public router: Router) { }
 
   ngOnInit() {
     this.finalObject = {};
@@ -33,7 +34,10 @@ export class AccountcreationComponent implements OnInit {
     this.apiService.createUser(this.finalObject)
     .subscribe(response => {
       if (response['status'] === 200) {
-        this.alertMessage = 'Your accont was successfully created';
+        this.alertMessage = 'Your accont was successfully created. Redirecting...';
+        setTimeout(() => {
+          this.router.navigate(['/', 'login']);
+      }, 5000);
       } else {
         this.alertMessage = 'This email is already used';
       }

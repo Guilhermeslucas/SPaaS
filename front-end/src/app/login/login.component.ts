@@ -6,19 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  newEmail: string;
-  newPass: string;
-  newConfirmedPass: string;
+  email: string;
+  pass: string;
+  finalData: object;
 
   constructor() { }
 
   ngOnInit() {
+    this.finalData = {};
   }
 
   onSubmit() {
-    console.log(this.newEmail);
-    console.log(this.newPass);
-    console.log(this.newConfirmedPass);
+    this.finalData['email'] = this.email;
+    this.finalData['pass'] = this.pass;
+
+    console.log(this.finalData);
   }
 
 }
