@@ -5,7 +5,7 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
-db_client = pymongo.MongoClient('mongodb://mongospass:TOhbB1lfXdc7IR9dLtn3G3NMSvwd3qY1Tr5b8LD9JsKZXs6Mcymk7WqdSRdpwKwWGNhvlfp58pcwVjTUaqcq9w==@mongospass.documents.azure.com:10255/?ssl=true&replicaSet=globaldb').spassDatabase
+db_client = pymongo.MongoClient('').spassDatabase
 
 @app.route("/")
 def hello():
