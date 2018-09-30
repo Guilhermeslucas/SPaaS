@@ -43,9 +43,17 @@ def delete_user():
 def list_users():
     raise NotImplementedError()
 
-@app.route("/api/authenticate/")
+@app.route("/api/users/authenticate/", methods=['POST'])
 def authenticate():
-    raise NotImplementedError()
+    data = request.get_json(force=True)
+    result = db_client.usersCollection.find_one({'email': data['email']})
+    if result:
+        if result['password'] == data['pass']:
+            return Response(status=200)
+        else:
+            return Response(status=401)
+    else:
+        return Response(status=401)
 
 @app.route("/api/jobs/submit/")
 def submit_job():

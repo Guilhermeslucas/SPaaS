@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpassService } from '../spass.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit {
   pass: string;
   finalData: object;
 
-  constructor() { }
+  constructor(private apiService: SpassService) { }
 
   ngOnInit() {
     this.finalData = {};
@@ -20,7 +21,9 @@ export class LoginComponent implements OnInit {
     this.finalData['email'] = this.email;
     this.finalData['pass'] = this.pass;
 
-    console.log(this.finalData);
+    this.apiService.authenticateUser(this.finalData)
+      .subscribe(response => {
+        console.log(response);
+      });
   }
-
 }
