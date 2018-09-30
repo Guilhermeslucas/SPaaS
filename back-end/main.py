@@ -43,7 +43,6 @@ def delete_user():
 @app.route("/api/users/", methods=['GET'])
 def list_users():
     result = db_client.usersCollection.find({})
-    print(result)
     return Response(dumps(result), status=200)
 
 @app.route("/api/users/authenticate/", methods=['POST'])
