@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SpassService } from '../spass.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +11,13 @@ export class LoginComponent implements OnInit {
   email: string;
   pass: string;
   finalData: object;
+  alertMessage: string;
 
-  constructor(private apiService: SpassService) { }
+  constructor(private apiService: SpassService, private router: Router) { }
 
   ngOnInit() {
     this.finalData = {};
+    this.alertMessage = '';
   }
 
   onSubmit() {
@@ -23,7 +26,14 @@ export class LoginComponent implements OnInit {
 
     this.apiService.authenticateUser(this.finalData)
       .subscribe(response => {
-        console.log(response);
+        if (response['status'] === 200) {
+          this.alertMessage = 'Your accont is successfully logged. Redirecting...';
+          setTimeout(() => {
+            this.router.navigate(['/', 'definition']);
+        }, 3000);
+        } else {
+          this.alertMessage = 'This email is already used';
+        }
       });
   }
 }

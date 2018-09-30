@@ -37,7 +37,7 @@ export class AccountcreationComponent implements OnInit {
         this.alertMessage = 'Your accont was successfully created. Redirecting...';
         setTimeout(() => {
           this.router.navigate(['/', 'login']);
-      }, 5000);
+      }, 3000);
       } else {
         this.alertMessage = 'This email is already used';
       }
