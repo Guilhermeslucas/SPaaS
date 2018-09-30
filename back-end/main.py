@@ -18,6 +18,11 @@ def health():
 @app.route("/api/users/create/", methods=['POST'])
 def create_user():
     user_data = request.get_json(force=True)
+    result = db_client.usersCollection.find({'email': user_data['email']})
+    
+    if result.count() != 0:
+        return Response({'message': 'This email is already in use'},status=409)
+
     db_id = db_client.usersCollection.insert_one(user_data).inserted_id
     if db_id:
         return Response(status=200)

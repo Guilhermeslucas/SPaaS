@@ -32,7 +32,11 @@ export class AccountcreationComponent implements OnInit {
 
     this.apiService.createUser(this.finalObject)
     .subscribe(response => {
-      console.log(response);
+      if (response['status'] === 200) {
+        this.alertMessage = 'Your accont was successfully created';
+      } else {
+        this.alertMessage = 'This email is already used';
+      }
     });
   }
 }
