@@ -10,7 +10,6 @@ export class ResultsComponent implements OnInit {
   loggedMail: string;
 
   constructor(private apiservice: SpassService) {
-    this.loggedMail = this.apiservice.getLoggedUser();
    }
 
   ngOnInit() {
