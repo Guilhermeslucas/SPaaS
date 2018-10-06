@@ -8,13 +8,12 @@ import { SpassService } from '../spass.service';
 })
 
 export class StatusComponent implements OnInit {
-  public loggedMail: string;
+  loggedMail: string;
   constructor(private apiservice: SpassService) {
-    this.loggedMail = this.apiservice.getLoggedUser();
    }
 
   ngOnInit() {
-    this.loggedMail = this.apiservice.getLoggedUser();
+    this.loggedMail = localStorage.getItem('loggedMail');
   }
 
 }

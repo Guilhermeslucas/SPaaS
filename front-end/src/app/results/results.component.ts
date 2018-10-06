@@ -13,7 +13,7 @@ export class ResultsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.loggedMail = this.apiservice.getLoggedUser();
+    this.loggedMail = localStorage.getItem('loggedMail');
   }
 
 }
