@@ -12,6 +12,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { LoginComponent } from './login/login.component';
 import { AccountcreationComponent } from './accountcreation/accountcreation.component';
 import { SpassService } from './spass.service';
+import { DataManagementComponent } from './data-management/data-management.component';
+import { ToolsManagementComponent } from './tools-management/tools-management.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { SpassService } from './spass.service';
     StatusComponent,
     ResultsComponent,
     LoginComponent,
-    AccountcreationComponent
+    AccountcreationComponent,
+    DataManagementComponent,
+    ToolsManagementComponent
   ],
   imports: [
     BrowserModule,
