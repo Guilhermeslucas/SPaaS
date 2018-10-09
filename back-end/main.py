@@ -3,10 +3,11 @@ import json
 import pymongo
 from flask_cors import CORS
 from bson.json_util import dumps
+import os
 
 app = Flask(__name__)
 CORS(app)
-db_client = pymongo.MongoClient('').spassDatabase
+db_client = pymongo.MongoClient(os.environ['SPASS_CONNECTION_STRING']).spassDatabase
 
 @app.route("/")
 def hello():
