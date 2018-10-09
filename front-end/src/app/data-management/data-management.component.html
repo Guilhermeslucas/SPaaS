@@ -1,3 +1,62 @@
-<p>
-  data-management works!
-</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">SPaaS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+  
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/Guilhermeslucas/SPaaS">Contribute</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <a class="nav-link" style="color: aliceblue">{{ loggedMail }}</a>
+    </form>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Sign out</button>
+    </form>
+  </div>
+</nav>
+
+<div class="pagetitle">
+<h2>Data Manager</h2>
+</div>
+
+<div class="sidemenu">
+<ul class="list-group">
+  <a href="/definition"><li class="list-group-item">Definition</li></a>
+  <a href="/status"><li class="list-group-item">Status</li></a>
+  <a href="/results"><li class="list-group-item">Results</li></a>
+  <a href="/datamanager"><li class="list-group-item">Data Management</li></a>
+  <a href="/toolsmanager"><li class="list-group-item">Tools Management</li></a>
+</ul>
+</div>
+
+<div class="container">
+<div class="custom-table">
+  <form>
+          <div class="custom-forms">
+              <h3>Upload</h3>
+          <div class="form-group">
+              <label for="codeinput">Location</label>
+              <input  class="form-control" id="jobname" placeholder="The path from your file">
+              <label for="codeinput">Data name</label>
+              <input  class="form-control" id="jobname" placeholder="The name you want for the data">
+          </div>
+          <h3>Download</h3> 
+          <div class="form-group">
+              <label for="codeinput">Name of Data</label>
+              <input  class="form-control" id="codeinput" placeholder="Search for the data name">
+          </div>
+          <h3>Move</h3> 
+          <div class="form-group">
+              <label for="scriptinput">Name of data</label>
+              <input  class="form-control" id="scriptinput" placeholder="Search for the data name">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+  </form>
+</div>
+</div>

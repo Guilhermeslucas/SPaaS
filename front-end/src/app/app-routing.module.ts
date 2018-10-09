@@ -6,6 +6,8 @@ import { StatusComponent} from './status/status.component';
 import { ResultsComponent } from './results/results.component';
 import { LoginComponent } from './login/login.component';
 import { AccountcreationComponent } from './accountcreation/accountcreation.component';
+import { DataManagementComponent } from './data-management/data-management.component';
+import { ToolsManagementComponent } from './tools-management/tools-management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'status', component: StatusComponent },
   { path: 'results', component: ResultsComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'accountcreation', component: AccountcreationComponent }
+  { path: 'accountcreation', component: AccountcreationComponent },
+  { path: 'datamanager', component: DataManagementComponent },
+  { path: 'toolsmanager', component: ToolsManagementComponent },
 ];
 
 
