@@ -58,5 +58,5 @@
 </div>
 </div>
 <div class="file-button">
-    <input type="file" id="file-input" (change)="onFileChange($event)" #fileInput>
+    <input type="file" id="file-input" (change)="onFileChange($event.target.files)" #fileInput>
   </div>
