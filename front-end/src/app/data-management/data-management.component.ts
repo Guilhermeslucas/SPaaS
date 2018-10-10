@@ -10,6 +10,7 @@ import { SpassService } from '../spass.service';
 export class DataManagementComponent implements OnInit {
   loggedMail: string;
   fileToUpload: File;
+  nameOfFile: string;
 
   constructor(private apiService: SpassService) { }
 
@@ -20,23 +21,9 @@ export class DataManagementComponent implements OnInit {
 
   onFileChange(files: FileList) {
     this.fileToUpload = files.item(0);
-    console.log(this.fileToUpload);
-    this.apiService.uploadData(this.fileToUpload)
+    this.apiService.uploadData(this.fileToUpload, this.nameOfFile)
     .subscribe(response => {
       console.log(response);
     });
   }
-
-  // postFile(fileToUpload: File): Observable<boolean> {
-  //   const endpoint = 'your-destination-url';
-  //   const formData: FormData = new FormData();
-  //   formData.append('fileKey', fileToUpload, fileToUpload.name);
-  //   return this.httpClient
-  //     .post(endpoint, formData, { headers: yourHeadersConfig })
-  //     .map(() => { return true; })
-  //     .catch((e) => this.handleError(e));
-  // }
-
-
-
 }

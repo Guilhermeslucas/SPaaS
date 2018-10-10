@@ -37,9 +37,9 @@ export class SpassService {
       });
   }
 
-  uploadData(fileToUpload: File): Observable<object> {
+  uploadData(fileToUpload: File, nameOfFile: string): Observable<object> {
     const formData: FormData = new FormData();
-    formData.append('data', fileToUpload, fileToUpload.name);
+    formData.append(nameOfFile, fileToUpload, fileToUpload.name);
 
     return this.http
     .post(API_URL + UPLOAD_DATA_ENDPOINT, formData)
