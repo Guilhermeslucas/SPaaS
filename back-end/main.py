@@ -82,6 +82,12 @@ def get_jobs_results():
 def get_job_results(id):
     raise NotImplementedError()
 
+@app.route('/api/data/upload/', methods=['POST'])
+def upload_data():
+    data = request.files
+    print(data)
+    return "OK"
+
 
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)

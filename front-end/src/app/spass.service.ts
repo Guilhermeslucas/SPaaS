@@ -8,6 +8,7 @@ import { EmailValidator } from '@angular/forms';
 const API_URL = environment.apiUrl;
 const CREATE_USER_ENDPOINT = environment.createUserEndpoint;
 const AUTH_USER_ENDPOINT = environment.authUserEndpoint;
+const UPLOAD_DATA_ENDPOINT = environment.uploadDataEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -34,6 +35,17 @@ export class SpassService {
         }
         return response;
       });
+  }
+
+  uploadData(fileToUpload: File): Observable<object> {
+    const formData: FormData = new FormData();
+    formData.append('data', fileToUpload, fileToUpload.name);
+
+    return this.http
+    .post(API_URL + UPLOAD_DATA_ENDPOINT, formData)
+    .map(response => {
+      return response;
+    });
   }
 
 }

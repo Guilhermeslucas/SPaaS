@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { SpassService } from '../spass.service';
 
 @Component({
   selector: 'app-data-management',
@@ -9,7 +10,8 @@ import { FormGroup } from '@angular/forms';
 export class DataManagementComponent implements OnInit {
   loggedMail: string;
   fileToUpload: File;
-  constructor() { }
+
+  constructor(private apiService: SpassService) { }
 
   ngOnInit() {
     this.loggedMail = localStorage.getItem('loggedMail');
@@ -19,6 +21,10 @@ export class DataManagementComponent implements OnInit {
   onFileChange(files: FileList) {
     this.fileToUpload = files.item(0);
     console.log(this.fileToUpload);
+    this.apiService.uploadData(this.fileToUpload)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
   // postFile(fileToUpload: File): Observable<boolean> {

@@ -7,5 +7,6 @@ export const environment = {
   production: false,
   apiUrl: 'http://localhost:5000',
   createUserEndpoint: '/api/users/create/',
-  authUserEndpoint: '/api/users/authenticate/'
+  authUserEndpoint: '/api/users/authenticate/',
+  uploadDataEndpoint: '/api/data/upload/'
 };
