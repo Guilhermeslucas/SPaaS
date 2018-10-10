@@ -84,7 +84,12 @@ def get_job_results(id):
 
 @app.route('/api/data/upload/', methods=['POST'])
 def upload_data():
-    data = request.files
+    data = request.files.items()
+    for d in data:
+        data_name = d[0]
+        data_content = d[1]
+    print(data_name)
+    print(data_content)
     return "OK"
 
 
