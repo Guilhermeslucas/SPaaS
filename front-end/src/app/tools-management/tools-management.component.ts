@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tools-management.component.css']
 })
 export class ToolsManagementComponent implements OnInit {
-
+  loggedMail: string;
+  
   constructor() { }
 
   ngOnInit() {
+    this.loggedMail = localStorage.getItem('loggedMail');
   }
 
 }
