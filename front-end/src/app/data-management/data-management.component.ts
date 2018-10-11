@@ -19,7 +19,7 @@ export class DataManagementComponent implements OnInit {
     this.loggedMail = localStorage.getItem('loggedMail');
     this.fileToUpload = null;
     this.apiService.getBlobFiles().subscribe(response => {
-      this.fileNames = response.replace('[', '').replace(']', '').split(',');
+      this.fileNames = response.replace('[', '').replace(']', '').split('"').join('').replace(' ', '').split(',');
     });
   }
 

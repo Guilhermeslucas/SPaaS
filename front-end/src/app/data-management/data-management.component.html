@@ -62,13 +62,13 @@
             <thead>
               <tr>
                 <th scope="col">Download Files</th>
-                <th scope="col">Link (Click to Download)</th>
+                <th scope="col">Link to Download</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let name of fileNames">
                 <th scope="row">{{ name }}</th>
-                <td> Otto </td>
+                <td>{{ "https://seismicdata.blob.core.windows.net/seismic-data/" +  name }} </td>
               </tr>
             </tbody>
           </table>
