@@ -38,11 +38,6 @@
 <div class="custom-table">
   <form>
           <div class="custom-forms">
-          <h3>Download</h3> 
-          <div class="form-group">
-              <label for="codeinput">Name of Data</label>
-              <input  class="form-control" id="codeinput" placeholder="Search for the data name">
-          </div>
           <h3>Move</h3> 
           <div class="form-group">
               <label for="scriptinput">Name of data</label>
@@ -59,4 +54,38 @@
 </div>
 <div class="file-button">
     <input type="file" id="file-input" (change)="onFileChange($event.target.files)" #fileInput>
-  </div>
+</div>
+
+
+<div class="container">
+<div class="special-table">
+<div clas="files-table">
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Download Files</th>
+                <th scope="col">Name</th>
+                <th scope="col">Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</div>
+</div>
