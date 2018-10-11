@@ -4,10 +4,15 @@ import pymongo
 from flask_cors import CORS
 from bson.json_util import dumps
 import os
+from azure.storage.blob import BlockBlobService, PublicAccess
 
 app = Flask(__name__)
 CORS(app)
+
 db_client = pymongo.MongoClient(os.environ['SPASS_CONNECTION_STRING']).spassDatabase
+seismic_data_blob = BlockBlobService(account_name='seismicdata', account_key=os.environ['SPASS_DATA_BLOB_KEY'])
+seismic_data_blob.create_container('seismic-data')
+seismic_data_blob.set_container_acl('seismic-data', public_access=PublicAccess.Container)
 
 @app.route("/")
 def hello():
@@ -88,10 +93,12 @@ def upload_data():
     for d in data:
         data_name = d[0]
         data_content = d[1]
-    print(data_name)
-    print(data_content)
-    return "OK"
+    upload_to_azure(data_name, 'seismic-data', data_content)
+    return "Uploaded"
 
+def upload_to_azure(data_name, container_name, data_content):
+    pass
+    
 
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)
