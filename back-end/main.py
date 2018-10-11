@@ -95,14 +95,22 @@ def upload_data():
         data_content = d[1]
     
     upload_to_azure(data_name,'seismic-data',data_content)
-    
     return "Uploaded"
+
+@app.route('/api/data/', methods=['GET'])
+def get_files_blob():
+    return json.dumps(list_files('seismic-data'))
 
 def upload_to_azure(data_name, container_name, data_content):
     final_name = data_name + '.su'
     data_content.save(final_name)
     seismic_data_blob.create_blob_from_path(container_name, final_name, final_name)
     os.system('rm -rf '+ final_name)
+
+def list_files(container_name):
+    data = seismic_data_blob.list_blobs(container_name)
+    all_names = [d.name for d in data]
+    return all_names
     
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)
