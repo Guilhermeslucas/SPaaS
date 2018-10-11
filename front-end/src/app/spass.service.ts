@@ -9,6 +9,7 @@ const API_URL = environment.apiUrl;
 const CREATE_USER_ENDPOINT = environment.createUserEndpoint;
 const AUTH_USER_ENDPOINT = environment.authUserEndpoint;
 const UPLOAD_DATA_ENDPOINT = environment.uploadDataEndpoint;
+const GET_FILES_BLOB = environment.getFilesEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -45,6 +46,14 @@ export class SpassService {
     .post(API_URL + UPLOAD_DATA_ENDPOINT, formData)
     .map(response => {
       return response;
+    });
+  }
+
+  getBlobFiles(): Observable<string> {
+    return this.http
+    .get(API_URL + GET_FILES_BLOB)
+    .map(response => {
+      return response['_body'];
     });
   }
 

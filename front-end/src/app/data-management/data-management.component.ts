@@ -11,12 +11,16 @@ export class DataManagementComponent implements OnInit {
   loggedMail: string;
   fileToUpload: File;
   nameOfFile: string;
+  fileNames: any;
 
   constructor(private apiService: SpassService) { }
 
   ngOnInit() {
     this.loggedMail = localStorage.getItem('loggedMail');
     this.fileToUpload = null;
+    this.apiService.getBlobFiles().subscribe(response => {
+      this.fileNames = response.replace('[', '').replace(']', '').split(',');
+    });
   }
 
   onFileChange(files: FileList) {
