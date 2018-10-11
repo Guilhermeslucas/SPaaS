@@ -93,12 +93,16 @@ def upload_data():
     for d in data:
         data_name = d[0]
         data_content = d[1]
-    upload_to_azure(data_name, 'seismic-data', data_content)
+    
+    upload_to_azure(data_name,'seismic-data',data_content)
+    
     return "Uploaded"
 
 def upload_to_azure(data_name, container_name, data_content):
-    pass
+    final_name = data_name + '.su'
+    data_content.save(final_name)
+    seismic_data_blob.create_blob_from_path(container_name, final_name, final_name)
+    os.system('rm -rf '+ final_name)
     
-
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)
