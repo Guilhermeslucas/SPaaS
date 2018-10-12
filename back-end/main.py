@@ -109,16 +109,17 @@ def upload_to_azure(data_name, container_name, data_content):
     seismic_blob.create_blob_from_path(container_name, final_name, final_name)
     os.system('rm -rf '+ final_name)
 
-def upload_tool():
-    pass
-
+@app.route('/api/tools/', methods=['GET'])
 def get_tools_blob():
-    pass
+    return json.dumps(list_files('seismic-tools'))
 
 def list_files(container_name):
     data = seismic_blob.list_blobs(container_name)
     all_names = [d.name for d in data]
     return all_names
+
+def upload_tool():
+    pass
     
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)
