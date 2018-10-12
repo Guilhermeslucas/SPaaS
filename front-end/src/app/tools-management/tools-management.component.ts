@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SpassService } from '../spass.service';
 
 @Component({
   selector: 'app-tools-management',
@@ -7,11 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolsManagementComponent implements OnInit {
   loggedMail: string;
-  
-  constructor() { }
+  fileToUpload: File;
+  nameOfFile: string;
+  fileNames: any;
+
+  constructor(private apiService: SpassService) { }
 
   ngOnInit() {
     this.loggedMail = localStorage.getItem('loggedMail');
+    this.fileToUpload = null;
+    this.apiService.getTools().subscribe(response => {
+      this.fileNames = response.replace('[', '').replace(']', '').split('"').join('').replace(' ', '').split(',');
+    });
+  }
+
+  onFileChange(files: FileList) {
+    this.fileToUpload = files.item(0);
+    this.apiService.uploadTool(this.fileToUpload, this.nameOfFile)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
 }

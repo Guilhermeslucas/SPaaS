@@ -9,5 +9,7 @@ export const environment = {
   createUserEndpoint: '/api/users/create/',
   authUserEndpoint: '/api/users/authenticate/',
   uploadDataEndpoint: '/api/data/upload/',
-  getFilesEndpoint: '/api/data/'
+  getFilesEndpoint: '/api/data/',
+  uploadToolsEndpoint: '/api/tools/upload/',
+  getToolsEndpoint: '/api/tools/'
 };

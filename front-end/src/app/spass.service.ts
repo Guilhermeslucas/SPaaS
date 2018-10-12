@@ -9,7 +9,9 @@ const API_URL = environment.apiUrl;
 const CREATE_USER_ENDPOINT = environment.createUserEndpoint;
 const AUTH_USER_ENDPOINT = environment.authUserEndpoint;
 const UPLOAD_DATA_ENDPOINT = environment.uploadDataEndpoint;
-const GET_FILES_BLOB = environment.getFilesEndpoint;
+const GET_FILES_BLOB_ENDPOINT = environment.getFilesEndpoint;
+const UPLOAD_TOOL_ENDPOINT = environment.uploadToolsEndpoint;
+const GET_TOOLS_BLOB_ENDPOINT = environment.getToolsEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -51,7 +53,26 @@ export class SpassService {
 
   getBlobFiles(): Observable<string> {
     return this.http
-    .get(API_URL + GET_FILES_BLOB)
+    .get(API_URL + GET_FILES_BLOB_ENDPOINT)
+    .map(response => {
+      return response['_body'];
+    });
+  }
+
+  uploadTool(fileToUpload: File, nameOfFile: string): Observable<object> {
+    const formData: FormData = new FormData();
+    formData.append(nameOfFile, fileToUpload, fileToUpload.name);
+
+    return this.http
+    .post(API_URL + UPLOAD_TOOL_ENDPOINT, formData)
+    .map(response => {
+      return response;
+    });
+  }
+
+  getTools(): Observable<string> {
+    return this.http
+    .get(API_URL + GET_TOOLS_BLOB_ENDPOINT)
     .map(response => {
       return response['_body'];
     });
