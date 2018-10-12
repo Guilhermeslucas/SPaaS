@@ -15,5 +15,13 @@
 }
 
 .custom-forms {
-    width: 500%;
+    width: 555%;
+}
+
+.file-button {
+    padding-left: 375px;
+}
+
+.special-table {
+    margin-top: 20px;
 }

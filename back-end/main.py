@@ -10,9 +10,11 @@ app = Flask(__name__)
 CORS(app)
 
 db_client = pymongo.MongoClient(os.environ['SPASS_CONNECTION_STRING']).spassDatabase
-seismic_data_blob = BlockBlobService(account_name='seismicdata', account_key=os.environ['SPASS_DATA_BLOB_KEY'])
-seismic_data_blob.create_container('seismic-data')
-seismic_data_blob.set_container_acl('seismic-data', public_access=PublicAccess.Container)
+seismic_blob = BlockBlobService(account_name='seismicdata', account_key=os.environ['SPASS_DATA_BLOB_KEY'])
+seismic_blob.create_container('seismic-data')
+seismic_blob.set_container_acl('seismic-data', public_access=PublicAccess.Container)
+seismic_blob.create_container('seismic-tools')
+seismic_blob.set_container_acl('seismic-tools', public_access=PublicAccess.Container)
 
 @app.route("/")
 def hello():
@@ -104,11 +106,17 @@ def get_files_blob():
 def upload_to_azure(data_name, container_name, data_content):
     final_name = data_name + '.su'
     data_content.save(final_name)
-    seismic_data_blob.create_blob_from_path(container_name, final_name, final_name)
+    seismic_blob.create_blob_from_path(container_name, final_name, final_name)
     os.system('rm -rf '+ final_name)
 
+def upload_tool():
+    pass
+
+def get_tools_blob():
+    pass
+
 def list_files(container_name):
-    data = seismic_data_blob.list_blobs(container_name)
+    data = seismic_blob.list_blobs(container_name)
     all_names = [d.name for d in data]
     return all_names
     
