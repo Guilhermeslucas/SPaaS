@@ -146,7 +146,13 @@ def upload_tool():
     
     db_client.toolsCollection.insert_one(tool_document)
     
-    return "Uploaded"
-    
+    return 'Uploaded'
+
+@app.route('/api/tools/<name>/', methods=['DELETE'])
+def delete_tool(name):
+    print(name)
+    return 'Deleted'
+
+
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)
