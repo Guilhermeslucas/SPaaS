@@ -120,10 +120,18 @@ def list_files(container_name):
 @app.route('/api/tools/upload/', methods=['POST'])
 def upload_tool():
     data = request.files.items()
+    arguments = request.form
+    
     for d in data:
         data_name = d[0]
         data_content = d[1]
+    
     upload_to_azure(data_name, 'seismic-tools', data_content)
+    
+    for a in arguments.items():
+        all_arguments = a[1]
+
+    print(all_arguments)
     return "Uploaded"
     
 if __name__ == "__main__":

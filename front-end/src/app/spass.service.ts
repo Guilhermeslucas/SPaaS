@@ -59,9 +59,10 @@ export class SpassService {
     });
   }
 
-  uploadTool(fileToUpload: File, nameOfFile: string): Observable<object> {
+  uploadTool(fileToUpload: File, nameOfFile: string, parameters: string): Observable<object> {
     const formData: FormData = new FormData();
-    formData.append(nameOfFile, fileToUpload, fileToUpload.name);
+    formData.append(nameOfFile, fileToUpload);
+    formData.append('parameters', parameters);
 
     return this.http
     .post(API_URL + UPLOAD_TOOL_ENDPOINT, formData)
