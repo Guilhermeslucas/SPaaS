@@ -18,7 +18,7 @@ export class ToolsManagementComponent implements OnInit {
     this.loggedMail = localStorage.getItem('loggedMail');
     this.fileToUpload = null;
     this.apiService.getTools().subscribe(response => {
-      this.fileNames = response.replace('[', '').replace(']', '').split('"').join('').replace(' ', '').split(',');
+      this.fileNames = response.replace('[', '').replace(']', '').split('"').join('').replace(/\s/g, '').split(',');
     });
   }
 
