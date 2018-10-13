@@ -131,7 +131,21 @@ def upload_tool():
     for a in arguments.items():
         all_arguments = a[1]
 
-    print(all_arguments)
+    splited = all_arguments.split(',')
+    
+    tool_document = {}
+    tool_document['name'] = data_name
+    tool_document['args'] = []
+    
+    for p in splited:
+        name, description = p.split(':')
+        new_arg = {}
+        new_arg['name'] = name
+        new_arg['description'] = description
+        tool_document['args'].append(new_arg)
+    
+    db_client.toolsCollection.insert_one(tool_document)
+    
     return "Uploaded"
     
 if __name__ == "__main__":
