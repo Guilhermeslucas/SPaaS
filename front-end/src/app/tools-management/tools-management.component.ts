@@ -30,4 +30,8 @@ export class ToolsManagementComponent implements OnInit {
     });
   }
 
+  deleteTool(name: string) {
+    console.log(name);
+  }
+
 }

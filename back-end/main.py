@@ -150,9 +150,11 @@ def upload_tool():
 
 @app.route('/api/tools/<name>/', methods=['DELETE'])
 def delete_tool(name):
-    print(name)
+    delete_blob(name, 'seismic-tools')
     return 'Deleted'
 
+def delete_blob(blob_name, container_name):
+    seismic_blob.delete_blob(container_name, blob_name)
 
 if __name__ == "__main__":
     app.run('0.0.0.0', 5000)
