@@ -11,6 +11,7 @@ export class ToolsManagementComponent implements OnInit {
   fileToUpload: File;
   nameOfFile: string;
   fileNames: any;
+  jobParams: string;
 
   constructor(private apiService: SpassService) { }
 
@@ -24,14 +25,17 @@ export class ToolsManagementComponent implements OnInit {
 
   onFileChange(files: FileList) {
     this.fileToUpload = files.item(0);
-    this.apiService.uploadTool(this.fileToUpload, this.nameOfFile, 'teste:tipo do teste, teste2:tipo do teste 2')
+    this.apiService.uploadTool(this.fileToUpload, this.nameOfFile, this.jobParams)
     .subscribe(response => {
       console.log(response);
     });
   }
 
   deleteTool(name: string) {
-    console.log(name);
+    this.apiService.deleteTool(name)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
 }
