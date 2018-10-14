@@ -153,6 +153,11 @@ def delete_tool(name):
     delete_blob(name, 'seismic-tools')
     return 'Deleted'
 
+@app.route('/api/data/<name>/', methods=['DELETE'])
+def delete_data(name):
+    delete_blob(name, 'seismic-data')
+    return 'Deleted'
+
 def delete_blob(blob_name, container_name):
     seismic_blob.delete_blob(container_name, blob_name)
 

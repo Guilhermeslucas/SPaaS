@@ -12,5 +12,6 @@ export const environment = {
   getFilesEndpoint: '/api/data/',
   uploadToolsEndpoint: '/api/tools/upload/',
   getToolsEndpoint: '/api/tools/',
-  deleteToolsEnpoint: '/api/tools/'
+  deleteToolsEnpoint: '/api/tools/',
+  deleteDataEndpoint: '/api/data/'
 };

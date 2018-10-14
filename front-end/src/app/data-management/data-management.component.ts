@@ -32,7 +32,10 @@ export class DataManagementComponent implements OnInit {
   }
 
   deleteData(name: string) {
-    console.log(name);
+    this.apiService.deleteData(name)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
 }

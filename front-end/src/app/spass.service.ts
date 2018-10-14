@@ -13,6 +13,7 @@ const GET_FILES_BLOB_ENDPOINT = environment.getFilesEndpoint;
 const UPLOAD_TOOL_ENDPOINT = environment.uploadToolsEndpoint;
 const GET_TOOLS_BLOB_ENDPOINT = environment.getToolsEndpoint;
 const DELETE_TOOL_ENPOINT = environment.deleteToolsEnpoint;
+const DELETE_DATA_ENDPOINT = environment.deleteDataEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -83,6 +84,14 @@ export class SpassService {
   deleteTool(name: string ) {
     return this.http
     .delete(API_URL + DELETE_TOOL_ENPOINT + name + '/')
+    .map(response => {
+      return response;
+    });
+  }
+
+  deleteData(name: string) {
+    return this.http
+    .delete(API_URL + DELETE_DATA_ENDPOINT + name + '/')
     .map(response => {
       return response;
     });
