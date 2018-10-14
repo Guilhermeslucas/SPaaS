@@ -2,3 +2,4 @@ Flask
 pymongo
 flask-cors
 azure-storage
+celery

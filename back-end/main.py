@@ -5,6 +5,7 @@ from flask_cors import CORS
 from bson.json_util import dumps
 import os
 from azure.storage.blob import BlockBlobService, PublicAccess
+from celery import Celery
 
 app = Flask(__name__)
 CORS(app)
