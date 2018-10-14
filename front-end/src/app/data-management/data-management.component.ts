@@ -30,4 +30,9 @@ export class DataManagementComponent implements OnInit {
       console.log(response);
     });
   }
+
+  deleteData(name: string) {
+    console.log(name);
+  }
+
 }

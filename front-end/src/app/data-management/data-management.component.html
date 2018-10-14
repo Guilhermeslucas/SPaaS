@@ -63,12 +63,14 @@
               <tr>
                 <th scope="col">Download Files</th>
                 <th scope="col">Link to Download</th>
+                <th scope="col">Delete Button</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let name of fileNames">
-                <th scope="row">{{ name }}</th>
+                <td scope="row">{{ name }}</td>
                 <td>{{ "https://seismicdata.blob.core.windows.net/seismic-data/" +  name }} </td>
+                <td><button class="btn btn-primary" (click)="deleteData(name)">Delete Data</button></td>
               </tr>
             </tbody>
           </table>
