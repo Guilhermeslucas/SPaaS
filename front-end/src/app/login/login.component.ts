@@ -13,7 +13,9 @@ export class LoginComponent implements OnInit {
   finalData: object;
   alertMessage: string;
 
-  constructor(private apiService: SpassService, private router: Router) { }
+  constructor(private apiService: SpassService, private router: Router) {
+    localStorage.clear();
+   }
 
   ngOnInit() {
     this.finalData = {};
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
         if (response['status'] === 200) {
           this.alertMessage = 'Your accont is successfully logged. Redirecting...';
           setTimeout(() => {
-            this.router.navigate(['/', 'definition']);
+            this.router.navigate(['/', 'toolsmanager']);
         }, 3000);
         } else {
           this.alertMessage = 'This email is already used';

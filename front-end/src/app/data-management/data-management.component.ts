@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SpassService } from '../spass.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-management',
@@ -13,10 +14,13 @@ export class DataManagementComponent implements OnInit {
   nameOfFile: string;
   fileNames: any;
 
-  constructor(private apiService: SpassService) { }
+  constructor(private apiService: SpassService, private router: Router) { }
 
   ngOnInit() {
     this.loggedMail = localStorage.getItem('loggedMail');
+    if (!this.loggedMail) {
+      this.router.navigate(['/', 'login']);
+    }
     this.fileToUpload = null;
     this.apiService.getBlobFiles().subscribe(response => {
       this.fileNames = response.replace('[', '').replace(']', '').split('"').join('').replace(' ', '').split(',');
