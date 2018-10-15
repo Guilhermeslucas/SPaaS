@@ -23,6 +23,10 @@ celery = Celery(app.name, broker='', backend='')
 def sum_celery(a, b):
     return a + b
 
+@celery.task
+def submit_celery(tool_name, data_name):
+    pass
+
 @app.route("/")
 def hello():
     return "Hello World!"
@@ -170,7 +174,7 @@ def delete_blob(blob_name, container_name):
 
 if __name__ == "__main__":
     task = sum_celery.delay(1,2)
-    while task.status == 'PENDING':
+    while not(task.ready()):
         print(task.status)
     print (task.result)
     app.run('0.0.0.0', 5000)
