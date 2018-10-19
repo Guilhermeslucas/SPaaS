@@ -1,0 +1,27 @@
+.sidemenu {
+    padding-top: 20px;
+    padding-right: 1600px;
+    padding-left: 10px;
+}
+
+.pagetitle {
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.custom-table {
+    position: absolute;
+    top: 110px;
+}
+
+.custom-forms {
+    width: 555%;
+}
+
+.file-button {
+    padding-left: 375px;
+}
+
+.special-table {
+    margin-top: 20px;
+}

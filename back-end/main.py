@@ -76,8 +76,8 @@ def authenticate():
     else:
         return Response(status=401)
 
-@app.route("/api/jobs/submit/")
-def submit_job():
+@app.route("/api/tasks/submit/")
+def submit_task():
     raise NotImplementedError()
 
 @app.route("/api/jobs/getqueue/")
