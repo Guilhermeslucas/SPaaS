@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AccountcreationComponent } from './accountcreation/accountcreation.component';
 import { DataManagementComponent } from './data-management/data-management.component';
 import { ToolsManagementComponent } from './tools-management/tools-management.component';
+import { TasksManagementComponent } from './tasks-management/tasks-management.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'accountcreation', component: AccountcreationComponent },
   { path: 'datamanager', component: DataManagementComponent },
   { path: 'toolsmanager', component: ToolsManagementComponent },
+  { path: 'tasksmanager', component: TasksManagementComponent }
 ];
 
 
