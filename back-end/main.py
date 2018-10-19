@@ -17,7 +17,7 @@ seismic_blob.set_container_acl('seismic-data', public_access=PublicAccess.Contai
 seismic_blob.create_container('seismic-tools')
 seismic_blob.set_container_acl('seismic-tools', public_access=PublicAccess.Container)
 
-celery = Celery(app.name, broker='', backend='')
+celery = Celery(app.name, broker=os.environ['SPASS_CELERY_BROKER'], backend=os.environ['SPASS_CELERY_BROKER'])
 
 @celery.task
 def sum_celery(a, b):
@@ -173,8 +173,4 @@ def delete_blob(blob_name, container_name):
     seismic_blob.delete_blob(container_name, blob_name)
 
 if __name__ == "__main__":
-    task = sum_celery.delay(1,2)
-    while not(task.ready()):
-        print(task.status)
-    print (task.result)
     app.run('0.0.0.0', 5000)
