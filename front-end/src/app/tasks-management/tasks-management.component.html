@@ -41,12 +41,30 @@
           <h3>Tool</h3> 
           <div class="form-group">
               <label for="scriptinput">Tool name</label>
-              <input  class="form-control" id="scriptinput" placeholder="Search for the data name">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
           </div>
           <h3>Data</h3>
           <div class="form-group">
               <label for="codeinput">Data name</label>
-              <input  class="form-control" name="nameOfFile" [(ngModel)]="nameOfFile" id="jobname" placeholder="The name you want for the data (with the extension)">
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown button
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </div>
           </div>
           </div>
   </form>
