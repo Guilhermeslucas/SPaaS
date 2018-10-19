@@ -14,6 +14,7 @@ import { AccountcreationComponent } from './accountcreation/accountcreation.comp
 import { SpassService } from './spass.service';
 import { DataManagementComponent } from './data-management/data-management.component';
 import { ToolsManagementComponent } from './tools-management/tools-management.component';
+import { TasksManagementComponent } from './tasks-management/tasks-management.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ToolsManagementComponent } from './tools-management/tools-management.co
     LoginComponent,
     AccountcreationComponent,
     DataManagementComponent,
-    ToolsManagementComponent
+    ToolsManagementComponent,
+    TasksManagementComponent
   ],
   imports: [
     BrowserModule,
