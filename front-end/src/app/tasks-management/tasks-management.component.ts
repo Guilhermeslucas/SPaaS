@@ -11,6 +11,8 @@ export class TasksManagementComponent implements OnInit {
   loggedMail: string;
   dataNames: any;
   toolNames: any;
+  selectedTool: string;
+  selectedData: string;
 
   constructor(private router: Router, private apiService: SpassService) { }
 
@@ -27,6 +29,15 @@ export class TasksManagementComponent implements OnInit {
     this.apiService.getTools().subscribe(response => {
       this.toolNames = response.replace('[', '').replace(']', '').split('"').join('').replace(/\s/g, '').split(',');
     });
+  }
+
+  selectTool() {
+    console.log("this is the tool " + this.selectedTool);
+
+  }
+
+  selectData() {
+    console.log("this is the data " + this.selectedData);
   }
 
 }
