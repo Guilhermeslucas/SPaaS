@@ -41,25 +41,14 @@
           <div class="form-group">
               <label for="scriptinput">Tool name</label>
               <select class="form-control">
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
-                <option>Default select</option>
+                <option>Select your tool</option>
+                <option *ngFor="let toolName of toolNames">{{ toolName }}</option>
               </select>
           </div>
           <h3>Data</h3>
           <select class="form-control">
-            <option>Default select</option>
-            <option>Default select</option>
-            <option>Default select</option>
-            <option>Default select</option>
-            <option>Default select</option>
-            <option>Default select</option>
-            <option>Default select</option>
+            <option>Select your data</option>
+            <option *ngFor="let dataName of dataNames">{{ dataName }}</option>
           </select>
           </div>
   </form>
