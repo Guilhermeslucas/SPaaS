@@ -31,13 +31,13 @@ export class TasksManagementComponent implements OnInit {
     });
   }
 
-  selectTool() {
-    console.log("this is the tool " + this.selectedTool);
-
+  submitTask() {
+    console.log('this is the tool ' + this.selectedTool);
+    console.log('this is the data ' + this.selectedData);
   }
 
-  selectData() {
-    console.log("this is the data " + this.selectedData);
+  loadParameters() {
+    console.log('sucess');
   }
 
 }

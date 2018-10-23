@@ -97,4 +97,8 @@ export class SpassService {
     });
   }
 
+  loadParameters() {
+    console.log('teste');
+  }
+
 }

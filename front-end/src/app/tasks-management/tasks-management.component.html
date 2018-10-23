@@ -40,17 +40,17 @@
           <h3>Tool</h3> 
           <div class="form-group">
               <label for="scriptinput">Tool name</label>
-              <select class="form-control" [(ngModel)]="selectedTool" name="selectedTool" > 
+              <select class="form-control" [(ngModel)]="selectedTool" name="selectedTool" (blur)="loadParameters()"> 
                 <option *ngFor="let toolName of toolNames" [value]="toolName" >{{ toolName }}</option>
               </select>
           </div>
           <h3>Data</h3>
           <select class="form-control" [(ngModel)]="selectedData" name="selectedData" >
-            <option *ngFor="let dataName of dataNames" >{{ dataName }}</option>
+            <option *ngFor="let dataName of dataNames" [value]="dataName" >{{ dataName }}</option>
           </select>
           </div>
           <div style="padding-top: 10px">
-            <button class="btn btn-primary">Submit Data</button>
+            <button class="btn btn-primary" (click)="submitTask()">Submit Task</button>
           </div>
   </form>
 </div>
