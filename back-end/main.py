@@ -2,7 +2,7 @@ from flask import Flask, request, Response
 import json
 import pymongo
 from flask_cors import CORS
-from bson.json_util import dumps
+from bson.json_util import dumps, loads
 import os
 from azure.storage.blob import BlockBlobService, PublicAccess
 from celery import Celery
@@ -78,8 +78,8 @@ def authenticate():
 
 @app.route("/api/tasks/parameters/<tool_name>/", methods=['GET'])
 def get_parameters(tool_name):
-    print(tool_name)
-    return "SUCESS"
+    result = db_client.toolsCollection.find_one({"name": tool_name})
+    return Response(dumps(result["args"]), status=200)
 
 @app.route("/api/tasks/submit/", methods=['POST'])
 def submit_task():
