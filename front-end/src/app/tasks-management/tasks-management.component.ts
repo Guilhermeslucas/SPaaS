@@ -13,6 +13,7 @@ export class TasksManagementComponent implements OnInit {
   toolNames: any;
   selectedTool: string;
   selectedData: string;
+  parameters: any;
 
   constructor(private router: Router, private apiService: SpassService) { }
 
@@ -37,7 +38,10 @@ export class TasksManagementComponent implements OnInit {
   }
 
   loadParameters() {
-    console.log('sucess');
+    this.apiService.loadParameters(this.selectedTool)
+    .subscribe(response => {
+      console.log(response);
+    });
   }
 
 }

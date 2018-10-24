@@ -76,16 +76,17 @@ def authenticate():
     else:
         return Response(status=401)
 
+@app.route("/api/tasks/parameters/<tool_name>/", methods=['GET'])
+def get_parameters(tool_name):
+    print(tool_name)
+    return "SUCESS"
+
 @app.route("/api/tasks/submit/", methods=['POST'])
 def submit_task():
     return "SUCESS"
 
 @app.route("/api/tasks/")
 def get_jobs_status():
-    raise NotImplementedError()
-
-@app.route("/api/jobs/<id>/")
-def get_job_status(id):
     raise NotImplementedError()
 
 @app.route("/api/results/")

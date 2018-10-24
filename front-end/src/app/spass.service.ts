@@ -14,6 +14,7 @@ const UPLOAD_TOOL_ENDPOINT = environment.uploadToolsEndpoint;
 const GET_TOOLS_BLOB_ENDPOINT = environment.getToolsEndpoint;
 const DELETE_TOOL_ENPOINT = environment.deleteToolsEnpoint;
 const DELETE_DATA_ENDPOINT = environment.deleteDataEndpoint;
+const GET_PARAMETERS_ENDPOINT = environment.getParametersEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -97,8 +98,12 @@ export class SpassService {
     });
   }
 
-  loadParameters() {
-    console.log('teste');
+  loadParameters(toolName: string) {
+    return this.http
+    .get(API_URL + GET_PARAMETERS_ENDPOINT + toolName + '/')
+    .map(response => {
+      return response;
+    });
   }
 
 }
