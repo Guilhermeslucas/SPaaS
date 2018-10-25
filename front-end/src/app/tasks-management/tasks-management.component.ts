@@ -40,7 +40,7 @@ export class TasksManagementComponent implements OnInit {
   loadParameters() {
     this.apiService.loadParameters(this.selectedTool)
     .subscribe(response => {
-      console.log(response);
+      this.parameters = JSON.parse(response['_body']);
     });
   }
 

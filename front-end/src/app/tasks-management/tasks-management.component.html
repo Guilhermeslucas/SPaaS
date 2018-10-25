@@ -43,6 +43,10 @@
               <select class="form-control" [(ngModel)]="selectedTool" name="selectedTool" (blur)="loadParameters()"> 
                 <option *ngFor="let toolName of toolNames" [value]="toolName" >{{ toolName }}</option>
               </select>
+              <div class="form-group" *ngFor="let parameter of parameters">
+                <label for="{{ parameter.name }}">{{ parameter.name }}</label>
+                <input  class="form-control" id="{{parameter.name}}" placeholder="{{ parameter.description }}">
+              </div>
           </div>
           <h3>Data</h3>
           <select class="form-control" [(ngModel)]="selectedData" name="selectedData" >
@@ -56,25 +60,3 @@
 </div>
 </div>
 
-<div class="container">
-<div class="special-table">
-<div clas="files-table">
-        <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Download Files</th>
-                <th scope="col">Link to Download</th>
-                <th scope="col">Delete Button</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let name of fileNames">
-                <td scope="row">{{ name }}</td>
-                <td>{{ "https://seismicdata.blob.core.windows.net/seismic-data/" +  name }} </td>
-                <td><button class="btn btn-primary" (click)="deleteData(name)">Delete Data</button></td>
-              </tr>
-            </tbody>
-          </table>
-</div>
-</div>
-</div>
