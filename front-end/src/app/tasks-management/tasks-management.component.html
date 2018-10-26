@@ -45,7 +45,7 @@
               </select>
               <div class="form-group" *ngFor="let parameter of parameters">
                 <label for="{{ parameter.name }}">{{ parameter.name }}</label>
-                <input  class="form-control" id="{{parameter.name}}" placeholder="{{ parameter.description }}">
+                <input  class="form-control"  placeholder="{{ parameter.description }}" [(ngModel)]="selectedParameters[parameter.name]" name="{{ parameter.name }}">
               </div>
           </div>
           <h3>Data</h3>

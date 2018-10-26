@@ -14,10 +14,13 @@ export class TasksManagementComponent implements OnInit {
   selectedTool: string;
   selectedData: string;
   parameters: any;
+  submissionDescription: any;
+  selectedParameters: any;
 
   constructor(private router: Router, private apiService: SpassService) { }
 
   ngOnInit() {
+    this.selectedParameters = {};
     this.loggedMail = localStorage.getItem('loggedMail');
     if (!this.loggedMail) {
       this.router.navigate(['/', 'login']);
@@ -33,8 +36,11 @@ export class TasksManagementComponent implements OnInit {
   }
 
   submitTask() {
-    console.log('this is the tool ' + this.selectedTool);
-    console.log('this is the data ' + this.selectedData);
+    this.submissionDescription = {};
+    this.submissionDescription['tool'] = this.selectedTool;
+    this.submissionDescription['data'] = this.selectedData;
+    this.submissionDescription['args'] = [];
+    console.log(this.selectedParameters);
   }
 
   loadParameters() {
