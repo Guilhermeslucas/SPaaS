@@ -15,6 +15,7 @@ const GET_TOOLS_BLOB_ENDPOINT = environment.getToolsEndpoint;
 const DELETE_TOOL_ENPOINT = environment.deleteToolsEnpoint;
 const DELETE_DATA_ENDPOINT = environment.deleteDataEndpoint;
 const GET_PARAMETERS_ENDPOINT = environment.getParametersEndpoint;
+const SUBMIT_TASK_ENDPOINT = environment.submitTaskEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -102,6 +103,14 @@ export class SpassService {
     return this.http
     .get(API_URL + GET_PARAMETERS_ENDPOINT + toolName + '/')
     .map(response => {
+      return response;
+    });
+  }
+
+  submitTask(definition: object) {
+    return this.http.post(API_URL + SUBMIT_TASK_ENDPOINT, definition)
+    .map(response => {
+      console.log(response);
       return response;
     });
   }

@@ -83,6 +83,8 @@ def get_parameters(tool_name):
 
 @app.route("/api/tasks/submit/", methods=['POST'])
 def submit_task():
+    data = request.get_json(force=True)
+    print(data)
     return "SUCESS"
 
 @app.route("/api/tasks/")

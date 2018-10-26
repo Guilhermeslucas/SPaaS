@@ -39,8 +39,10 @@ export class TasksManagementComponent implements OnInit {
     this.submissionDescription = {};
     this.submissionDescription['tool'] = this.selectedTool;
     this.submissionDescription['data'] = this.selectedData;
-    this.submissionDescription['args'] = [];
-    console.log(this.selectedParameters);
+    this.submissionDescription['args'] = this.selectedParameters;
+    this.apiService.submitTask(this.submissionDescription).subscribe(response => {
+      console.log(response);
+    });
   }
 
   loadParameters() {
