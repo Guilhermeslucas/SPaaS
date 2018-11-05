@@ -3,7 +3,6 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { environment } from '../environments/environment';
 import 'rxjs/add/operator/map';
-import { EmailValidator } from '@angular/forms';
 
 const API_URL = environment.apiUrl;
 const CREATE_USER_ENDPOINT = environment.createUserEndpoint;

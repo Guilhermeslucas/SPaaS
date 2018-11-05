@@ -24,8 +24,14 @@ def sum_celery(a, b):
     return a + b
 
 @celery.task
-def submit_celery(tool_name, data_name):
-    pass
+def submit_celery(tool_name, data_name, args):
+    print(tool_name)
+    print(data_name)
+    print(args)
+
+    
+
+    return
 
 @app.route("/")
 def hello():
@@ -84,7 +90,7 @@ def get_parameters(tool_name):
 @app.route("/api/tasks/submit/", methods=['POST'])
 def submit_task():
     data = request.get_json(force=True)
-    print(data)
+    submit_celery.delay(data['tool'], data['data'], data['args'])
     return "SUCESS"
 
 @app.route("/api/tasks/")
