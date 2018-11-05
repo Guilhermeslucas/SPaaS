@@ -6,6 +6,7 @@ from bson.json_util import dumps, loads
 import os
 from azure.storage.blob import BlockBlobService, PublicAccess
 from celery import Celery
+import subprocess
 
 app = Flask(__name__)
 CORS(app)
@@ -20,26 +21,15 @@ seismic_blob.set_container_acl('seismic-tools', public_access=PublicAccess.Conta
 celery = Celery(app.name, broker=os.environ['SPASS_CELERY_BROKER'], backend=os.environ['SPASS_CELERY_BROKER'])
 
 @celery.task
-def sum_celery(a, b):
-    return a + b
-
-@celery.task
 def submit_celery(tool_name, data_name, args):
-    print(tool_name)
-    print(data_name)
-    print(args)
-
-    
-
+    seismic_blob.get_blob_to_path('seismic-tools', tool_name, tool_name)
+    seismic_blob.get_blob_to_path('seismic-data', data_name, data_name)
+    os.system('rm -rf ' + tool_name + ' ' + data_name)
     return
-
-@app.route("/")
-def hello():
-    return "Hello World!"
 
 @app.route("/healthz")
 def health():
-    return "Everything is working"
+    return Response(status=200)
 
 @app.route("/api/users/create/", methods=['POST'])
 def create_user():
@@ -91,7 +81,7 @@ def get_parameters(tool_name):
 def submit_task():
     data = request.get_json(force=True)
     submit_celery.delay(data['tool'], data['data'], data['args'])
-    return "SUCESS"
+    return "SUCCESS"
 
 @app.route("/api/tasks/")
 def get_jobs_status():
