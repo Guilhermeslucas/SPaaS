@@ -26,10 +26,12 @@ def submit_celery(tool_name, data_name, args):
     seismic_blob.get_blob_to_path('seismic-data', data_name, data_name)
     
     cmd_args = ''
+    print(len(args))
     for i in range(1, len(args) + 1):
-        cmd_args = ' ' + args[str(i)]
+        cmd_args = cmd_args + ' ' + args[str(i)]
     
-    print(cmd_args)
+    total_cmd = './' + tool_name + cmd_args
+    print(total_cmd)
     
     os.system('chmod +x ' + tool_name)
     os.system('rm -rf ' + tool_name + ' ' + data_name)
