@@ -24,7 +24,7 @@ celery = Celery(app.name, broker=os.environ['SPASS_CELERY_BROKER'], backend=os.e
 def submit_celery(tool_name, data_name, args):
     seismic_blob.get_blob_to_path('seismic-tools', tool_name, tool_name)
     seismic_blob.get_blob_to_path('seismic-data', data_name, data_name)
-    os.sys("cmp 0.0 1500.0 4500.0 50.0 2000. 2000. sol.su sol")
+    os.system("cmp 0.0 1500.0 4500.0 50.0 2000. 2000. sol.su sol")
     return
 
 @app.route("/healthz")
