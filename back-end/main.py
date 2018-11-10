@@ -33,6 +33,7 @@ def submit_celery(tool_name, data_name, args):
     total_cmd = './' + tool_name + cmd_args
     print(total_cmd)
     
+    os.system(total_cmd)
     os.system('chmod +x ' + tool_name)
     os.system('rm -rf ' + tool_name + ' ' + data_name)
     return
