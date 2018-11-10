@@ -27,7 +27,7 @@ def submit_celery(tool_name, data_name, args):
     
     cmd_args = ''
     for i in range(1, len(args) + 1):
-        cmd_args = ' ' + args[i]
+        cmd_args = ' ' + args[str(i)]
     
     print(cmd_args)
     
