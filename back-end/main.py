@@ -24,7 +24,7 @@ celery = Celery(app.name, broker=os.environ['SPASS_CELERY_BROKER'], backend=os.e
 def submit_celery(tool_name, data_name, args):
     seismic_blob.get_blob_to_path('seismic-tools', tool_name, tool_name)
     seismic_blob.get_blob_to_path('seismic-data', data_name, data_name)
-    print(args)
+    print(args['1'])
     os.system('chmod +x ' + tool_name)
     os.system('rm -rf ' + tool_name + ' ' + data_name)
     return
