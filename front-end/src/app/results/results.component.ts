@@ -9,6 +9,7 @@ import { SpassService } from '../spass.service';
 export class ResultsComponent implements OnInit {
   loggedMail: string;
   results: any;
+  selectedResult: any;
 
   constructor(private apiservice: SpassService) {
    }
@@ -17,8 +18,11 @@ export class ResultsComponent implements OnInit {
     this.loggedMail = localStorage.getItem('loggedMail');
     this.apiservice.getResultsFiles().subscribe(response => {
       this.results = JSON.parse(response);
-      console.log(this.results);
     });
+  }
+
+  selectResult(id: string) {
+    this.selectedResult = this.results.filter(result => result.id == id)[0];
   }
 
 }
