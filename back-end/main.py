@@ -7,6 +7,7 @@ import os
 from azure.storage.blob import BlockBlobService, PublicAccess
 from celery import Celery
 import subprocess
+import uuid
 
 app = Flask(__name__)
 CORS(app)
@@ -17,6 +18,8 @@ seismic_blob.create_container('seismic-data')
 seismic_blob.set_container_acl('seismic-data', public_access=PublicAccess.Container)
 seismic_blob.create_container('seismic-tools')
 seismic_blob.set_container_acl('seismic-tools', public_access=PublicAccess.Container)
+seismic_blob.create_container('seismic-results')
+seismic_blob.set_container_acl('seismic-results', public_access=PublicAccess.Container)
 
 celery = Celery(app.name, broker=os.environ['SPASS_CELERY_BROKER'], backend=os.environ['SPASS_CELERY_BROKER'])
 
@@ -26,16 +29,26 @@ def submit_celery(tool_name, data_name, args):
     seismic_blob.get_blob_to_path('seismic-data', data_name, data_name)
     
     cmd_args = ''
-    print(len(args))
     for i in range(1, len(args) + 1):
         cmd_args = cmd_args + ' ' + args[str(i)]
     
     total_cmd = './' + tool_name + cmd_args
-    print(total_cmd)
     
     os.system(total_cmd)
-    os.system('chmod +x ' + tool_name)
     os.system('rm -rf ' + tool_name + ' ' + data_name)
+    file_id = str(uuid.uuid4())
+    file_name = file_id + '.tar.gz'
+    os.system('tar -czvf ' + file_name+ ' *.su')
+    seismic_blob.create_blob_from_path('seismic-results', file_name, file_name)
+    os.system('rm -rf *.su ' + file_name)
+
+    data_register = {}
+    data_register['tool'] = tool_name
+    data_register['data'] = data_name
+    data_register['args'] = args
+    data_register['id'] = file_id
+    db_client.resultsCollection.insert_one(data_register)
+    
     return
 
 @app.route("/healthz")
@@ -94,12 +107,13 @@ def submit_task():
     submit_celery.delay(data['tool'], data['data'], data['args'])
     return "SUCCESS"
 
-@app.route("/api/tasks/")
-def get_jobs_status():
-    raise NotImplementedError()
-
 @app.route("/api/results/")
 def get_jobs_results():
+    all_results = db_client.resultsCollection.find({})
+    return Response(dumps(all_results),status=200)
+
+@app.route("/api/tasks/")
+def get_jobs_status():
     raise NotImplementedError()
 
 @app.route("/api/results/<id>")
