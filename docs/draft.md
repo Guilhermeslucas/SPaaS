@@ -49,6 +49,12 @@ binários, além dos argumentos necessários.
 
 ## Relevancia
 
+Ao buscar por outras soluções que tem o mesmo intuito da plataforma que esse trabalho tem por objetivo desenvolver, notamos a sua extrema relevância, uma que vez que é extremamente difícil achar outros softwares
+open source que executam tal tarefa.
+Além da unicidade que o trabalho possui no cenários atual, ele se torna relevante já que ele pode abstrair os novos conceitos e a curva de aprendizado que vem junto com a computação em nuvem. Assim é possível
+tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso muito mais inteligente dos recursos, baixando custos e aumentando a produtividade.
+
+
 ## Procedimento
 
 ## Resultados
