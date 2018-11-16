@@ -1,0 +1,59 @@
+% UNICAMP's logo
+{ 
+  \def\release{2010-03-08}
+  \def\lastedit{2010-03-12 23:28:46 by stolfi}
+  \typeout{logo-unicamp.sty release {\release} last edit {\lastedit}} 
+}
+\ProvidesPackage{logo-unicamp}
+\RequirePackage{graphicx}
+
+% MACROS DEFINED IN THIS PACKAGE
+% 
+%   \LogoUnicamp 
+%     This macro produces a fixed-size square box containing the UNICAMP
+%     logo, including the "UNICAMP" text at the bottom and whatever blank
+%     padding is necessary. Use \scalebox{SCALE}{\LogoUnicamp} etc. to resize it.
+% 
+%   \LogoUnicampBare
+%     This macro produces the UNICAMP logo, with the text underneath,
+%     in a tight-fitting box, scaled to have same width
+%     as the standard logo box but with a different height.
+%
+% PARAMETERS
+%     These parameters determine the location and style of the default
+%     logo images. Redefine with \renewcommand as appropriate.
+% 
+    \newcommand{\LogoUnicampSize}{60pt}
+%     The height and width of the logo box, including name (if any)
+% 
+    \newcommand{\LogoUnicampFile}{logo-unicamp.eps}
+%     The name (relative to the current directory) of the EPS file that
+%     contains the UNICAMP logo.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Users should not need to read below this point
+
+\advance \endlinechar by -256 % Ignore line breaks in this file
+
+% Nominal logo dimensions (should match those of IC's logo!)
+
+\newcommand{\LogoUnicampWidth}{\LogoUnicampSize}   % Nominal width of Unicamp logo
+\newcommand{\LogoUnicampHeight}{\LogoUnicampSize}  % Nominal height of Unicamp logo
+
+% Unicamp logo in a tight-fitting box, without name
+\newcommand{\LogoUnicampBare}{
+  \hbox{\includegraphics*[width=\LogoUnicampWidth]{\LogoUnicampFile}}
+}
+
+\newcommand{\LogoUnicamp}{
+  \vbox to \LogoUnicampHeight{
+    \offinterlineskip
+    \hrule height 0pt width 0pt depth 0pt
+    \vss
+    \LogoUnicampBare
+    \vss
+    \hrule height 0pt width 0pt depth 0pt
+  }
+}
+
+\advance \endlinechar by 256 % Restore \endlinechar as before

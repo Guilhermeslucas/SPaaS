@@ -1,0 +1,93 @@
+% Institute of Computing's logo
+{ 
+  \def\release{2010-03-08}
+  \def\lastedit{2010-03-13 11:10:17 by stolfi}
+  \typeout{logo-ic-unicamp.sty release {\release} last edit {\lastedit}} 
+}
+
+\ProvidesPackage{logo-ic-unicamp}
+\RequirePackage{graphicx}
+
+% MACROS DEFINED IN THIS PACKAGE
+% 
+%   \LogoIcUnicamp
+%     This macro produces the IC logo packaged in a fixed-size square box,
+%     without any lettering and with the necessary padding. Use
+%     \scalebox{SCALE}{\LogoIcUnicamp} etc. to resize the logo.
+%
+%   \LogoIcUnicampWithName
+%     This macro produces the IC logo with "INSTITUTO DE COMPUTAÇÃO"
+%     written underneath. Use \scalebox{SCALE}{\LogoIcUnicampWithName} etc. to
+%     resize the logo and text together.
+%
+%   \LogoIcUnicampBare
+%     This macro produces the IC abacus, without any lettering,
+%     in a tight-fitting box, scaled to have the same width as
+%     the standard logo box but with a different height.
+% 
+% PARAMETERS
+%     These parameters determine the location and style of the default
+%     logo images. Redefine with \renewcommand as appropriate.
+% 
+    \newcommand{\LogoIcUnicampSize}{60pt}
+%     The height and width of the logo box, including name (if any)
+%   
+    \newcommand{\LogoIcUnicampFile}{logo-ic-unicamp.eps}
+%     The name (relative to the current directory) of the EPS image file
+%     that contains the IC-UNICAMP logo.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Users should not need to read below this point
+
+\advance \endlinechar by -256 % Ignore line breaks in this file
+
+% Nominal logo dimensions (should match those of UNICAMP's logo!)
+\def\LogoIcUnicampWidth{\LogoIcUnicampSize}    % Nominal width of logo box, with or without name
+\def\LogoIcUnicampHeight{\LogoIcUnicampSize}   % Nominal height of logo box, with or without name
+
+% IC abacus in a tight-fitting box, without name
+\newcommand{\LogoIcUnicampBare}{
+  \hbox{\includegraphics*[width=\LogoIcUnicampWidth]{\LogoIcUnicampFile}}
+}
+
+% IC logo in a standard-size box, top-aligned, without name
+\newcommand{\LogoIcUnicamp}{
+  \vbox to \LogoIcUnicampHeight{
+    \offinterlineskip
+    \hrule height 0pt width 0pt depth 0pt
+    \vss
+    \LogoIcUnicampBare
+    \vss
+    \hrule height 0pt width 0pt depth 0pt
+  }
+}
+
+% Font for IC name below IC logo
+\newcommand{\LogoIcUnicampFont}{
+  \fontfamily{cmss}\fontseries{bx}\fontshape{n}\fontsize{7pt}{8pt}\selectfont
+}
+
+% IC logo in a standard-size box, top-aligned, with name below
+\newcommand{\LogoIcUnicampWithName}{
+  \vbox to \LogoIcUnicampHeight{
+    \offinterlineskip
+    \hrule height 0pt width 0pt depth 0pt
+    \kern 1pt
+    \hbox to \LogoIcUnicampWidth{
+      \hss
+      \scalebox{0.82}{\hbox{\LogoIcUnicampBare}}
+      \hss
+    }
+    \kern 1pt
+    \hbox to \LogoIcUnicampWidth{
+      \LogoIcUnicampFont {~}I\hss N\hss S\hss T\hss I\hss T\hss U\hss T\hss O\hss {~}\hss D\hss E{~}\vphantom{ÇÃ}
+    }
+    \hbox to \LogoIcUnicampWidth{
+      \LogoIcUnicampFont {~}C\hss O\hss M\hss P\hss U\hss T\hss A\hss \c{C}\hss \~{A}O{~}
+    }
+    \kern 2pt
+    \vss
+  }
+}
+
+\advance \endlinechar by 256 % Restore \endlinechar as before

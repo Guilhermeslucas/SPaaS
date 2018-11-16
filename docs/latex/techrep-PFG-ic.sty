@@ -1,0 +1,431 @@
+% COVER PAGE FOR IC-UNICAMP TECHNICAL REPORTS
+% \def\lastedit{2017-01-19 23:46:00 by bit}
+% Based on 2010-03-16 17:57:54 by stolfi
+% Based on rel-tec-ic.sty of 23 May 1996, by Pedro J. de Rezende.
+%
+% The package techrep-ic defines a \TRMakeCover macro that 
+% prints a cover page for the standard IC-Unicamp technical report
+% format. The various cover fields (title, author, report number, etc.)
+% are defined by auxiliary macros \TRTitile, \TRAuthor, \TRMonth, etc.. 
+%
+% Modified 1997-06 by J. Stolfi:
+%   Removed list of previous reports.
+%   Modified to work also as a LaTeX 2e package.
+%
+% Modified 1997-08 by J. Stolfi:
+%   Reset the page counter to zero on cover page.
+%
+% Modified 2001-02 by J. Stolfi:
+%   Added macros \TRAuthor, \TRTitle.
+%   Redefined \TRMonth to take a numeric month.
+%   Redefined \TRNumber to take 3 digits.
+%   Added the Institute's name, logo, and color background.
+%   
+% Modified 2010-03-06 by J. Stolfi:
+%   Added UNICAMP's logo and used new version of IC logo.
+%   Modified background to be colored outline only.
+%   Moved the technical report number and date out of the title box.
+%   
+% Modified 2010-03-16 by J. Stolfi:
+%   Swapped title box with IC/UNICAMP header, for the sake of Citeseer.
+%   Made the cover margins independent of the report's page geometry.
+%
+% Modified 2016-01-19 by L.F.  Bittencourt:
+%   Changed title font size, for the sake of Google Scholar.
+%   Changed title box size to handle larger titles
+
+\ProvidesPackage{techrep-ic}
+\RequirePackage{graphicx}
+\RequirePackage{color}
+\RequirePackage{logo-ic-unicamp}
+\RequirePackage{logo-unicamp}
+
+\ifx\xipt\undefined
+  \typeout{LaTeX 2e package `techrep-ic' -- Release 2010-03-08}
+\else
+  \typeout{LaTeX 2.09 style option `techrep-ic' -- Release 2010-03-08}
+\fi
+
+% Hack to set \endlinechar negative without losing the old value:
+\makeatletter\advance\endlinechar by -256%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% USER COMMANDS
+
+  % These macros should be used by the author to define the cover fields:
+
+  \def\TRTitle#1{\def\TR@title{#1}}
+  \def\TRAuthor#1{\def\TR@author{#1}}
+  \def\TRNumber#1{\def\TR@number{#1}}
+  \def\TRYear#1{\def\TR@year{#1}}
+  \def\TRMonth#1{\def\TR@month{#1}}
+
+  % Examples (and default values):
+  
+  \TRTitle{A Generic Technical Report}
+  \TRAuthor{Generic Author One and Generic Author Two and Generic Author Three}
+  \TRNumber{999}
+  \TRYear{2999}
+  \TRMonth{\month}
+  
+  % Then call \TRMakeCover to output the cover page:
+  
+  \def\TRMakeCover{\TR@MakeCover}
+
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FORMAT SETTINGS FOR REPORT BODY
+
+  % Margins:
+
+  \topmargin=0.00in
+  \oddsidemargin=0.225in
+  \evensidemargin=\oddsidemargin
+  \marginparwidth=\evensidemargin
+
+  % Dimensions of text:
+
+  \textheight=8.25in
+  \textwidth=6.00in
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% IMPLEMENTATION
+% Users need not read past this point.
+
+
+  % Create the fonts needed for the main page, independent of the 
+  % fonts used in the report's body:
+
+  \ifx\xipt\undefined
+    % (LaTeX 2e)
+    \newcommand{\TR@sf}[1]{{\usefont{T1}{cmss}{m}{n}#1}}
+    \newcommand{\TR@bf}[1]{{\usefont{T1}{cmr}{bx}{n}#1}}
+    \newcommand{\TR@it}[1]{{\usefont{T1}{cmr}{m}{it}#1}}
+    \newcommand{\TR@Huge}{\fontsize{25}{30pt}}
+    \newcommand{\TR@LARGE}{\fontsize{20}{22pt}}
+    \newcommand{\TR@Large}{\fontsize{14}{18pt}}
+    \newcommand{\TR@normal}{\fontsize{11}{13.6pt}}
+    \newcommand{\TR@small}{\fontsize{10}{12pt}}
+    \DeclareMathSizes{11}{11}{8}{5}
+  \else
+    % (LaTeX 2.09)
+    \newcommand{\TR@sf}[1]{{\sf #1}}
+    \newcommand{\TR@bf}[1]{{\bf #1}}
+    \newcommand{\TR@it}[1]{{\it #1}}
+    \newcommand{\TR@Huge}{\Huge}
+    \newcommand{\TR@LARGE}{\LARGE}
+    \newcommand{\TR@normal}{\normalsize}
+    \newcommand{\TR@Large}{\Large}
+    \newcommand{\TR@small}{\small}
+    \xipt 
+  \fi
+
+  % Define the \TR@MakeCover macro that typesets and prints the cover page:
+
+  \def\TR@MakeCover{
+    
+    \bgroup
+
+      % ----------------------------------------------------------------------
+      % Internal macros
+
+      % Define the colors of the cover:
+      
+      \ifx\fcolorbox\undefined
+        % We could not get the color macros:
+      \else
+        \definecolor{TRora}{rgb}{1.000,0.370,0.004}
+        \definecolor{TRblu}{rgb}{0.004,0.550,1.000}
+      \fi
+
+      % \TR@decobox{FRCOLOR}{FRTHICK}{FRSPACE}{BGCOLOR}{STUFF}
+      % Puts {STUFF} in a box with background {BGCOLOR} and a border
+      % of color {FRCOLOR}, thickness {FRTHICK}, and extra margin {FRSPACE}
+      % all around. The dimensions must have units. 
+
+      \ifx\fcolorbox\undefined
+        % We could not get the color macros. Make do with black and white:
+        \long\def\TR@decobox##1##2##3##4##5{{\fboxrule=##2 \fboxsep=##3 \fbox{##5}}}
+      \else
+        % Use color only in borders, to save printer's ink:
+        \long\def\TR@decobox##1##2##3##4##5{{\fboxrule=##2 \fboxsep=##3 \fcolorbox{##1}{##4}{##5}}}
+      \fi
+
+      % \TR@makebox{WIDTH}{HEIGHT}{STUFF}
+      % Puts {STUFF} centered in a box of size {WIDTH} by {HEIGHT}.
+      % The dimensions should be pure numbers and are interpreted as mm. 
+
+      \long\def\TR@makebox##1##2##3{
+        \vbox to ##2 mm{\offinterlineskip
+          \null\vss
+          \hbox to ##1 mm{\hss##3\hss}
+          \vss\null
+        }
+      }
+      
+      % ----------------------------------------------------------------------
+      % Main dimensions:
+      
+      % Overall area spanned by colored frames
+      \def\TR@CoverSX{190.0}    % ~7.5 inches.
+      \def\TR@CoverSY{254.0}    % 10.0 inches.
+      
+      % XY coordinates and dimensions of school name box
+      \def\TR@BannerDX{40.0} 
+      \def\TR@BannerDY{60.0}
+      \def\TR@BannerSX{110.0}
+      \def\TR@BannerSY{30.0}
+
+      % XY coordinates and dimensions of report title box
+      \def\TR@TitleDX{35.0}  
+      \def\TR@TitleDY{145.0} 
+      \def\TR@TitleSX{120.0}
+      \def\TR@TitleSY{60.0}
+
+      % XY coordinates and dimensions of report number and date
+      \def\TR@NumDateDX{35.0}  
+      \def\TR@NumDateDY{105.0} 
+      \def\TR@NumDateSX{120.0}
+      \def\TR@NumDateSY{15.0}
+
+      % XY coordinates and width of disclaimer text
+      \def\TR@NoteDX{15.0}  
+      \def\TR@NoteDY{20.0} 
+      \def\TR@NoteSX{170.0}
+      
+      % XY coordinates of UNICAMP logo
+      \def\TR@UnicampLogoDX{10.0} 
+      \def\TR@UnicampLogoDY{220.0}
+
+      % XY coordinates of IC logo
+      \def\TR@ICLogoDX{159.0} 
+      \def\TR@ICLogoDY{220.0}
+      
+      % ----------------------------------------------------------------------
+      % Typeset the banner with logos and save in box \TR@Banner:
+      
+      \newsavebox{\TR@Banner}
+      
+      \savebox{\TR@Banner}{
+        \hbox{
+          \begin{minipage}[c]{\TR@BannerSX mm}
+            \parfillskip 0pt\parskip 0pt
+            \hsize \TR@BannerSX mm
+            {\TR@normal\TR@sf{UNIVERSIDADE ESTADUAL DE CAMPINAS}\par}
+            \vskip 5pt
+            {\TR@Large\TR@sf{INSTITUTO DE COMPUTA{\c{C}}{\~A}O}\par}
+          \end{minipage}
+        }
+      }
+      
+      % ----------------------------------------------------------------------
+      % Typeset the report's title box and save it in \TR@Title:
+
+      \newsavebox{\TR@Title}
+      
+      \savebox{\TR@Title}{
+        \vbox to\TR@TitleSY mm{
+          \hsize=\TR@TitleSX mm
+          \textwidth=\hsize
+          \linewidth=\hsize
+          \null
+          {\centering
+            \null
+            \baselineskip 12pt
+            \lineskip 1pt plus 3pt minus 0pt
+            \lineskiplimit 1pt
+            \vfill
+            \TR@Huge\TR@bf{\TR@title\par}
+            \vfill
+            \vskip 0.5ex
+            \TR@normal\TR@it{
+              \def\and{\end{tabular}\hskip 1em plus .17fil\begin{tabular}[t]{c}}
+              \begin{tabular}[t]{c}
+                \TR@author
+              \end{tabular}
+              \par
+            }
+            \vfill
+            \null
+          }
+          \null
+        }
+      }
+      
+      % ----------------------------------------------------------------------
+      % Typeset the report's number and date and save it in \TR@NumDate:
+
+      \newsavebox{\TR@NumDate}
+      
+      \savebox{\TR@NumDate}{
+        \vbox to\TR@NumDateSY mm{
+          \hsize=\TR@NumDateSX mm
+          \textwidth=\hsize
+          \linewidth=\hsize
+          \null
+          {\centering
+            \null
+            \baselineskip 12pt
+            \lineskip 1pt plus 3pt minus 0pt
+            \lineskiplimit 1pt
+            \vfill
+            \TR@normal
+            \TR@sf{Relat{\'o}rio T{\'e}cnico\quad-\quad IC-PFG-{\TR@year}-{\TR@number}}
+            \par
+            \kern 5pt
+            \TR@sf{Projeto Final de Gradua\c{c}\~ao}
+            \par
+            \kern 5pt
+            \TR@sf{{20\TR@year}\quad-\quad {\TR@monthP}}
+            \par
+            \kern -15pt
+            \null
+          }
+          \null
+        }
+      }
+
+      % ----------------------------------------------------------------------
+      % Create the cover as one big box and save it in \TR@Cover:
+
+      \newsavebox{\TR@Cover}
+  
+      \savebox{\TR@Cover}{
+        \setlength{\unitlength}{1mm}
+        \begin{picture}(\TR@CoverSX,\TR@CoverSY)
+        
+          % Left sky blue outline:
+          {
+            \color{TRblu}
+            \thicklines
+            \put(-0.12,0.0){\line(1,0){39.24}}
+            \put(0.0,-0.12){\line(0,1){254.24}}
+            \put(-0.12,254.0){\line(1,0){39.24}}
+            \put(39.0,-0.12){\line(0,1){66.24}}
+            \put(33.88,66.0){\line(1,0){5.24}}
+            \put(34.0,65.88){\line(0,1){20.24}}
+            \put(33.88,86.0){\line(1,0){5.24}}
+            \put(39.0,85.88){\line(0,1){48.24}}
+            \put(28.88,134.0){\line(1,0){10.24}}
+            \put(29.0,133.88){\line(0,1){72.24}}
+            \put(28.88,206.0){\line(1,0){10.24}}
+            \put(39.0,205.88){\line(0,1){48.24}}
+          }
+          
+          {
+            \color{TRora}
+            \thicklines
+            \put(40.88,0.0){\line(1,0){149.24}}
+            \put(190.0,-0.12){\line(0,1){254.24}}
+            \put(40.88,254.0){\line(1,0){149.24}}
+            \put(41.0,-0.12){\line(0,1){66.24}}
+            \put(40.88,66.0){\line(1,0){115.24}}
+            \put(156.0,65.88){\line(0,1){20.24}}
+            \put(40.88,86.0){\line(1,0){115.24}}
+            \put(41.0,85.88){\line(0,1){48.24}}
+            \put(40.88,134.0){\line(1,0){120.24}}
+            \put(161.0,133.88){\line(0,1){72.24}}
+            \put(40.88,206.0){\line(1,0){120.24}}
+            \put(41.0,205.88){\line(0,1){48.24}}
+          }
+          
+          \put(\TR@UnicampLogoDX,\TR@UnicampLogoDY){
+            \makebox(0,0)[bl]{\hbox{\LogoUnicamp}}
+          }
+          
+          \put(\TR@ICLogoDX,\TR@ICLogoDY){
+            \makebox(0,0)[bl]{\hbox{\LogoIcUnicamp}}
+          }
+          
+          \put(\TR@BannerDX,\TR@BannerDY){
+            \makebox(\TR@BannerSX,\TR@BannerSY){
+              \begin{minipage}[c]{\TR@BannerSX mm}
+                \parfillskip 0pt\parskip 0pt
+                \hsize \TR@BannerSX mm
+                \hrule height 0pt
+                {\TR@Large\TR@sf{UNIVERSIDADE ESTADUAL DE CAMPINAS}\par}
+                \vskip 3.0mm
+                {\TR@LARGE\TR@sf{INSTITUTO DE COMPUTA{\c{C}}{\~A}O}\par}
+                \vskip 0.0mm
+                \hrule height 0pt
+              \end{minipage}
+            }
+          }
+
+          \put(\TR@TitleDX,\TR@TitleDY){
+            \makebox(0,0)[bl]{
+              \usebox{\TR@Title}
+              \savebox{\TR@Title}{}
+            }
+          }
+
+          \put(\TR@NumDateDX,\TR@NumDateDY){
+            \makebox(0,0)[bl]{
+              \usebox{\TR@NumDate}
+              \savebox{\TR@NumDate}{}
+            }
+          }
+
+          \put(\TR@NoteDX,\TR@NoteDY){
+            \makebox(0,0)[bl]{
+              \begin{minipage}[c]{\TR@NoteSX mm}
+                \parfillskip 0pt\parskip 0pt
+                \begin{center}
+                  \hsize \TR@NoteSX mm
+                  { \TR@small
+                     \TR@sf{The contents of this report are the sole responsibility of the authors.}
+                     \par
+                     \TR@sf{O conte{\'u}do deste relat{\'o}rio {\'e} de {\'u}nica responsabilidade dos autores.}
+                  }
+                \end{center}
+              \end{minipage}
+            }
+          }
+
+        \end{picture}
+      }
+
+      % Lay down the cover page:
+      \c@page\z@
+      \thispagestyle{empty}
+      \hoffset 0pt
+      \voffset 0pt
+      \topmargin -0.5in
+      \oddsidemargin -0.5in
+      \evensidemargin -0.5in
+      \headheight 0pt
+      \headsep 0pt
+      \topskip 0pt
+      \vtop to 0pt{
+        \null
+        \hbox to 0pt{\null\hbox{\usebox{\TR@Cover}}\hss}
+        \vss
+        \null
+      }
+      \savebox{\TR@Cover}{}
+      \newpage
+
+    \egroup
+  }
+
+% Handy macro for current month and year, in Portuguese:
+
+  \def\TR@monthP{
+    \ifcase\TR@month\or
+    Janeiro\or Fevereiro\or Mar\c{c}o\or 
+    Abril\or Maio\or Junho\or 
+    Julho\or Agosto\or Setembro\or 
+    Outubro\or Novembro\or Dezembro\fi
+  }
+
+  \def\TR@monthE{
+    \ifcase\TR@month\or
+    January\or February\or March\or 
+    April\or May\or June\or 
+    July\or August\or September\or 
+    October\or November\or December\fi
+  }
+
+% Restore \endlinechar:
+\advance\endlinechar by +256\makeatother%
