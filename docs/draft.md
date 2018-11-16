@@ -55,8 +55,64 @@ Além da unicidade que o trabalho possui no cenários atual, ele se torna releva
 tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso muito mais inteligente dos recursos, baixando custos e aumentando a produtividade.
 
 
-## Procedimento
+## Procedimentos
+
+Para o sucesso final do projeto, ao começo dele, foi decidido que faríamos uma plataforma web. Essa fi a decisão devido a facilidade de desenvolver para esse tipo de plataforma, além do alcance
+gigantesco que plataformas web possuem, já que é praticamente obrigatório nos dispositivos que os usuários poderiam usar para acessar o sistema (smartphones e computadores) possuir um
+navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github, já que foi uma premissa desde o início do projeto que este
+seria Open Source.
+Então, a plataforma foi separada em duas grandes partes:
+
+- **Front-End:** A parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. (Colocar alguma sitação)
+- **Back-End:** Essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso ao banco de dados, autenticação, processamento de dados,
+submissão de dados para a nuvem, etc.
+
+FALAR SOBRE PARTE COMUM DAS DUAS PARTES (NGINX, DOCKER)
+### Front End
+
+Para o desenvolvimento do front end, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, foi decidido que o layout geral das telas, junto com seu
+fluxo seria o seguinte:
+
+COLOCAR IMAGENS DO PROTÓTIPO DAS TELAS E FLUXO
+
+Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o front end, foram escolhidas as seguintes tecnologias:
+
+**Angular(LINK):** Framework(link abaixo) para desenvolvimento de aplicações web Open Source, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
+Typescript(LINK). A escolha desse framework aconteceu uma vez que ela é extremamente produtiva e por ser um framework completo, já encapsulando todo o conceito de serviços, estilo de página e 
+linguagem de marcação, roteamento. Assim, com esse framework ainda é necessário conhecer linguagens de marcação como HTML (link) e CSS (link), mas a junção de todos esses conceitos fica muito mais simples.
+
+**Bootstrap(LINK):** Frameworks que possui o estilo de vários componentes web prontos, como tabelas, menu laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do github(LINK)
+Estilizar páginas web pode ser um trabalho extremamente complicado e demorado, por isso optamos por usar um framework. Existem outros frameworks CSS interessantes, porém poucos tem a maturidade do bootstrap.
+
+Foi garantido que o deploy fosse feito da maneira mais simples e flexível para o cliente. Então, foi usado o servidor web nginx(site) para isso. Aém disso, também foi disponibilizado um Dockerfile, que possibilita
+o deploy da solução de maneira extremamente simples e direta sobre Containers Docker.
+
+### Back End
+
+Ao início do desenvolvimento do back end, buscamos definir quais seriam as melhores tecnologias para esse componente, além de definir como seriam as rotas e contratos que a API (link) do back end iria expor
+para que o front end pudesse consumir de forma eficaz e direta, garantindo assim, um total desacoplamento entre os dois componentes. Assim, os componentes que decidimos para o back end foram os seguintes:
+
+**Python(link):** Linguagem criada por Guido Van Rossum, extremamente relevante nos dias de hoje devido a sua enorme gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
+desempenho. A escolha dela foi devido principalmente a bibliotecas muito maduras para desenvolvimento de API's back end, filas de trabalho distribuídas e conectores com bancos de dados.
+
+**Flask(link):** Framework para desenvolvimento de APIS para Python. Foi escolhido devido a extrema agilidade para colocar uma API rodando. Além disso, é muito simples entender como a aplicação está funcionando,
+fator muito crítico para decidirmos na escolha desta, uma vez que o projeto tem como premissa ser Open Source e facilitar o entendimento de todos que o usam. Ao invés de Python/Flask, foram cogitadas também ASP .NET
+com C# e NodeJS. A primeira foi descartada devido a complexidade para simplesmente criarmos uma API. NodeJS não foi escolhido devido a dificuldade que novos programadores podem enfrentar para compreender as
+fucnionalidades em um primeiro momento, quando fossem aumentar o projeto.
+
+**Celery(link):** Uma vez escolhido Python e Flask como ferramentas para o desenvolvimento da solução, foi muito natural a escolha do Celery como ferramenta para trabalhar com filas de trabalho. Existem muitos
+casos de sucesso espalhados pela internet de engenheiros e desenvolvedores que usaram essa combinação com total eficácia. O Celery é um componente do Python que é o responsável por gerenciar, submeter e obter
+resultados de uma fila de trabalho, de uma maneira muito simples. Além disso, dá suporte a vários componentes de mensageria, como por exemplo, RabbitMQ(link), Redis(link), Amazon SQS(link).
+
+**Redis(link):**
+
+**MongoDB(link):**
+
+**Blob Storage(link):**
+
 
 ## Resultados
+
+Aqui é o local onde eu vou detalhar as telas e etc
 
 ## Referencia
