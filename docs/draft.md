@@ -61,13 +61,28 @@ Para o sucesso final do projeto, ao começo dele, foi decidido que faríamos uma
 gigantesco que plataformas web possuem, já que é praticamente obrigatório nos dispositivos que os usuários poderiam usar para acessar o sistema (smartphones e computadores) possuir um
 navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github, já que foi uma premissa desde o início do projeto que este
 seria Open Source.
+
+Ao iniciar a análise do problema, foi possível notar que uma arquitetura de nuvem que se encaixa muito bem nesse problema é a de Work Queues(Filas de Trabalho), que segundo Brendan Burns em seu livro
+Designing Distributed Systems, "Em um sistema de filas de trabalho existe uma trabalho em batch para ser executado. Cada parte do trabalho é independente do outro e pode ser executado sem nenhuma interaçao".
+Isso é exatamente o que foi buscado, uma vez que os trabalhos eram intensivos, demoravam um tempo para serem reproduzidos e eram independentes um do outro. Assim, o que gostaríamos era que trabalhos fossem submetidos
+a uma fila e, alguma unidade de computação o usasse para executar uma definição de trabalho. A imagem abaixo ajuda a explicar como é o funcionamento dessa arquitetura e a arquitetura do projeto.
+
+COLOCAR UMA IMAGEM DO PROCESSO
+
+
 Então, a plataforma foi separada em duas grandes partes:
 
 - **Front-End:** A parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. (Colocar alguma sitação)
 - **Back-End:** Essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso ao banco de dados, autenticação, processamento de dados,
 submissão de dados para a nuvem, etc.
 
-FALAR SOBRE PARTE COMUM DAS DUAS PARTES (NGINX, DOCKER)
+Existem alguns componentes que foram usados em comum entre essas duas partes:
+
+**Docker(Link):** uma maneira muito simples de empacotar as aplicações, isolando dependências, garantindo que o deploy sempre é feito da maneira correta. Assim, é possível entregar as aplicações completas, com
+todos os requisitos necessários instalados, o que da uma agilidade enorme durante o ciclo de desenvolvimento.
+**Nginx(Link):** Servidor web open source extremamente escalável e fácil de configurar. Foi usado tanto para servir o back end quando o front end. A outra opção para esse trabalho seria o Apache Web Server, porém
+o Nginx se mostrou mais simples e rápido de ter aplicações rodando.
+
 ### Front End
 
 Para o desenvolvimento do front end, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, foi decidido que o layout geral das telas, junto com seu
@@ -118,6 +133,8 @@ em transformar os dados para os esquemas presentes em tabelas SQL(referencia), o
 binários. Foi escolhido devido a excelente integração que possui com Python. Outras opções existentes eram, por exemplo, Amazon S3(link), que oferece serviços muito parecidos. Outra opção era deixar esses dados em 
 no disco de máquinas virtuais e serví-los por meio de servidores, porém, isso aumentaria muito a complexidade e dificultaria a tarefa de gerenciar esse tipo de infraestrutura.
 
+
+### Ferramentas para Deploy
 
 ## Resultados
 
