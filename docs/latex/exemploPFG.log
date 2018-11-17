@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  17 NOV 2018 14:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  17 NOV 2018 18:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -400,47 +400,47 @@ Now handling font encoding U ...
 )) (./exemploPFG.aux)
 \openout1 = `exemploPFG.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
-LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
+LaTeX Font Info:    ... okay on input line 22.
 \TR@Banner=\box26
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 39.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 40.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
 []\T1/cmss/m/n/10.95 UNIVERSIDADE ES-TA-DUAL DE CAM-PI-NAS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
 []\T1/cmss/m/n/14.4 INSTITUTO DE COM-PU-TA-ÇÃO
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 39.
+(Font)              <10.95> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 39.
+(Font)              <8> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 39.
+(Font)              <6> on input line 40.
 \TR@Title=\box27
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 39.
+(Font)              <11> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 39.
+(Font)              <5> on input line 40.
 \TR@NumDate=\box28
 
-Overfull \vbox (27.52089pt too high) detected at line 39
+Overfull \vbox (27.52089pt too high) detected at line 40
  []
 
 \TR@Cover=\box29
@@ -448,16 +448,16 @@ File: logo-unicamp.eps Graphic file (type eps)
 <logo-unicamp.eps>
 File: logo-ic-unicamp.eps Graphic file (type eps)
  <logo-ic-unicamp.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
 []\T1/cmss/m/n/14.4 UNIVERSIDADE ES-TA-DUAL DE CAM-PI-NAS
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 39.
+(Font)              size <20.74> substituted on input line 40.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 39--39
+Underfull \hbox (badness 10000) in paragraph at lines 40--40
 []\T1/cmss/m/n/20.74 INSTITUTO DE COM-PU-TA-ÇÃO
  []
 
@@ -465,42 +465,74 @@ Underfull \hbox (badness 10000) in paragraph at lines 39--39
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 67.
+(Font)              <12> on input line 68.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 79.
+(Font)              <7> on input line 80.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 101.
+(Font)              <9> on input line 102.
  [1]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 113.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 114.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 114.
 
-Overfull \hbox (17.77824pt too wide) in paragraph at lines 131--132
+Overfull \hbox (17.77824pt too wide) in paragraph at lines 132--133
 []\OT1/cmr/bx/n/10.95 Foco na aplica^^Xc~ao: \OT1/cmr/m/n/10.95 de-sen-vol-ve-d
 o-res po-dem fo-car to-tal-mente em es-cre-ver suas aplica^^Xc~oes,
  []
 
-[2] [3] [4] [5]
-Underfull \vbox (badness 2376) has occurred while \output is active []
+[2] [3]
+File: login.eps Graphic file (type eps)
+ <login.eps>
 
- [6]
-[7] (./exemploPFG.aux)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4]
+File: account_reg.eps Graphic file (type eps)
+ <account_reg.eps>
+File: First_screen.eps Graphic file (type eps)
+ <First_screen.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Second_screen.eps Graphic file (type eps)
+<Second_screen.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: Third_screen.eps Graphic file (type eps)
+<Third_screen.eps> [5]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: Reference `fig:resultScreen' on page 6 undefined on input line 2
+49.
+
+File: tcc_flow.eps Graphic file (type eps)
+<tcc_flow.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[6] [7] [8] [9] [10] (./exemploPFG.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 1665 strings out of 494930
- 20409 string characters out of 6180168
- 77091 words of memory out of 5000000
- 4950 multiletter control sequences out of 15000+600000
+ 1683 strings out of 494930
+ 20699 string characters out of 6180168
+ 77168 words of memory out of 5000000
+ 4962 multiletter control sequences out of 15000+600000
  17010 words of font info for 48 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 32i,9n,24p,274b,303s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,9n,24p,274b,305s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (8 pages, 32336 bytes).
+Output written on exemploPFG.dvi (11 pages, 35608 bytes).

@@ -17,6 +17,7 @@
 %%% SEGUIR:
 %% \usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -174,7 +175,7 @@ Designing Distributed Systems, "Em um sistema de filas de trabalho existe uma tr
 Isso é exatamente o que foi buscado, uma vez que os trabalhos eram intensivos, demoravam um tempo para serem reproduzidos e eram independentes um do outro. Assim, o que gostaríamos era que trabalhos fossem submetidos
 a uma fila e, alguma unidade de computação o usasse para executar uma definição de trabalho. A imagem abaixo ajuda a explicar como é o funcionamento dessa arquitetura e a arquitetura do projeto.
 
-COLOCAR UMA IMAGEM DO PROCESSO
+COLOCAR UMA IMAGEM DO PROCESSO de filas distribuidas
 
 Então, a plataforma foi separada em duas grandes partes:
 
@@ -195,10 +196,67 @@ Existem alguns componentes que foram usados em comum entre essas duas partes:
 
 \subsection{Front End}
 
-Para o desenvolvimento do front end, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, foi decidido que o layout geral das telas, junto com seu
-fluxo seria o seguinte:
+Para o desenvolvimento do front end, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, foi decidido que o layout geral das telas, seriam:
 
-COLOCAR IMAGENS DO PROTÓTIPO DAS TELAS E FLUXO
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{login.eps}
+  \caption{Página de Login}
+  \label{fig:loginScreen}
+\end{figure}
+
+A figura ~\ref{fig:loginScreen} mostra como definimos quais informações deveriam estar na tela para que o usuário pudesse se conectar a plataforma. Como mostrado, 
+as informações necessárias para logar no sistema eram email e senha que foram previamente cadastrado.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.4]{account_reg.eps}
+  \caption{Página de criaçao de conta}
+  \label{fig:createScreen}
+\end{figure}
+
+
+A figura ~\ref{fig:createScreen} deixa claro quais foram as informações que eram requeridas para se criar uma conta no sistema. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{First_screen.eps}
+  \caption{Página de definição dos trabalhos}
+  \label{fig:definitionScreen}
+\end{figure}
+
+
+A figura ~\ref{fig:definitionScreen} exemplifica como imaginamos a tela de definicao de um trabalho para ser executado. Nesse primeiro protótipo, foi pensado que somente 
+as informações mostradas na tela, eram o suficente.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{Second_screen.eps}
+  \caption{Página de observação do status}
+  \label{fig:statusScreen}
+\end{figure}
+
+
+O protótipo da tela de status dos trabalhos está mostrada na figura ~\ref{fig:statusScreen}. Extremamente simples a princípio, uma tabela mostrando o status de cada trabalho. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{Third_screen.eps}
+  \caption{Página de obtenção dos resultados}
+  \label{fig:resultsScreen}
+\end{figure}
+
+A ultima figura ~\ref{fig:resultScreen} mostra como foi pensada a obtenção dos resultados.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[scale=0.2]{tcc_flow.eps}
+  \caption{Fluxo entre os componentes da plataforma}
+  \label{fig:flowScreen}
+\end{figure}
+
+Vale ressaltar que essa ideia inicial foi considerada com poucas das funcionalidades que realmente eram relevantes para a plataforma. Assim, o fluxo de todo o trabalho foi 
+repensado para algo mais próximo do representado na figura ~\ref{fig:flowScreen}
 
 Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o front end, foram escolhidas as seguintes tecnologias:
 
