@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  17 NOV 2018 18:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  17 NOV 2018 21:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -535,4 +535,4 @@ Here is how much of TeX's memory you used:
  16 hyphenation exceptions out of 8191
  32i,9n,24p,274b,305s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (11 pages, 35608 bytes).
+Output written on exemploPFG.dvi (11 pages, 38208 bytes).

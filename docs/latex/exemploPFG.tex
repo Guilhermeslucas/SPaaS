@@ -256,7 +256,22 @@ A ultima figura ~\ref{fig:resultScreen} mostra como foi pensada a obtenção dos
 \end{figure}
 
 Vale ressaltar que essa ideia inicial foi considerada com poucas das funcionalidades que realmente eram relevantes para a plataforma. Assim, o fluxo de todo o trabalho foi 
-repensado para algo mais próximo do representado na figura ~\ref{fig:flowScreen}
+repensado para algo mais próximo do representado na figura ~\ref{fig:flowScreen}. Nesse fluxo definido, os quadrados representam as telas, com suas respectivas interações com 
+as camadas de armazenamento que são necessárias para completar suas tarefas com sucesso. Assim, entrando no detalhe de cada componente da solução:
+
+\begin{itemize}
+  \item \textbf{Data Management:} Componente responsável pelo gerencimento dos dados sísmicos da plataforma. A intenção nesse componente é ser capaz de adicionar, remover e 
+  movê-los de um tipo de armazenamento mais caro (porém mais rápido) para um mais barato, ligeiramente mais lento. 
+  \item \textbf{Flow Management:} Componente responsável por determinar uma sequencia de passos que devem ser feitas para completar uma tarefa. Diferente dos trabalhos (Tasks),
+  aqui a definição é de um conjunto de tasks, encadeadas para obter um resultado maior.
+  \item \textbf{Tools Management:} Essa funcionalidade procura realizar o gerenciamento dos binários que serão executados. Assim como o componente respoonsável pelo gerenciamento
+  dos dados, esse componente busca dar a possibilidade de adicionar, mover e excluir binários da plataforma.
+  \item \textbf{Running Tasks:} Nessa tela, é desejado que o usuário consiga ver qual é o status dos processamentos que iniciou. Status como Pendente e Pronto são alguns dos 
+  possíveis.
+  \item \textbf{New Tasks:} Responsável por definir novas tarefas a serem rodadas. É desejado que as características necessárias para essa definição sejam binário, dado sísmico 
+  e argumentos para a execução acontecer com sucesso. 
+  \item \textbf{Results:} Os resultados dos processamentos executados estarão aqui, organizados pela execução que o gerou.
+\end{itemize}
 
 Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o front end, foram escolhidas as seguintes tecnologias:
 
