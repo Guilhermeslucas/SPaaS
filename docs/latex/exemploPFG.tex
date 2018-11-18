@@ -342,8 +342,47 @@ do modo que foi escolhido para o deploy, foi criado uma série de scripts em fer
 
 \subsection{Resultados}
 
-Aqui é o local onde eu vou detalhar as telas e etc
+Após seguir todo o experimento citado acima, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está mostrada na figura (linkar a figura).
 
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.2]{final_arch.eps}
+  \caption{Arquitetura final do projeto}
+  \label{fig:finalArch}
+\end{figure}
+
+Dada a arquitetura final do projeto mostra na figura ~\ref{fig:finalArch} os componentes mostrados tem, cada um, a seguinte função:
+
+\begin{itemize}
+  \item \textbf{Web Client:} componete que roda no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado durante o procedimento, ou seja, todo o código do lado do cliente 
+  foi escrito em Typescript, com o auxílio do framework Angular, a estilização das páginas foi feita com Bootstrap e servido via Nginx.
+  \item \textbf{Flask Back End:} responsável por receber todas as requisições que saem do front end. Funciona como um gateway(talvez uma citação). Também foi seguido o plano inicial de escrever todo o back end com
+  Python, Flask e Celery. Esse é o componente que possui mais responsabilidades: autenticação, comunicação com a fila com o auxílio do Celery, acesso aos Blobs e acesso ao banco.
+  \item \textbf{Linux Workers:} Componentes que são responsável pela execução propriamente dita dos pedidos. Com o auxílio do Celery, esperam por pedidos entrarem na fila, e assim que isso acontece, executam. 
+  É possível ter um cluster de máquinas com esse papel, aumentando o paralelismo das execuções.
+  \item \textbf{Message queue with Redis:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramaos de desacoplar o back end dos Linux workers. Assim
+  O back end somente precisava submeter uma mensagem com as definições para a execução de um trabalho na fila e algum worker pegaria essa requisição e faria o processamento necessário. Aqui vale um observação 
+  importante. A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o back end dos workers, ainda torna possível a execução de
+  processamentos em paralelo e distribuídos, não criando um gargalo na solução, possivelmente ocasionado pelo grande número de pedidos na fila esperando por um único worker.
+  
+  \item \textbf{toolsCollection:} coleção dentro do banco que guarda informações sobre os binários que estão armazenados. Novos dados são inseridos nela quando submetidos um novo binário é armazenado, quando
+  um novo pedido de processamento será incluído, já que é necessário consultar quais os parâmetros para esse e também quando um binário é excluido, apagando o registro.
+  O modelo que está sendo usado para guardar essas informações é:
+  
+  \item \textbf{resultsColleciton:} coleção de documentos no banco para guardar os dados do resultado, armazena o id do processamento, dado e binário usado, além dos argumentos. 
+  Essa coleção é acessada após o término de cada processamento, para salvar as informações do resultado e também quando é desejado que todos os resultados sejam mostrados na tela de gerenciamento
+  de resultados. O modelo segue o padrão:
+  
+  \item \textbf{usersCollection:} usada para armazenamento de dados dos usuários, como senha e email para autenticação. Um novo registro é criado nessa coleção quando um usuário cria uma nova conta. 
+  A coleção também é acessada para autenticação de um novo usuário. Para que todos esses processos sejam executados com sucesso, o modelo usado é:
+
+  \item \textbf{seismic-tools:} Blob usado para armazenar os binários submetidos pelos usuário. Acessado pelo componemte de gerenciamento de ferramentas quando uma nova ferramente é inserida na plataforma 
+  e quando o processamento vai acontecer, pois nesse momento é necessário baixar esses dados para execução em um dos workers.
+  \item \textbf{seismic-data:} Blob que armazena os dados sísmicos submetidos. Também são acessados pelo componente de gerenciamento de dados quando um novo dado é incluido, excluído e na execução dos 
+  trabalhos, já que é necessário baixar esses dados.
+  \item \textbf{seismic-results:} Outro blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz(link) e disponibilizados para download, 
+  no componente responsável por gerenciar os resultados.
+\end{itemize}
 
 \begin{thebibliography}{99}
 
