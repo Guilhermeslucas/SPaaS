@@ -89,24 +89,13 @@
   composição similar.
 \end{abstract}
 
-\section{Indsdas}
-
-  As propriedades lúdicas, mnemolíticas e catalógicas de 
-  soluções fraca- e medianamente concentradas de 1-metil-metanol
-  em hidróxido de hidrônio aquoso ($\rm H_3O^{+} HO^{-}\cdot {\mathit n}H_2O$)
-  tem sido objeto de intensos estudos experimentais por
-  cientistas no mundo todo~\cite{AHU,KNU}.
-  
-  Durante os últimos 20 anos, os autores coordenaram uma equipe
-  multidiplinar de pesquisadores, na UNICAMP e em outras instituições,
-  cujo objetivo derradeiro é elucidar e\footnote{footnotes working fine} quantificar a relação entre...
-
 \section{Introducão}
 
 Computação em Nuvem é um conceito que está cada vez mais presente no cotidiano de todas as pessoas. Mesmo sem perceber, uma quantidade gigantesca de aplicações que usamos hoje 
 em dia lançam mão desse conceito tão central para o desenvolvimento econômico e tecnológico de nossa sociedade contemporânea. Esse conceito se baseia na capacidade de usarmos o
 poder computacional de uma infinidade de serviços como Máquinas virtuais, Bancos de Dados e Redes Virutais sem necessariamente possuirmos máquinas físicas com tais serviços 
-instalados e configurados, ainda sendo possível, de maneira simples, expor tais serviços e mecanismos para vários usuários ao redor do mundo.
+instalados e configurados, ainda sendo possível, de maneira simples, expor tais serviços e mecanismos para vários usuários ao redor do mundo. Segundo o artigo Cloud Computing Security: A
+Systematic Literature Review~\cite{UPP}, computação em nuvem é um modelo de rede que torna possível o acesso sob demanda de recursos computacionais configuráveis.
 Entre as modalidades principais de serviços de computação em nuvem, temos três categorias mais relevantes:
 
 \begin{itemize}
@@ -133,18 +122,22 @@ Entre as vantagens de se adotar um modelo de computação em nuvem ao invés de 
 
 \end{itemize}
 
-Entre os principais players de nuvem pública atualmente temos gigantes como Microsoft Azure(www.azure.com), Amazon Web Services(aws.com.br) e Google Cloud Plataform(gcp.com.br), 
+Entre os principais players de nuvem pública atualmente temos gigantes como Microsoft Azure\footnote{Plataforma de Computação em Nuvem da Microsfot https://azure.microsoft.com/}, 
+Amazon Web Services\footnote{Plataforma de Computação em Nuvem da Amazon https://aws.amazon.com/} e Google Cloud Plataform\footnote{Plataforma de Computação em Nuvem do Google https://cloud.google.com/}, 
 oferecendo opções extremamente diversas para computação em nuvem, desde máquinas virtuais até mesmo bancos de dados gerenciados, onde a preocupação de gerenciamente fica totalmente
 do lado do provedor do serviço.
 
 Aplicações de HPC (High Processing Computing, computação de alto processamento, na tradução) são uma gama de programas que necessitam de muito poder computacional para 
 completar as seus objetivos. Entre essas tarefas, estão o processamento de dados sísmicos, que são obtidas de maneira bruta e precisam de um trabalho muito pesado de tratamento
-para que algumas conclusões possam ser feitas a partir dele. Ainda hoje, muitas dessas operações são feitas em servidores em institutos de pesquisas, por exemplo, podendo levar
+para que algumas conclusões possam ser feitas a partir dele. Segundo o texto~\cite{HPC}, Supercomputação é usada para realizar operaçoes matemáticas em alta velocidade. HPC é como supercomputação,
+mas com o poder computacional de cluster computacionais.
+Ainda hoje, muitas dessas operações são feitas em servidores em institutos de pesquisas, por exemplo, podendo levar
 a um custo excessivo, trabalho excessivo para gerenciamento de infraestrutura além de baixíssima agilidade e flexibilidade quanto a infraestrura. Assim, tais aplicações podem 
 tirar muito proveito dos provedores de nuvem citados acima.
 
 \section{Objetivos}
-Esse trabalho tem como objetivo desenvolver uma plataforma Open Source(CITACAO) que torne extremamente simples para usuários que não conhecem conceitos de Computação em Nuvem rodarem suas aplicações.
+Esse trabalho tem como objetivo desenvolver uma plataforma Open Source que torne extremamente simples para usuários que não conhecem conceitos de Computação em Nuvem rodarem suas aplicações.
+Entre os princípios do Open Source citado no Debian Social Contract~\cite{BP}: Redistribuição livre, o software deve ser distrivuído com o código fonte, trabalhos derivados, entre outros.
 A princípio, foram usadas aplicações para a prova de conceito. O desejado para o final da plataforma era que os usuários conseguissem processar os trabalhos sísmico sem nenhum conhecimento de Nuvem.  
 Ao final, esperamos a criação de uma plataforma web, que tinha como principais funcionalidades:
 
@@ -165,13 +158,14 @@ Além da unicidade que o trabalho possui no cenários atual, ele se torna releva
 tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso muito mais inteligente dos recursos, baixando custos e aumentando a produtividade.
 
 \section{Procedimento}
-Para o sucesso final do projeto, ao começo dele, foi decidido que faríamos uma plataforma web. Essa fi a decisão devido a facilidade de desenvolver para esse tipo de plataforma, além do alcance
+Para o sucesso final do projeto, ao começo dele, foi decidido que faríamos uma plataforma web. Essa foi a decisão devido a facilidade de desenvolver para esse tipo de plataforma, além do alcance
 gigantesco que plataformas web possuem, já que é praticamente obrigatório nos dispositivos que os usuários poderiam usar para acessar o sistema (smartphones e computadores) possuir um
-navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github, já que foi uma premissa desde o início do projeto que este
+navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github\footnote{Serviço para compartilhamento de código fonte www.github.com}, já que foi uma premissa desde o início do projeto que este
 seria Open Source.
 
 Ao iniciar a análise do problema, foi possível notar que uma arquitetura de nuvem que se encaixa muito bem nesse problema é a de Work Queues(Filas de Trabalho), que segundo Brendan Burns em seu livro
-Designing Distributed Systems, "Em um sistema de filas de trabalho existe uma trabalho em batch para ser executado. Cada parte do trabalho é independente do outro e pode ser executado sem nenhuma interaçao".
+Designing Distributed Systems, "Em um sistema de filas de trabalho existe uma trabalho em batch para ser executado. Cada parte do trabalho é independente do outro e pode ser executado sem nenhuma interaçao" 
+~\cite{BB}.
 Isso é exatamente o que foi buscado, uma vez que os trabalhos eram intensivos, demoravam um tempo para serem reproduzidos e eram independentes um do outro. Assim, o que gostaríamos era que trabalhos fossem submetidos
 a uma fila e, alguma unidade de computação o usasse para executar uma definição de trabalho.
 
@@ -195,9 +189,10 @@ Então, a plataforma foi separada em duas grandes partes:
 Existem alguns componentes que foram usados em comum entre essas duas partes:
 
 \begin{itemize}
-  \item \textbf{Docker(Link):} uma maneira muito simples de empacotar as aplicações, isolando dependências, garantindo que o deploy sempre é feito da maneira correta. Assim, é possível entregar as aplicações completas, com
+  \item \textbf{Docker\footnote{Programa que realiza virtualização em nível de SO, também conhecido como conteinerização https://www.docker.com/}:} 
+  uma maneira muito simples de empacotar as aplicações, isolando dependências, garantindo que o deploy sempre é feito da maneira correta. Assim, é possível entregar as aplicações completas, com
   todos os requisitos necessários instalados, o que da uma agilidade enorme durante o ciclo de desenvolvimento.
-  \item \textbf{Nginx(Link):} Servidor web open source extremamente escalável e fácil de configurar. Foi usado tanto para servir o back end quando o front end. A outra opção para esse trabalho seria o Apache Web Server, porém
+  \item \textbf{Nginx\footnote{Servidor Web Open Source https://www.nginx.com/}:} Servidor web open source extremamente escalável e fácil de configurar. Foi usado tanto para servir o back end quando o front end. A outra opção para esse trabalho seria o Apache Web Server, porém
   o Nginx se mostrou mais simples e rápido de ter aplicações rodando.
 \end{itemize}
 
@@ -282,45 +277,46 @@ as camadas de armazenamento que são necessárias para completar suas tarefas co
 Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o front end, foram escolhidas as seguintes tecnologias:
 
 \begin{itemize}
-  \item \textbf{Angular(LINK):} Framework(link abaixo) para desenvolvimento de aplicações web Open Source, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
-  Typescript(LINK). A escolha desse framework aconteceu uma vez que ela é extremamente produtiva e por ser um framework completo, já encapsulando todo o conceito de serviços, estilo de página e 
-  linguagem de marcação, roteamento. Assim, com esse framework ainda é necessário conhecer linguagens de marcação como HTML (link) e CSS (link), mas a junção de todos esses conceitos fica muito mais simples.
-  \item \textbf{Bootstrap(LINK):} Frameworks que possui o estilo de vários componentes web prontos, como tabelas, menu laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do github(LINK)
+  \item \textbf{Angular\footnote{Framework Open Source para desenvolvimento web https://angular.io/}:} Framework(link abaixo) para desenvolvimento de aplicações web Open Source, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
+  Typescript\footnote{Linguagem criada pela Microsoft. Um superset do JavaScript https://www.typescriptlang.org/}. A escolha desse framework aconteceu uma vez que ela é extremamente produtiva e por ser um framework completo, já encapsulando todo o conceito de serviços, estilo de página e 
+  linguagem de marcação, roteamento. Assim, com esse framework ainda é necessário conhecer linguagens de marcação como HTML(link) e CSS (link), mas a junção de todos esses conceitos fica muito mais simples.
+  \item \textbf{Bootstrap\footnote{Conjunto de ferramentas Open Source que ajuda na estilização de páginas https://getbootstrap.com/}:} Frameworks que possui o estilo de vários componentes web prontos, como tabelas, menu laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do github
   Estilizar páginas web pode ser um trabalho extremamente complicado e demorado, por isso optamos por usar um framework. Existem outros frameworks CSS interessantes, porém poucos tem a maturidade do bootstrap.
 \end{itemize}
 
-Foi garantido que o deploy fosse feito da maneira mais simples e flexível para o cliente. Então, foi usado o servidor web nginx(site) para isso. Aém disso, também foi disponibilizado um Dockerfile, que possibilita
+Foi garantido que o deploy fosse feito da maneira mais simples e flexível para o cliente. Então, foi usado o servidor web Nginx para isso. Aém disso, também foi disponibilizado um Dockerfile, que possibilita
 o deploy da solução de maneira extremamente simples e direta sobre Containers Docker.
 
 \subsection{Back End}
 
-Ao início do desenvolvimento do back end, buscamos definir quais seriam as melhores tecnologias para esse componente, além de definir como seriam as rotas e contratos que a API (link) do back end iria expor
+Ao início do desenvolvimento do back end, buscamos definir quais seriam as melhores tecnologias para esse componente, além de definir como seriam as rotas e contratos que a API(link) do back end iria expor
 para que o front end pudesse consumir de forma eficaz e direta, garantindo assim, um total desacoplamento entre os dois componentes. Assim, os componentes que decidimos para o back end foram os seguintes:
 
 \begin{itemize}
-  \item \textbf{Python(link):} Linguagem criada por Guido Van Rossum, extremamente relevante nos dias de hoje devido a sua enorme gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
+  \item \textbf{Python\footnote{https://www.python.org/}:} Linguagem criada por Guido Van Rossum, extremamente relevante nos dias de hoje devido a sua enorme gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
   desempenho. A escolha dela foi devido principalmente a bibliotecas muito maduras para desenvolvimento de API's back end, filas de trabalho distribuídas e conectores com bancos de dados.
 
-  \item \textbf{Flask(link):} Framework para desenvolvimento de APIS para Python. Foi escolhido devido a extrema agilidade para colocar uma API rodando. Além disso, é muito simples entender como a aplicação está funcionando,
+  \item \textbf{Flask\footnote{Framework Web Open Source para Python http://flask.pocoo.org/}:} Framework para desenvolvimento de APIS para Python. Foi escolhido devido a extrema agilidade para colocar uma API rodando. Além disso, é muito simples entender como a aplicação está funcionando,
   fator muito crítico para decidirmos na escolha desta, uma vez que o projeto tem como premissa ser Open Source e facilitar o entendimento de todos que o usam. Ao invés de Python/Flask, foram cogitadas também ASP .NET
   com C\# e NodeJS. A primeira foi descartada devido a complexidade para simplesmente criarmos uma API. NodeJS não foi escolhido devido a dificuldade que novos programadores podem enfrentar para compreender as
   fucnionalidades em um primeiro momento, quando fossem aumentar o projeto.
 
-  \item \textbf{Celery(link):} Uma vez escolhido Python e Flask como ferramentas para o desenvolvimento da solução, foi muito natural a escolha do Celery como ferramenta para trabalhar com filas de trabalho. Existem muitos
+  \item \textbf{Celery\footnote{Framework Open Source para tarefas distribuídas em Python http://www.celeryproject.org/}:} Uma vez escolhido Python e Flask como ferramentas para o desenvolvimento da solução, foi muito natural a escolha do Celery como ferramenta para trabalhar com filas de trabalho. Existem muitos
   casos de sucesso espalhados pela internet de engenheiros e desenvolvedores que usaram essa combinação com total eficácia. O Celery é um componente do Python que é o responsável por gerenciar, submeter e obter
-  resultados de uma fila de trabalho, de uma maneira muito simples. Além disso, dá suporte a vários componentes de mensageria, como por exemplo, RabbitMQ(link), Redis(link), Amazon SQS(link).
+  resultados de uma fila de trabalho, de uma maneira muito simples. Além disso, dá suporte a vários componentes de mensageria, como por exemplo, RabbitMQ\footnote{Plataforma Open Source de Mensageria https://www.rabbitmq.com/}, 
+  Redis, Amazon SQS\footnote{Sistema de mensageria da plataforma de AWS https://aws.amazon.com/sqs/}.
 
-  \item \textbf{Redis(link):} Após a escolha de qual biblioteca iríamos usar para facilitar a tarefa de filas de trabalho, que foi o Celery, foi preciso escolher algum componente para a mensageria do projeto, ou seja, o
+  \item \textbf{Redis\footnote{Armazenamento de dados em memória Open Source https://redis.io/}:} Após a escolha de qual biblioteca iríamos usar para facilitar a tarefa de filas de trabalho, que foi o Celery, foi preciso escolher algum componente para a mensageria do projeto, ou seja, o
   componente que realmente é responsável por armazenar e distribuir as mensagens relacionadas aos trabalhos submetidos na solução. Entre as opções estavam RabbitMQ, Redis e Amazon SQS. Essas as que melhor se 
   integravam com o celery, sendo possível obter todas as suas funcionalidades com qualquer um desses três. Porém, Amazon SQS é uma opção presa a um provedor de nuvem, o que complica o andar do projeto, caso seja 
   preciso usar outra cloud diferente da AWS. RabbitMQ e Redis ofereciam funcionalidades muito parecidas, porém o Redis foi escolhido, devido a infinidade de materiais sobre o uso dele e suas outras funcionalidades
   que podem ser tiradas proveito também, como, por exemplo, cache e armazenamento de dados em memória.
 
-  \item \textbf{MongoDB(link):} Para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada tipo de binário e etc, a escolha foi um banco de dados NoSQL(referencia), o MongoDB. A escolha deste
+  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL Open Source https://www.mongodb.com/}:} Para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada tipo de binário e etc, a escolha foi um banco de dados NoSQL(referencia), o MongoDB. A escolha deste
   foi muito direta, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito parecida com os documentos que são guardados nesse tipo de banco, não sendo necessário de preocupar
   em transformar os dados para os esquemas presentes em tabelas SQL(referencia), o que agiliza muito o trabalho.
 
-  \item \textbf{Blob Storage(link):} o Blob Storage do Microsoft Azure foi a opção aqui pois era necessário uma espécie de armazenamento de propósito geral. Aqui ele está sendo usado para armazenamento dos dados sísmicos e
+  \item \textbf{Blob Storage\footnote{Armazenamento de caráter genérico no Microsoft Azure https://azure.microsoft.com/en-us/services/storage/blobs/}:} o Blob Storage do Microsoft Azure foi a opção aqui pois era necessário uma espécie de armazenamento de propósito geral. Aqui ele está sendo usado para armazenamento dos dados sísmicos e
   binários. Foi escolhido devido a excelente integração que possui com Python. Outras opções existentes eram, por exemplo, Amazon S3(link), que oferece serviços muito parecidos. Outra opção era deixar esses dados em 
   no disco de máquinas virtuais e serví-los por meio de servidores, porém, isso aumentaria muito a complexidade e dificultaria a tarefa de gerenciar esse tipo de infraestrutura.
 \end{itemize}
@@ -331,11 +327,13 @@ Como dito anteriormente, ao iniciar o projeto, não era desejado que estivéssem
 do modo que foi escolhido para o deploy, foi criado uma série de scripts em ferramentas específicas para ajudar. Existem dois modelos que estão sendo facilitados:
 
 \begin{itemize}
-  \item \textbf{Kubernetes(link):} Orquestrador de Containers extremamente famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples, escalável e performática o deploy 
-  de aplicações baseadas em Containers. Nascida dentro do Google, a partir do Borg (paper) atualmente está sob a jurisdição da Cloud Native Foundation(link) e é Open Source. Foi uma
+  \item \textbf{Kubernetes\footnote{Orquestrador de Containers Open Source https://kubernetes.io/}:} Orquestrador de Containers extremamente famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples, escalável e performática o deploy 
+  de aplicações baseadas em Containers. Nascida dentro do Google, a partir do Borg, que segundo o paper pulbicado pelo Google~\cite{BORG}, é um gerenciador de cluster que roda centenas de milhares de processamentos,
+  de milhares de diferentes aplicações entre uma série de clusters,
+  atualmente está sob a jurisdição da Cloud Native Foundation\footnote{Cloud Native Computing Foundation https://www.cncf.io/} e é Open Source. Foi uma
   das plataformas que foi visada por ter apresentado extremamente relevancia nos ultimos tempos, com todos os grandes provedores de Nuvem oferecendo opções gerenciadas dessa 
   ferramenta.
-  \item \textbf{Ansible(link):} um modelo muito comum de deploy de aplicações é baseada em máquinas virtuais. Nesse caso, é bom garantir que todas as dependências necessárias para que a 
+  \item \textbf{Ansible\footnote{Gerenciador de configuração Open Source https://www.ansible.com/}:} um modelo muito comum de deploy de aplicações é baseada em máquinas virtuais. Nesse caso, é bom garantir que todas as dependências necessárias para que a 
   aplicação rode com sucesso estejam instaladas. Nesse aspecto, o Ansible se mostra extremamente eficaz. Essa ferramenta surgiu da Red Hat e também é mantida Open Souce, sendo um
   ótimo gerenciador de configurações, que torna possível escrever configurações como código, o que garante que a aplicação sempre terá sucesso para ser executada.
 \end{itemize}
@@ -403,7 +401,7 @@ Dada a arquitetura final do projeto mostra na figura ~\ref{fig:finalArch} os com
   e quando o processamento vai acontecer, pois nesse momento é necessário baixar esses dados para execução em um dos workers.
   \item \textbf{seismic-data:} Blob que armazena os dados sísmicos submetidos. Também são acessados pelo componente de gerenciamento de dados quando um novo dado é incluido, excluído e na execução dos 
   trabalhos, já que é necessário baixar esses dados.
-  \item \textbf{seismic-results:} Outro blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz(link) e disponibilizados para download, 
+  \item \textbf{seismic-results:} Outro blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{https://www.gzip.org/} e disponibilizados para download, 
   no componente responsável por gerenciar os resultados.
 \end{itemize}
 
@@ -493,15 +491,15 @@ figura ~\ref{fig:finalResultsDetail}.
 
 \begin{thebibliography}{99}
 
-\bibitem{AHU} A. V. Aho, J. E. Hopcroft and J.  D.  Ullman, {\it The
-Design and Analysis of Computer Algorithms,} Addison-Wesley (1901).
+\bibitem{BB} B. Burns, {\it Designing Distributed Systems,} O'Reilly Media (2017).
 
-\bibitem{KNU} D. E. Knuth and L. Lamport, {\it A structural analysis
-of the role of gnus and gnats in the post-modernistic, crypto-existential 
-Weltanschauung of neo-liberal Tibeto-Vietnamese leaf blower operators 
-as manifest in the sexual symbology of the Los Angeles Phone Directory}.
-Journal of Gnu Technology, {\bf 23} (6), 12--87
-(March 1996).
+\bibitem{BP} B. Perens et al., {\it Debian Social Contract,} (1997).
+
+\bibitem{BORG} A. Verma, L. Pedrosa  et al., {\it Large-scale cluster management at Google with Borg,} (2015).
+
+\bibitem{UPP} A. Verma, L. Pedrosa  et al., {\it Cloud Computing Security: A Systematic Literature Review,} (2015).
+
+\bibitem{HPC} K. Paladugu and S. Mukka, {\it Systematic Literature Review and Survey on High Performance Computing in Cloud,} (2012).
 
 \end{thebibliography}
 
