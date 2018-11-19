@@ -421,12 +421,38 @@ Assim, após apresentar a arquitetura final, são apresentadas os componentes, c
   \label{fig:finalLogin}
 \end{figure}
 
+Na tela final de login, figura ~\ref{fig:finalLogin}, existe dois campos muito simples e comuns em sites que necessitam autenticação: email e senha. Além disso, caso você não possua uma conta, é possível criar uma no canto superior direito.
+
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.3]{final_create.eps}
   \caption{Tela final de criação de contas}
   \label{fig:finalCreate}
 \end{figure}
+
+Caso, na tela de login, for escolhido a tela que o usuário será direcionado é a ~\ref{fig:finalCreate}, onde será possível criar uma nova conta com email e senha, que deve ser confirmada. Aqui, existe a verificação
+se o email já foi usado, para garantir que cada usuário só tenha uma conta cadastrada.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{data_final.eps}
+  \caption{Tela final de gerenciamento de dados sísmicos}
+  \label{fig:finalData}
+\end{figure}
+
+Na imagem ~\ref{fig:finalData} é possível observar como todas as funcionalidades que foram planejadas no início estão sendo contempladas. Na seção de Upload, é possível definir um nome para o dado, e escolher o 
+arquivo que será submetido. Além disso, a tabela abaixo mostra todos os dados que foram submetidos, com o link para download e também a opção de deletar os já existentes.
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{tools_final.eps}
+  \caption{Tela final de gerenciamento de binários}
+  \label{fig:finalTools}
+\end{figure}
+
+Extremamente parecida com a tela referente aos dados, a figura ~\ref{fig:finalTools} mostra a tela de gerenciamento dos binários que foram submetidos para a plataforma. Aqui também deve
+ser selecionado um arquivo, um nome e quais os parâmetros necessários para a execuçãoo, juntamente com suas explicações. Assim, os parâmetros são submetidos da seguinte maneira: 1:explicação do parâmetro 1,
+2:explicação do parâmetro 2, etc.
 
 \begin{figure}[!h]
   \centering
@@ -442,6 +468,10 @@ Assim, após apresentar a arquitetura final, são apresentadas os componentes, c
   \label{fig:finalDetailedTask}
 \end{figure}
 
+A figura ~\ref{fig:finalTasks} mostra como é a definição de um pedido de processamento que será submetido. Nesse primeiro momento, só é possível escolher um binário e o dado que serão usados, porém como mostra 
+a figura ~\ref{fig:finalDetailedTask}, após selecionar o binário que será executado serão automaticamente carregados quais são os argumentes necessários para a execução com sucesso dessa tarefa. Esses argumentos
+foram submetidos juntamente com o binário na tela representada pela figura ~\ref{fig:finalTools}.
+
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.3]{results_final.eps}
@@ -454,20 +484,6 @@ Assim, após apresentar a arquitetura final, são apresentadas os componentes, c
   \includegraphics[scale=0.3]{results_detail_final.eps}
   \caption{Tela final com detalhes do processamento nos resultados}
   \label{fig:finalResultsDetail}
-\end{figure}
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[scale=0.3]{data_final.eps}
-  \caption{Tela final de gerenciamento de dados sísmicos}
-  \label{fig:finalData}
-\end{figure}
-
-\begin{figure}[!h]
-  \centering
-  \includegraphics[scale=0.3]{tools_final.eps}
-  \caption{Tela final de gerenciamento de binários}
-  \label{fig:finalTools}
 \end{figure}
 
 
