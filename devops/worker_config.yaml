@@ -1,18 +1,21 @@
 ---
 - hosts: spass_workers
-  become: true
   tasks:
     - name: Install apt dependencies
+      become: True
+      become_method: sudo
       apt: pkg={{ item }} state=installed update_cache=true
       with_items:
         - git
         - python3
         - python3-pip
+        - python-setuptools
     
     - name: Download repo
       git:
           repo: 'https://github.com/Guilhermeslucas/SPaaS'
-          dest: ~
+          dest: ~/repo
     - name: Installing pip dependencies
       pip:
-        requirements: ~/SpaaS/back-end/requirements.txt  
+        requirements: ~/repo/back-end/requirements.txt  
+        executable: pip3
