@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  19 NOV 2018 18:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  19 NOV 2018 18:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,34 +466,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--40
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 68.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 80.
-
-
-LaTeX Warning: Citation `UPP' on page 1 undefined on input line 98.
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 103.
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
  [1]
-Overfull \hbox (17.77824pt too wide) in paragraph at lines 121--122
+Overfull \hbox (17.77824pt too wide) in paragraph at lines 116--117
 []\OT1/cmr/bx/n/10.95 Foco na aplica^^Xc~ao: \OT1/cmr/m/n/10.95 de-sen-vol-ve-d
 o-res po-dem fo-car to-tal-mente em es-cre-ver suas aplica^^Xc~oes,
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 125.
-
-LaTeX Warning: Citation `HPC' on page 2 undefined on input line 132.
-
+(Font)              <9> on input line 120.
 [2] [3]
 File: arch.eps Graphic file (type eps)
  <arch.eps> [4]
-Underfull \hbox (badness 1472) in paragraph at lines 192--192
+Underfull \hbox (badness 1472) in paragraph at lines 187--187
 [][]\OT1/cmr/m/n/9 Programa que re-a-liza vir-tu-a-liza^^Xc~ao em n^^S^^Pvel de
  SO, tamb^^Sem co-nhe-cido como con-tei-ne-riza^^Xc~ao
  []
@@ -523,7 +513,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: Reference `fig:resultScreen' on page 6 undefined on input line 2
-50.
+45.
 
 File: tcc_flow.eps Graphic file (type eps)
 <tcc_flow.eps>
@@ -531,7 +521,7 @@ File: tcc_flow.eps Graphic file (type eps)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 319--319
+Underfull \hbox (badness 10000) in paragraph at lines 314--314
 [][]\OT1/cmr/m/n/9 Armazenamento de car^^Sater gen^^Serico no Mi-cro-soft Azure
  https://azure.microsoft.com/en-
  []
@@ -593,17 +583,14 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 1720 strings out of 494930
- 21296 string characters out of 6180168
+ 1716 strings out of 494930
+ 21257 string characters out of 6180168
  79306 words of memory out of 5000000
- 4989 multiletter control sequences out of 15000+600000
- 15615 words of font info for 44 fonts, out of 8000000 for 9000
+ 4985 multiletter control sequences out of 15000+600000
+ 15269 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  32i,9n,24p,382b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (18 pages, 56772 bytes).
+Output written on exemploPFG.dvi (18 pages, 56092 bytes).
