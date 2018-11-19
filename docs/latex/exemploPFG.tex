@@ -340,7 +340,9 @@ do modo que foi escolhido para o deploy, foi criado uma série de scripts em fer
   ótimo gerenciador de configurações, que torna possível escrever configurações como código, o que garante que a aplicação sempre terá sucesso para ser executada.
 \end{itemize}
 
-\subsection{Resultados}
+\section{Resultados}
+
+\subsection{Arquitetura}
 
 Após seguir todo o experimento citado acima, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está mostrada na figura (linkar a figura).
 
@@ -367,35 +369,35 @@ Dada a arquitetura final do projeto mostra na figura ~\ref{fig:finalArch} os com
   
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=1.0]{tools_model.eps}
+    \includegraphics[scale=0.5]{tools_model.eps}
     \caption{Modelo presente na coleção de ferramentas binárias}
     \label{fig:toolsCollection}
   \end{figure}
 
   \item \textbf{toolsCollection:} coleção dentro do banco que guarda informações sobre os binários que estão armazenados. Novos dados são inseridos nela quando submetidos um novo binário é armazenado, quando
   um novo pedido de processamento será incluído, já que é necessário consultar quais os parâmetros para esse e também quando um binário é excluido, apagando o registro.
-  O modelo que está sendo usado para guardar essas informações é o que esta na ~\ref{fig:toolsCollection}
+  O modelo que está sendo usado para guardar essas informações é o que esta na figura ~\ref{fig:toolsCollection}
   
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=1.0]{results.eps}
+    \includegraphics[scale=0.5]{results.eps}
     \caption{Modelo presente na coleção de resultados}
     \label{fig:resultsCollection}
   \end{figure}
 
   \item \textbf{resultsColleciton:} coleção de documentos no banco para guardar os dados do resultado, armazena o id do processamento, dado e binário usado, além dos argumentos. 
   Essa coleção é acessada após o término de cada processamento, para salvar as informações do resultado e também quando é desejado que todos os resultados sejam mostrados na tela de gerenciamento
-  de resultados. O modelo segue o padrão da ~\ref{fig:resultsCollection}.
+  de resultados. O modelo segue o padrão da figura ~\ref{fig:resultsCollection}.
 
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=1.0]{users_model.eps}
+    \includegraphics[scale=0.5]{users_model.eps}
     \caption{Modelo presente da coleçao de usuários}
     \label{fig:usersCollection}
   \end{figure}
 
   \item \textbf{usersCollection:} usada para armazenamento de dados dos usuários, como senha e email para autenticação. Um novo registro é criado nessa coleção quando um usuário cria uma nova conta. 
-  A coleção também é acessada para autenticação de um novo usuário. Para que todos esses processos sejam executados com sucesso, o modelo usado é o da ~\ref{fig:usersCollection}.
+  A coleção também é acessada para autenticação de um novo usuário. Para que todos esses processos sejam executados com sucesso, o modelo usado é o da figura ~\ref{fig:usersCollection}.
 
   \item \textbf{seismic-tools:} Blob usado para armazenar os binários submetidos pelos usuário. Acessado pelo componemte de gerenciamento de ferramentas quando uma nova ferramente é inserida na plataforma 
   e quando o processamento vai acontecer, pois nesse momento é necessário baixar esses dados para execução em um dos workers.
@@ -407,6 +409,67 @@ Dada a arquitetura final do projeto mostra na figura ~\ref{fig:finalArch} os com
 
 Vale notar aqui que, usamos somente uma instância de bancos de dados, com coleções diferentes para cada tipo de aplicação, as Collections, no caso. Também usamos a mesma estratégia para o blob. Foi usada somente 
 uma conta de armazenamento no Microsoft Azure, com pastas separadas para cada uso, que no caso, são seismic-data, seismic-tools e seismic-results. 
+
+\subsection{Telas finais}
+
+Assim, após apresentar a arquitetura final, são apresentadas os componentes, com suas respectivas telas. 
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{final_login.eps}
+  \caption{Tela final do login}
+  \label{fig:finalLogin}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{final_create.eps}
+  \caption{Tela final de criação de contas}
+  \label{fig:finalCreate}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{task_first_final.eps}
+  \caption{Tela final de gerencimento de processamentos}
+  \label{fig:finalTasks}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{task_args_final.eps}
+  \caption{Tela final de processamento detalhada}
+  \label{fig:finalDetailedTask}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{results_final.eps}
+  \caption{Tela final de gerenciamento de resultados}
+  \label{fig:finalResults}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{results_detail_final.eps}
+  \caption{Tela final com detalhes do processamento nos resultados}
+  \label{fig:finalResultsDetail}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{data_final.eps}
+  \caption{Tela final de gerenciamento de dados sísmicos}
+  \label{fig:finalData}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.3]{tools_final.eps}
+  \caption{Tela final de gerenciamento de binários}
+  \label{fig:finalTools}
+\end{figure}
+
 
 \begin{thebibliography}{99}
 

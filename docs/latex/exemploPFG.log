@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  18 NOV 2018 21:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  19 NOV 2018 00:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -523,25 +523,45 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: final_arch.eps Graphic file (type eps)
  <final_arch.eps> [11]
 File: tools_model.eps Graphic file (type eps)
- <tools_model.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <tools_model.eps> [12]
 File: results.eps Graphic file (type eps)
+
 <results.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: users_model.eps Graphic file (type eps)
-<users_model.eps>
+ <users_model.eps> [13]
+File: final_login.eps Graphic file (type eps)
+ <final_login.eps>
+File: final_create.eps Graphic file (type eps)
+ <final_create.eps>
+File: task_first_final.eps Graphic file (type eps)
+
+<task_first_final.eps>
+File: task_args_final.eps Graphic file (type eps)
+ <task_args_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: results_final.eps Graphic file (type eps)
+<results_final.eps>
 
- [13]
-[14] (./exemploPFG.aux)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: results_detail_final.eps Graphic file (type eps)
+<results_detail_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: data_final.eps Graphic file (type eps)
+<data_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: tools_final.eps Graphic file (type eps)
+<tools_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14] [15] [16] (./exemploPFG.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
@@ -554,12 +574,12 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 1698 strings out of 494930
- 20918 string characters out of 6180168
- 78214 words of memory out of 5000000
- 4972 multiletter control sequences out of 15000+600000
+ 1722 strings out of 494930
+ 21343 string characters out of 6180168
+ 78294 words of memory out of 5000000
+ 4988 multiletter control sequences out of 15000+600000
  17010 words of font info for 48 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  32i,9n,24p,274b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (15 pages, 46828 bytes).
+Output written on exemploPFG.dvi (17 pages, 49988 bytes).
