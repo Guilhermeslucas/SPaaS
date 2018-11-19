@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  19 NOV 2018 00:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  19 NOV 2018 03:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -533,11 +533,25 @@ File: final_login.eps Graphic file (type eps)
  <final_login.eps>
 File: final_create.eps Graphic file (type eps)
  <final_create.eps>
-File: task_first_final.eps Graphic file (type eps)
+File: data_final.eps Graphic file (type eps)
 
-<task_first_final.eps>
+<data_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: tools_final.eps Graphic file (type eps)
+<tools_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[14]
+File: task_first_final.eps Graphic file (type eps)
+ <task_first_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: task_args_final.eps Graphic file (type eps)
- <task_args_final.eps>
+<task_args_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -551,26 +565,17 @@ File: results_detail_final.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: data_final.eps Graphic file (type eps)
-<data_final.eps>
+[15]
+Underfull \vbox (badness 2980) has occurred while \output is active []
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: tools_final.eps Graphic file (type eps)
-<tools_final.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[14] [15] [16] (./exemploPFG.aux)
+ [16]
+[17] (./exemploPFG.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
 
 LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
@@ -580,6 +585,6 @@ Here is how much of TeX's memory you used:
  4988 multiletter control sequences out of 15000+600000
  17010 words of font info for 48 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 32i,9n,24p,274b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,9n,24p,282b,331s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (17 pages, 49988 bytes).
+Output written on exemploPFG.dvi (18 pages, 53440 bytes).
