@@ -439,11 +439,50 @@ Ao acessar o localhost, será possível ver a tela inicial do projeto.
 
 \subsubsection{Back End}
 
+Aqui, assim como no front end, também existe a possibilidade de rodar o código nativamente ou dentro de um container Docker. Para rodar o back end nativamente, dentro da pasta back end
+existe o arquivo main.py e o requirements.txt. O arquivo de requirements mostra quais são os pacotes necessários para rodar a aplicação. Além desses dois arquivos, é preciso definir três
+variáveis de ambiente, que são:
+
+\begin{itemize}
+  \item SPASS\_CONNECTION\_STRING: String de conexão do MongoDB que será usado para a aplicação.
+  \item SPASS\_DATA\_BLOB\_KEY: Chave referente ao blob que irá guardar todos os componentes citados anteriormente: resultados, dados e binários.
+  \item SPASS\_CELERY\_BROKER: String de conexão do broker do Celery, que, no caso do nosso experimento é o Redis.
+\end{itemize}
+
+Assim, após adicionar essas variáveis de ambiente, basta, dentro da pasta back end, rodar os seguintes comandos:
+
+\begin{lstlisting}[language=bash]
+  $ pip3 install -r requirements.txt
+  $ python3 main.py
+\end{lstlisting}
+
+Caso a opção seja por rodar o back end com Docker, os comandos são:
+
+\begin{lstlisting}[language=bash]
+  $ docker build -t flask-back .
+  $ docker run -p 5000:5000 -e SPASS\_CONNECTION\_STRING="<value>" -e SPASS\_DATA\_BLOB\_KEY="<value>" -e SPASS\_CELERY\_BROKER="<value>" flask-back
+\end{lstlisting}
+
+Nesse caso, o back end estará escutando na porta 5000.
+
 \subsubsection{Worker}
 
+Para os workers, também é possível rodá-lo nativamente. Para isso, dentro da pasta back end, basta executar:
+
+\begin{lstlisting}[language=bash]
+  $ pip3 install -r requirements.txt
+  $ celery worker -A main.celery -l info
+\end{lstlisting}
+
+Vale lembrar que nos workers também é necessário declarar as mesmas variáveis de ambiente do back end, citadas anteriormente. 
+Porém, como a proposta é ter vários workers para executar as tarefas em paralelo, foi criado um playbook Ansible, para configurar deixar várias máquinas prontas para 
+executar essas tarefas. Para isso, com o Ansible instalado e os hosts determinado no arquivo de configuração da ferramenta, basta executar dentro da pasta devops:
+
+\begin{lstlisting}[language=bash]
+  $ ansible-playbook worker_config.yaml
+\end{lstlisting}
+
 \subsection{Telas finais}
-
-
 
 Assim, após apresentar a arquitetura final, são apresentadas os componentes, com suas respectivas telas. 
 
