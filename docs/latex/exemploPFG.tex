@@ -18,6 +18,7 @@
 %% \usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
+\usepackage{listings}
 
 \begin{document}
 
@@ -403,7 +404,46 @@ Dada a arquitetura final do projeto mostra na figura ~\ref{fig:finalArch} os com
 Vale notar aqui que, usamos somente uma instância de bancos de dados, com coleções diferentes para cada tipo de aplicação, as Collections, no caso. Também usamos a mesma estratégia para o blob. Foi usada somente 
 uma conta de armazenamento no Microsoft Azure, com pastas separadas para cada uso, que no caso, são seismic-data, seismic-tools e seismic-results. 
 
+\subsection{Rodando a aplicação}
+
+Esta seção é dedicada a explicação de como executar cada componente da plataforma:
+
+\subsubsection{Front End}
+
+Para rodar o front end, todas as variáveis de ambiente estão no caminho front-end/src/environments. Nesse caminho exitem dois arquivos, environment.ts e environment.prod.ts.
+O primeiro contém os valores das variáveis de ambiente que serão consideradas durante o desenvolvimento, ou seja, quando o comando
+
+\begin{lstlisting}[language=bash]
+  $ ng serve 
+\end{lstlisting}
+
+é usado. Assim, a única variável que deve ser alterada é a apiUrl, que deve apontar para o back end. Assim para compilar o projeto e serví-lo usando um servidor web, os comandos que 
+devem ser rodados são os seguintes: 
+
+\begin{lstlisting}[language=bash]
+  $ npm install 
+  $ npm run build -- --output-path=./dist/out --configuration production
+\end{lstlisting}
+
+Isso gerará uma pasta ./dist/out que quando colocadas no caminho /usr/share/nginx/html de um computador com nginx instalado, irá servir a aplicação do front end.
+
+Outra maneira de rodar o front end é via docker. Existe um Dockerfile dentro da pasta front end que facilita muito o deploy. Existem dois comandos que devem ser rodados nesse caso, um
+para construir a imagem do Docker e outro para rodá-la:
+
+\begin{lstlisting}[language=bash]
+  $ docker build -t my-angular-project:prod .
+  $ docker run -p 80:80 my-angular-project:prod
+\end{lstlisting}
+
+Ao acessar o localhost, será possível ver a tela inicial do projeto.
+
+\subsubsection{Back End}
+
+\subsubsection{Worker}
+
 \subsection{Telas finais}
+
+
 
 Assim, após apresentar a arquitetura final, são apresentadas os componentes, com suas respectivas telas. 
 
