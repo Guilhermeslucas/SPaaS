@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  20 NOV 2018 02:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  20 NOV 2018 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -499,23 +499,18 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 99.
  [1]
-Overfull \hbox (17.77824pt too wide) in paragraph at lines 117--118
+Overfull \hbox (17.77824pt too wide) in paragraph at lines 117--119
 []\OT1/cmr/bx/n/10.95 Foco na aplica^^Xc~ao: \OT1/cmr/m/n/10.95 de-sen-vol-ve-d
 o-res po-dem fo-car to-tal-mente em es-cre-ver suas aplica^^Xc~oes,
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <9> on input line 121.
+(Font)              <9> on input line 122.
 [2] [3]
 File: arch.eps Graphic file (type eps)
  <arch.eps> [4]
-Underfull \hbox (badness 1472) in paragraph at lines 188--188
-[][]\OT1/cmr/m/n/9 Programa que re-a-liza vir-tu-a-liza^^Xc~ao em n^^S^^Pvel de
- SO, tamb^^Sem co-nhe-cido como con-tei-ne-riza^^Xc~ao
- []
-
 File: login.eps Graphic file (type eps)
-<login.eps>
+ <login.eps>
 File: account_reg.eps Graphic file (type eps)
  <account_reg.eps>
 
@@ -526,9 +521,8 @@ File: First_screen.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[5]
 File: Second_screen.eps Graphic file (type eps)
- <Second_screen.eps>
+<Second_screen.eps> [5]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -539,7 +533,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: Reference `fig:resultScreen' on page 6 undefined on input line 2
-46.
+48.
 
 File: tcc_flow.eps Graphic file (type eps)
 <tcc_flow.eps>
@@ -547,7 +541,7 @@ File: tcc_flow.eps Graphic file (type eps)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [6] [7] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 315--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--317
 [][]\OT1/cmr/m/n/9 Armazenamento de car^^Sater gen^^Serico no Mi-cro-soft Azure
  https://azure.microsoft.com/en-
  []
@@ -572,7 +566,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 [12]
 File: users_model.eps Graphic file (type eps)
  <users_model.eps> [13]
-Overfull \hbox (37.32176pt too wide) in paragraph at lines 413--415
+Overfull \hbox (37.32176pt too wide) in paragraph at lines 415--417
 \OT1/cmr/m/n/10.95 Para ro-dar o front end, to-das as vari^^Saveis de am-bi-ent
 e est~ao no ca-mi-nho front-end/src/environments.
  []
@@ -583,39 +577,46 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-Overfull \hbox (39.42493pt too wide) in paragraph at lines 425--426
+Overfull \hbox (39.42493pt too wide) in paragraph at lines 427--428
 [][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (8.54468pt too wide) in paragraph at lines 428--429
+Overfull \hbox (8.54468pt too wide) in paragraph at lines 430--431
 []\OT1/cmr/m/n/10.95 Isso ge-rar^^Sa uma pasta ./dist/out que quando co-lo-ca-d
 as no ca-mi-nho /usr/sha-re/n-ginx/html
  []
 
 [14]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 463.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 465.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 463.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 465.
 
-Overfull \hbox (538.75012pt too wide) in paragraph at lines 463--464
+Overfull \hbox (538.75012pt too wide) in paragraph at lines 465--466
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
 ][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
+[15]
 File: final_login.eps Graphic file (type eps)
-<final_login.eps> [15]
+ <final_login.eps>
 File: final_create.eps Graphic file (type eps)
  <final_create.eps>
 File: data_final.eps Graphic file (type eps)
- <data_final.eps> [16]
-File: tools_final.eps Graphic file (type eps)
+ <data_final.eps>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: tools_final.eps Graphic file (type eps)
 <tools_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16]
 File: task_first_final.eps Graphic file (type eps)
  <task_first_final.eps>
 File: task_args_final.eps Graphic file (type eps)
@@ -623,17 +624,15 @@ File: task_args_final.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[17]
 File: results_final.eps Graphic file (type eps)
-<results_final.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <results_final.eps>
 File: results_detail_final.eps Graphic file (type eps)
-<results_detail_final.eps>
+ <results_detail_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[17] [18] [19] (./exemploPFG.aux)
+[18] [19] (./exemploPFG.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
@@ -641,14 +640,17 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  3514 strings out of 494930
  44654 string characters out of 6180168
- 130480 words of memory out of 5000000
+ 129694 words of memory out of 5000000
  6762 multiletter control sequences out of 15000+600000
  15269 words of font info for 43 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  32i,9n,51p,382b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (20 pages, 63756 bytes).
+Output written on exemploPFG.dvi (20 pages, 63720 bytes).

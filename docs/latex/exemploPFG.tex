@@ -71,9 +71,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{abstract} 
-  Este trabalho é uma tentativa de criar uma plataforma que facilita o 
+  Este trabalho busca criar uma plataforma que facilita o 
   processamento de dados sísmicos na nuvem, sem conhecimento técnico dos
-  novos conceitos que a nuvem proporciona. A partir disso, tenta trazer
+  novos conceitos que a nuvem traz consigo. A partir disso, tenta trazer
   mais agilidade, custos mais baixos e maior flexibilidade para os 
   engenheiros e desenvolvedores que trabalham em aplicações que 
   necessitam de alto poder computacional.
@@ -88,7 +88,7 @@
 \section{Introducão}
 
 Computação em Nuvem é um conceito que está cada vez mais presente no cotidiano de todas as pessoas. Mesmo sem perceber, uma quantidade gigantesca de aplicações que usamos hoje 
-em dia lançam mão desse conceito tão central para o desenvolvimento econômico e tecnológico de nossa sociedade contemporânea. Esse conceito se baseia na capacidade de usarmos o
+em dia lançam mão desse conceito tão central para o desenvolvimento econômico e tecnológico de nossa sociedade contemporânea. Ela se baseia na capacidade de usarmos o
 poder computacional de uma infinidade de serviços como Máquinas virtuais, Bancos de Dados e Redes Virutais sem necessariamente possuirmos máquinas físicas com tais serviços 
 instalados e configurados, ainda sendo possível, de maneira simples, expor tais serviços e mecanismos para vários usuários ao redor do mundo. Segundo o artigo Cloud Computing Security: A
 Systematic Literature Review~\cite{UPP}, computação em nuvem é um modelo de rede que torna possível o acesso sob demanda de recursos computacionais configuráveis.
@@ -99,7 +99,7 @@ Entre as modalidades principais de serviços de computação em nuvem, temos tr�
   \item \textbf{IaaS(Infrastructure as a Service):} essa é a maneira que dá mais responsabilidade ao usuário. Essa modalidade te dá máquinas virtualizadas que você deve gerenciar 
   instalação de programas, configurações e etc. Exemplo disso são máquinas virtuais que rodam sistemas operacionais GNU/Linux e são acessadas remotamente.
   \item \textbf{PaaS(Plataform as a Service):} Aqui, o usuário não precisa se preocupar com pacotes de sistema, softwares e configurações. Esse sabor de computação em nuvem, tenta 
-  facilitar para desenvolvedores publicares suas aplicações. Isso siginifca que se, por exemplo, um usuário quiser publicar uma aplicação, não vai precisar se preocupar em
+  facilitar para desenvolvedores publicarem suas aplicações. Isso siginifca que se, por exemplo, um usuário quiser publicar uma aplicação, não vai precisar se preocupar em
   instalar compiladores nem pacotes necessários para rodar a aplicação naquela determinada linguagem.
   \item \textbf{SaaS(Software as a Service):} essa é a modalidade que traz menos autonomia para o desenvolvedor, sendo que, através dela, todo o rescurso é gerenciado pelo provedor de 
   nuvem que é consumido. Alguns exemplos que podemos citar para ilustrar são bancos de dados como serviço, onde o usuário não se preocupa com nenhum tipo de infraestrutura, 
@@ -107,24 +107,25 @@ Entre as modalidades principais de serviços de computação em nuvem, temos tr�
 
 \end{itemize}
 
-Entre as vantagens de se adotar um modelo de computação em nuvem ao invés de investir em realmente adiquirir máquinas físicas, podemos citar:
+Entre as vantagens de se adotar um modelo de computação em nuvem ao invés de investir em adiquirir máquinas físicas, podemos citar:
 
 \begin{itemize}
   \item \textbf{Custo:} devido a possibilidade de pagar somente pelo o que está usando, ou seja, caso algum recurso está sendo pouco aproveitado, basta desligá-lo, usuários desse tipo de 
   plataforma não gastarão para manter sistemas parados.
-  \item \textbf{Escalabilidade:} A computação em nuvem permite que, caso a aplicação preciso de muito mais poder computacional do que possui no momento, seja extremamente simples aumentar
+  \item \textbf{Escalabilidade:} A computação em nuvem permite que, caso a aplicação precise de muito mais poder computacional do que possui no momento, seja extremamente simples aumentar
   o número de instâncias ou o tamanho das máquinas, para atender mais usuários, gerando assim, mais receita.
-  \item \textbf{Foco na aplicação:} desenvolvedores podem focar totalmente em escrever suas aplicações, sem a preocupação de gerenciar infraestutura e plataforma.
+  \item \textbf{Foco na aplicação:} desenvolvedores podem focar totalmente em escrever suas aplicações, sem a preocupação de gerenciar infraestutura e plataforma, o que pode ser muito
+  trabalhoso.
 
 \end{itemize}
 
-Entre os principais players de nuvem pública atualmente temos gigantes como Microsoft Azure\footnote{Plataforma de Computação em Nuvem da Microsfot https://azure.microsoft.com/}, 
-Amazon Web Services\footnote{Plataforma de Computação em Nuvem da Amazon https://aws.amazon.com/} e Google Cloud Plataform\footnote{Plataforma de Computação em Nuvem do Google https://cloud.google.com/}, 
+Entre os principais players de nuvem pública atualmente temos gigantes como Microsoft Azure\footnote{Plataforma de Computação em Nuvem da Microsoft https://azure.microsoft.com/}, 
+Amazon Web Services\footnote{Plataforma de Computação em Nuvem da Amazon https://aws.amazon.com/} e Google Cloud Platform\footnote{Plataforma de Computação em Nuvem do Google https://cloud.google.com/}, 
 oferecendo opções extremamente diversas para computação em nuvem, desde máquinas virtuais até mesmo bancos de dados gerenciados, onde a preocupação de gerenciamente fica totalmente
 do lado do provedor do serviço.
 
 Aplicações de HPC (High Processing Computing, computação de alto processamento, na tradução) são uma gama de programas que necessitam de muito poder computacional para 
-completar as seus objetivos. Entre essas tarefas, estão o processamento de dados sísmicos, que são obtidas de maneira bruta e precisam de um trabalho muito pesado de tratamento
+completar seus objetivos. Entre essas tarefas, estão o processamento de dados sísmicos, que são obtidas de maneira bruta e precisam de um trabalho muito pesado de tratamento
 para que algumas conclusões possam ser feitas a partir dele. Segundo o texto~\cite{HPC}, Supercomputação é usada para realizar operaçoes matemáticas em alta velocidade. HPC é como supercomputação,
 mas com o poder computacional de cluster computacionais.
 Ainda hoje, muitas dessas operações são feitas em servidores em institutos de pesquisas, por exemplo, podendo levar
@@ -134,11 +135,12 @@ tirar muito proveito dos provedores de nuvem citados acima.
 \section{Objetivos}
 Esse trabalho tem como objetivo desenvolver uma plataforma Open Source que torne extremamente simples para usuários que não conhecem conceitos de Computação em Nuvem rodarem suas aplicações.
 Entre os princípios do Open Source citado no Debian Social Contract~\cite{BP}: Redistribuição livre, o software deve ser distrivuído com o código fonte, trabalhos derivados, entre outros.
-A princípio, foram usadas aplicações para a prova de conceito. O desejado para o final da plataforma era que os usuários conseguissem processar os trabalhos sísmico sem nenhum conhecimento de Nuvem.  
-Ao final, esperamos a criação de uma plataforma web, que tinha como principais funcionalidades:
+A princípio, foram usadas aplicações sísmicas para a prova de conceito. O desejado para o final da plataforma era que os usuários conseguissem processar 
+os trabalhos sísmico sem necessariamente conhecer plataformas de Nuvem.  
+Ao final, é esperado a criação de uma plataforma web, que tinha como principais funcionalidades:
 
 \begin{itemize}
-  \item \textbf{Submissão e gerenciamente de dados:} Essa funcionalidade é a responsável pelo upload de dados que serão usados nos processamentos, além de consultar quais dados foram submetidos, baixá-los e também
+  \item \textbf{Submissão e gerenciamente de dados:} Essa funcionalidade é a responsável pelo upload de dados sísmicos que serão usados nos processamentos, além de consultar quais foram submetidos, baixá-los e também
   excluí-los, caso necessário. 
   \item \textbf{Submissão e gerenciamento de binários:} esse componente do projeto é extremamente semelhante com a que detalhamos acima, porém, ao invés dos dados sísmicos, os artefatos que são gerenciados são os 
   binários das aplicações que serão utilizados nos processos.
@@ -148,21 +150,21 @@ Ao final, esperamos a criação de uma plataforma web, que tinha como principais
 \end{itemize}
 
 \section{Relevância}
-Ao buscar por outras soluções que tem o mesmo intuito da plataforma que esse trabalho tem por objetivo desenvolver, notamos a sua extrema relevância, uma que vez que é extremamente difícil achar outros softwares
+Ao buscar por outras soluções que tem o mesmo intuito da plataforma que esse trabalho tem por objetivo desenvolver, notamos a sua extrema relevância, uma que vez que é muito difícil achar outros softwares
 open source que executam tal tarefa.
 Além da unicidade que o trabalho possui no cenários atual, ele se torna relevante já que ele pode abstrair os novos conceitos e a curva de aprendizado que vem junto com a computação em nuvem. Assim é possível
 tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso muito mais inteligente dos recursos, baixando custos e aumentando a produtividade.
 
 \section{Procedimento}
-Para o sucesso final do projeto, ao começo dele, foi decidido que faríamos uma plataforma web. Essa foi a decisão devido a facilidade de desenvolver para esse tipo de plataforma, além do alcance
+Para o sucesso do projeto, ao começo dele, foi decidido que faríamos uma plataforma web. Essa foi a decisão devido a facilidade de desenvolver para esse tipo de plataforma, além do alcance
 gigantesco que plataformas web possuem, já que é praticamente obrigatório nos dispositivos que os usuários poderiam usar para acessar o sistema (smartphones e computadores) possuir um
-navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github\footnote{Serviço para compartilhamento de código fonte www.github.com}, já que foi uma premissa desde o início do projeto que este
-seria Open Source.
+navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github\footnote{Serviço para compartilhamento de código fonte www.github.com}, 
+já que foi uma premissa desde o início do projeto que este seria Open Source.
 
 Ao iniciar a análise do problema, foi possível notar que uma arquitetura de nuvem que se encaixa muito bem nesse problema é a de Work Queues(Filas de Trabalho), que segundo Brendan Burns em seu livro
 Designing Distributed Systems, "Em um sistema de filas de trabalho existe uma trabalho em batch para ser executado. Cada parte do trabalho é independente do outro e pode ser executado sem nenhuma interaçao" 
 ~\cite{BB}.
-Isso é exatamente o que foi buscado, uma vez que os trabalhos eram intensivos, demoravam um tempo para serem reproduzidos e eram independentes um do outro. Assim, o que gostaríamos era que trabalhos fossem submetidos
+Isso é exatamente o que foi buscado, uma vez que os trabalhos eram intensivos, demoravam um tempo significativo para serem reproduzidos e eram independentes um do outro. Assim, o que gostaríamos era que trabalhos fossem submetidos
 a uma fila e, alguma unidade de computação o usasse para executar uma definição de trabalho.
 
 \begin{figure}[!h]
@@ -177,7 +179,7 @@ A imagem ~\ref{fig:archtec} ajuda a explicar como é o funcionamento dessa arqui
 Então, a plataforma foi separada em duas grandes partes:
 
 \begin{itemize}
-  \item \textbf{Front-End:} A parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. (Colocar alguma sitação)
+  \item \textbf{Front-End:} A parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. 
   \item \textbf{Back-End:} Essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso ao banco de dados, autenticação, processamento de dados,
   submissão de dados para a nuvem, etc.
 \end{itemize}
@@ -185,16 +187,16 @@ Então, a plataforma foi separada em duas grandes partes:
 Existem alguns componentes que foram usados em comum entre essas duas partes:
 
 \begin{itemize}
-  \item \textbf{Docker\footnote{Programa que realiza virtualização em nível de SO, também conhecido como conteinerização https://www.docker.com/}:} 
+  \item \textbf{Docker\footnote{Programa que realiza virtualização em nível de Sistema Operacional, também conhecido como conteinerização https://www.docker.com/}:} 
   uma maneira muito simples de empacotar as aplicações, isolando dependências, garantindo que o deploy sempre é feito da maneira correta. Assim, é possível entregar as aplicações completas, com
   todos os requisitos necessários instalados, o que da uma agilidade enorme durante o ciclo de desenvolvimento.
-  \item \textbf{Nginx\footnote{Servidor Web Open Source https://www.nginx.com/}:} Servidor web open source extremamente escalável e fácil de configurar. Foi usado tanto para servir o back end quando o front end. A outra opção para esse trabalho seria o Apache Web Server, porém
-  o Nginx se mostrou mais simples e rápido de ter aplicações rodando.
+  \item \textbf{Nginx\footnote{Servidor Web Open Source https://www.nginx.com/}:} Servidor web open source extremamente escalável e fácil de configurar. Foi usado tanto para servir o back end quando o front end. 
+  A outra opção para esse trabalho seria o Apache Web Server, porém o Nginx se mostrou mais simples e rápido de ter aplicações rodando.
 \end{itemize}
 
 \subsection{Front End}
 
-Para o desenvolvimento do front end, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, foi decidido que o layout geral das telas, seriam:
+Para o desenvolvimento do front end, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, o layout geral das telas, seria:
 
 \begin{figure}[!h]
   \centering
@@ -254,7 +256,7 @@ A ultima figura ~\ref{fig:resultScreen} mostra como foi pensada a obtenção dos
 
 Vale ressaltar que essa ideia inicial foi considerada com poucas das funcionalidades que realmente eram relevantes para a plataforma. Assim, o fluxo de todo o trabalho foi 
 repensado para algo mais próximo do representado na figura ~\ref{fig:flowScreen}. Nesse fluxo definido, os quadrados representam as telas, com suas respectivas interações com 
-as camadas de armazenamento que são necessárias para completar suas tarefas com sucesso. Assim, entrando no detalhe de cada componente da solução:
+as camadas de armazenamento, que são necessárias para completar suas tarefas com sucesso. Assim, entrando no detalhe de cada componente da solução:
 
 \begin{itemize}
   \item \textbf{Data Management:} Componente responsável pelo gerencimento dos dados sísmicos da plataforma. A intenção nesse componente é ser capaz de adicionar, remover e 
@@ -273,10 +275,10 @@ as camadas de armazenamento que são necessárias para completar suas tarefas co
 Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o front end, foram escolhidas as seguintes tecnologias:
 
 \begin{itemize}
-  \item \textbf{Angular\footnote{Framework Open Source para desenvolvimento web https://angular.io/}:} Framework(link abaixo) para desenvolvimento de aplicações web Open Source, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
-  Typescript\footnote{Linguagem criada pela Microsoft. Um superset do JavaScript https://www.typescriptlang.org/}. A escolha desse framework aconteceu uma vez que ela é extremamente produtiva e por ser um framework completo, já encapsulando todo o conceito de serviços, estilo de página e 
-  linguagem de marcação, roteamento. Assim, com esse framework ainda é necessário conhecer linguagens de marcação como HTML(link) e CSS (link), mas a junção de todos esses conceitos fica muito mais simples.
-  \item \textbf{Bootstrap\footnote{Conjunto de ferramentas Open Source que ajuda na estilização de páginas https://getbootstrap.com/}:} Frameworks que possui o estilo de vários componentes web prontos, como tabelas, menu laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do github
+  \item \textbf{Angular\footnote{Framework Open Source para desenvolvimento web https://angular.io/}:} Framework para desenvolvimento de aplicações web Open Source, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
+  Typescript\footnote{Linguagem criada pela Microsoft. Um superset do JavaScript https://www.typescriptlang.org/}. A escolha desse framework aconteceu uma vez que ele é extremamente produtive e por ser um framework completo, já encapsulando todo o conceito de serviços, estilo de página e 
+  linguagem de marcação, roteamento. Assim, com esse framework ainda é necessário conhecer linguagens de marcação como HTML e CSS, mas a junção de todos esses conceitos fica muito mais simples.
+  \item \textbf{Bootstrap\footnote{Conjunto de ferramentas Open Source que ajuda na estilização de páginas https://getbootstrap.com/}:} Frameworks que possui o estilo de vários componentes web prontos, como tabelas, menus laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do github
   Estilizar páginas web pode ser um trabalho extremamente complicado e demorado, por isso optamos por usar um framework. Existem outros frameworks CSS interessantes, porém poucos tem a maturidade do bootstrap.
 \end{itemize}
 
@@ -285,7 +287,7 @@ o deploy da solução de maneira extremamente simples e direta sobre Containers 
 
 \subsection{Back End}
 
-Ao início do desenvolvimento do back end, buscamos definir quais seriam as melhores tecnologias para esse componente, além de definir como seriam as rotas e contratos que a API(link) do back end iria expor
+Ao início do desenvolvimento do back end, buscamos definir quais seriam as melhores tecnologias para esse componente, além de definir como seriam as rotas e contratos que a API do back end iria expor
 para que o front end pudesse consumir de forma eficaz e direta, garantindo assim, um total desacoplamento entre os dois componentes. Assim, os componentes que decidimos para o back end foram os seguintes:
 
 \begin{itemize}
@@ -293,7 +295,7 @@ para que o front end pudesse consumir de forma eficaz e direta, garantindo assim
   desempenho. A escolha dela foi devido principalmente a bibliotecas muito maduras para desenvolvimento de API's back end, filas de trabalho distribuídas e conectores com bancos de dados.
 
   \item \textbf{Flask\footnote{Framework Web Open Source para Python http://flask.pocoo.org/}:} Framework para desenvolvimento de APIS para Python. Foi escolhido devido a extrema agilidade para colocar uma API rodando. Além disso, é muito simples entender como a aplicação está funcionando,
-  fator muito crítico para decidirmos na escolha desta, uma vez que o projeto tem como premissa ser Open Source e facilitar o entendimento de todos que o usam. Ao invés de Python/Flask, foram cogitadas também ASP .NET
+  fator muito crítico para decidirmos na escolha desta, uma vez que o projeto tem como premissa ser Open Source e facilitar o entendimento de todos que o usam. Ao invés de Python/Flask, foram cogitadas também ASP.NET
   com C\# e NodeJS. A primeira foi descartada devido a complexidade para simplesmente criarmos uma API. NodeJS não foi escolhido devido a dificuldade que novos programadores podem enfrentar para compreender as
   fucnionalidades em um primeiro momento, quando fossem aumentar o projeto.
 
@@ -303,30 +305,30 @@ para que o front end pudesse consumir de forma eficaz e direta, garantindo assim
   Redis, Amazon SQS\footnote{Sistema de mensageria da plataforma de AWS https://aws.amazon.com/sqs/}.
 
   \item \textbf{Redis\footnote{Armazenamento de dados em memória Open Source https://redis.io/}:} Após a escolha de qual biblioteca iríamos usar para facilitar a tarefa de filas de trabalho, que foi o Celery, foi preciso escolher algum componente para a mensageria do projeto, ou seja, o
-  componente que realmente é responsável por armazenar e distribuir as mensagens relacionadas aos trabalhos submetidos na solução. Entre as opções estavam RabbitMQ, Redis e Amazon SQS. Essas as que melhor se 
+  componente que realmente é responsável por armazenar e distribuir as mensagens relacionadas aos trabalhos submetidos na solução. Entre as opções estavam RabbitMQ, Redis e Amazon SQS. Essas são as que melhor se 
   integravam com o celery, sendo possível obter todas as suas funcionalidades com qualquer um desses três. Porém, Amazon SQS é uma opção presa a um provedor de nuvem, o que complica o andar do projeto, caso seja 
   preciso usar outra cloud diferente da AWS. RabbitMQ e Redis ofereciam funcionalidades muito parecidas, porém o Redis foi escolhido, devido a infinidade de materiais sobre o uso dele e suas outras funcionalidades
   que podem ser tiradas proveito também, como, por exemplo, cache e armazenamento de dados em memória.
 
-  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL Open Source https://www.mongodb.com/}:} Para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada tipo de binário e etc, a escolha foi um banco de dados NoSQL(referencia), o MongoDB. A escolha deste
-  foi muito direta, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito parecida com os documentos que são guardados nesse tipo de banco, não sendo necessário de preocupar
-  em transformar os dados para os esquemas presentes em tabelas SQL(referencia), o que agiliza muito o trabalho.
+  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL Open Source https://www.mongodb.com/}:} Para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada tipo de binário e etc, a escolha foi um banco de dados NoSQ, o MongoDB. A escolha deste
+  foi muito direta, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito parecida com os documentos que são guardados nesse tipo de banco, não sendo necessário se preocupar
+  em transformar os dados para os esquemas presentes em tabelas SQL, o que agiliza muito o trabalho.
 
   \item \textbf{Blob Storage\footnote{Armazenamento de caráter genérico no Microsoft Azure https://azure.microsoft.com/en-us/services/storage/blobs/}:} o Blob Storage do Microsoft Azure foi a opção aqui pois era necessário uma espécie de armazenamento de propósito geral. Aqui ele está sendo usado para armazenamento dos dados sísmicos e
-  binários. Foi escolhido devido a excelente integração que possui com Python. Outras opções existentes eram, por exemplo, Amazon S3(link), que oferece serviços muito parecidos. Outra opção era deixar esses dados em 
+  binários. Foi escolhido devido a excelente integração que possui com Python. Outras opções existentes eram, por exemplo, Amazon S3 \footnote{Armazenamento genérico na AWS https://aws.amazon.com/pt/s3/}, que oferece serviços muito parecidos. Outra opção era deixar esses dados em 
   no disco de máquinas virtuais e serví-los por meio de servidores, porém, isso aumentaria muito a complexidade e dificultaria a tarefa de gerenciar esse tipo de infraestrutura.
 \end{itemize}
 
 \subsection{Ferramentas para Deploy}
 
 Como dito anteriormente, ao iniciar o projeto, não era desejado que estivéssemos presos a um modelo específico de deployment. Assim, para facilitar o deploy da aplicação independente
-do modo que foi escolhido para o deploy, foi criado uma série de scripts em ferramentas específicas para ajudar. Existem dois modelos que estão sendo facilitados:
+do modo que foi escolhido para isso, foi criado uma série de scripts em ferramentas específicas para ajudar. Existem dois modelos que estão sendo facilitados:
 
 \begin{itemize}
   \item \textbf{Kubernetes\footnote{Orquestrador de Containers Open Source https://kubernetes.io/}:} Orquestrador de Containers extremamente famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples, escalável e performática o deploy 
   de aplicações baseadas em Containers. Nascida dentro do Google, a partir do Borg, que segundo o paper pulbicado pelo Google~\cite{BORG}, é um gerenciador de cluster que roda centenas de milhares de processamentos,
   de milhares de diferentes aplicações entre uma série de clusters,
-  atualmente está sob a jurisdição da Cloud Native Foundation\footnote{Cloud Native Computing Foundation https://www.cncf.io/} e é Open Source. Foi uma
+  atualmente está sob a jurisdição da Cloud Native Computing Foundation\footnote{Cloud Native Computing Foundation https://www.cncf.io/} e é Open Source. Foi uma
   das plataformas que foi visada por ter apresentado extremamente relevancia nos ultimos tempos, com todos os grandes provedores de Nuvem oferecendo opções gerenciadas dessa 
   ferramenta.
   \item \textbf{Ansible\footnote{Gerenciador de configuração Open Source https://www.ansible.com/}:} um modelo muito comum de deploy de aplicações é baseada em máquinas virtuais. Nesse caso, é bom garantir que todas as dependências necessárias para que a 
@@ -338,8 +340,6 @@ do modo que foi escolhido para o deploy, foi criado uma série de scripts em fer
 
 \subsection{Arquitetura}
 
-Após seguir todo o experimento citado acima, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está mostrada na figura (linkar a figura).
-
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.2]{final_arch.eps}
@@ -347,18 +347,20 @@ Após seguir todo o experimento citado acima, foi alcançado um resultado muito 
   \label{fig:finalArch}
 \end{figure}
 
+Após seguir todo o experimento citado acima, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está mostrada na figura ~\ref{fig:finalArch}.
+
 Dada a arquitetura final do projeto mostra na figura ~\ref{fig:finalArch} os componentes mostrados tem, cada um, a seguinte função:
 
 \begin{itemize}
   \item \textbf{Web Client:} componete que roda no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado durante o procedimento, ou seja, todo o código do lado do cliente 
   foi escrito em Typescript, com o auxílio do framework Angular, a estilização das páginas foi feita com Bootstrap e servido via Nginx.
-  \item \textbf{Flask Back End:} responsável por receber todas as requisições que saem do front end. Funciona como um gateway(talvez uma citação). Também foi seguido o plano inicial de escrever todo o back end com
+  \item \textbf{Flask Back End:} responsável por receber todas as requisições que saem do front end. Funciona como um gateway. Também foi seguido o plano inicial de escrever todo o back end com
   Python, Flask e Celery. Esse é o componente que possui mais responsabilidades: autenticação, comunicação com a fila com o auxílio do Celery, acesso aos Blobs e acesso ao banco.
-  \item \textbf{Linux Workers:} Componentes que são responsável pela execução propriamente dita dos pedidos. Com o auxílio do Celery, esperam por pedidos entrarem na fila, e assim que isso acontece, executam. 
+  \item \textbf{Linux Workers:} Componente que é responsável pela execução propriamente dita dos pedidos de trabalho. Com o auxílio do Celery, espera por pedidos entrarem na fila, e assim que isso acontece, executam. 
   É possível ter um cluster de máquinas com esse papel, aumentando o paralelismo das execuções.
   \item \textbf{Message queue with Redis:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramaos de desacoplar o back end dos Linux workers. Assim
   O back end somente precisava submeter uma mensagem com as definições para a execução de um trabalho na fila e algum worker pegaria essa requisição e faria o processamento necessário. Aqui vale um observação 
-  importante. A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o back end dos workers, ainda torna possível a execução de
+  importante: A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o back end dos workers, a execução de
   processamentos em paralelo e distribuídos, não criando um gargalo na solução, possivelmente ocasionado pelo grande número de pedidos na fila esperando por um único worker.
   
   \begin{figure}[!h]
@@ -440,7 +442,7 @@ Ao acessar o localhost, será possível ver a tela inicial do projeto.
 \subsubsection{Back End}
 
 Aqui, assim como no front end, também existe a possibilidade de rodar o código nativamente ou dentro de um container Docker. Para rodar o back end nativamente, dentro da pasta back end
-existe o arquivo main.py e o requirements.txt. O arquivo de requirements mostra quais são os pacotes necessários para rodar a aplicação. Além desses dois arquivos, é preciso definir três
+existe o arquivo main.py e o requirements.txt. O arquivo de requirements.txt mostra quais são os pacotes necessários para rodar a aplicação. Além desses dois arquivos, é preciso definir três
 variáveis de ambiente, que são:
 
 \begin{itemize}
@@ -559,7 +561,7 @@ foram submetidos juntamente com o binário na tela representada pela figura ~\re
 \end{figure}
 
 Na tela de resultados, representada pela figura ~\ref{fig:finalResults}, fica claro como podemos obter os resultados depois de terminados com sucesso os processamentos. Além disso, caso o usuário queira verificar 
-quais foram os dados, binários e argumentos que geraram aqueles resultados é possível através do botão de details, que gera o json com as características daquele processamento, como é possível ver na 
+quais foram os dados, binários e argumentos que geraram aqueles resultados, é possível através do botão de details, que gera o json com as características daquele processamento, como é possível ver na 
 figura ~\ref{fig:finalResultsDetail}.
 
 
