@@ -24,55 +24,29 @@
   </div>
   
   <div class="sidemenu">
-      <ul class="list-group">
-          <a href="/definition"><li class="list-group-item">Definition</li></a>
-          <a href="/status"><li class="list-group-item">Status</li></a>
-          <a href="/results"><li class="list-group-item">Results</li></a>
-      </ul>
-  </div>
+    <ul class="list-group">
+      <a href="/tasksmanager"><li class="list-group-item">Tasks Management</li></a>
+      <a href="/status"><li class="list-group-item">Status Management</li></a>
+      <a href="/results"><li class="list-group-item">Results Management</li></a>
+      <a href="/datamanager"><li class="list-group-item">Data Management</li></a>
+      <a href="/toolsmanager"><li class="list-group-item">Tools Management</li></a>
+    </ul>
+    </div>
   
   <div class="container">
       <div class="custom-table">
           <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                  <th>Id</th>
+                  <th>Status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                <tr *ngFor="let oneStatus of allStatus">
+                  <td>{{ oneStatus.job_id }}</td>
+                  <td>{{ oneStatus.status }}</td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                  <tr>
-                      <th scope="row">3</th>
-                      <td>Larry</td>
-                      <td>the Bird</td>
-                      <td>@twitter</td>
-                    </tr>
               </tbody>
             </table>
        </div>             

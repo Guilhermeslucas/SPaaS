@@ -25,6 +25,8 @@ celery = Celery(app.name, broker=os.environ['SPASS_CELERY_BROKER'], backend=os.e
 
 @celery.task
 def submit_celery(tool_name, data_name, args):
+    file_id = str(uuid.uuid4())
+    db_client.statusCollection.insert_one({'status': 'Executing', 'job_id': file_id})
     seismic_blob.get_blob_to_path('seismic-tools', tool_name, tool_name)
     seismic_blob.get_blob_to_path('seismic-data', data_name, data_name)
     
@@ -36,7 +38,6 @@ def submit_celery(tool_name, data_name, args):
     
     os.system(total_cmd)
     os.system('rm -rf ' + tool_name + ' ' + data_name)
-    file_id = str(uuid.uuid4())
     file_name = file_id + '.tar.gz'
     os.system('tar -czvf ' + file_name+ ' *.su')
     seismic_blob.create_blob_from_path('seismic-results', file_name, file_name)
@@ -48,6 +49,8 @@ def submit_celery(tool_name, data_name, args):
     data_register['args'] = args
     data_register['id'] = file_id
     db_client.resultsCollection.insert_one(data_register)
+
+    db_client.statusCollection.update({'job_id': file_id}, {'$set': { 'status': 'Executed'}})
     
     return
 
@@ -112,9 +115,10 @@ def get_jobs_results():
     all_results = db_client.resultsCollection.find({})
     return Response(dumps(all_results),status=200)
 
-@app.route("/api/tasks/")
+@app.route("/api/status/")
 def get_jobs_status():
-    raise NotImplementedError()
+    all_status = db_client.statusCollection.find({})
+    return Response(dumps(all_status),status=200)
 
 @app.route("/api/results/<id>")
 def get_job_results(id):

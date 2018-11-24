@@ -16,5 +16,6 @@ export const environment = {
   deleteDataEndpoint: '/api/data/',
   getParametersEndpoint: '/api/tasks/parameters/',
   submitTaskEndpoint: '/api/tasks/submit/',
-  getResultsBlobEndpoints: '/api/results/'
+  getResultsBlobEndpoints: '/api/results/',
+  statusEndpoint: '/api/status/'
 };

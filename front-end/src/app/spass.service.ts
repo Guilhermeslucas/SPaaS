@@ -16,6 +16,7 @@ const DELETE_DATA_ENDPOINT = environment.deleteDataEndpoint;
 const GET_PARAMETERS_ENDPOINT = environment.getParametersEndpoint;
 const SUBMIT_TASK_ENDPOINT = environment.submitTaskEndpoint;
 const GET_RESULTS_BLOB_ENDPOINT = environment.getResultsBlobEndpoints;
+const  STATUS_ENDPOINT = environment.statusEndpoint;
 
 @Injectable()
 export class SpassService {
@@ -118,6 +119,14 @@ export class SpassService {
   getResultsFiles(): Observable<string> {
     return this.http
     .get(API_URL + GET_RESULTS_BLOB_ENDPOINT)
+    .map(response => {
+      return response['_body'];
+    });
+  }
+
+  getStatus(): Observable<string> {
+    return this.http
+    .get(API_URL + STATUS_ENDPOINT)
     .map(response => {
       return response['_body'];
     });
