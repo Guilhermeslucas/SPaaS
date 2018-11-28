@@ -72,7 +72,7 @@
 
 \begin{abstract} 
   Este trabalho busca criar uma plataforma que facilita o 
-  processamento de dados sísmicos na nuvem, sem conhecimento técnico dos
+  processamento de dados sísmicos na nuvem, sem exigir do usuário conhecimento técnico dos
   novos conceitos que a nuvem traz consigo. A partir disso, tenta trazer
   mais agilidade, custos mais baixos e maior flexibilidade para os 
   engenheiros e desenvolvedores que trabalham em aplicações que 
@@ -81,15 +81,15 @@
   Desta forma, o projeto foi iniciado com o objetivo de criar uma plataforma
   \emph{open source}, replicável e extremamente simples de ser usada para qualquer 
   usuário. Os resultados foram muito positivos, alcançando o intuito de criar
-  a plataforma somente com componentes open source e facilmente replicável em
+  a plataforma somente com componentes \emph{open source} e facilmente replicável em
   diversas situações.
 \end{abstract}
 
 \section{Introducão}
 
 Computação em Nuvem é um conceito que está cada vez mais presente no cotidiano de todas as pessoas. Mesmo sem perceber, uma quantidade gigantesca de aplicações que usamos hoje 
-em dia lançam mão desse conceito tão central para o desenvolvimento econômico e tecnológico de nossa sociedade contemporânea. Ela se baseia na capacidade de usarmos o
-poder computacional de uma infinidade de serviços como Máquinas virtuais, Bancos de Dados e Redes Virtuais sem necessariamente possuirmos máquinas físicas com tais serviços 
+em dia lançam mão desse conceito tão central para o desenvolvimento econômico e tecnológico de nossa sociedade contemporânea. Ele se baseia na capacidade de usarmos o
+poder computacional de uma infinidade de serviços como máquinas virtuais, bancos de Dados e redes virtuais sem que o usuário tenha máquinas físicas com tais serviços 
 instalados e configurados, ainda sendo possível, de maneira simples, expor tais serviços e mecanismos para vários usuários ao redor do mundo. Segundo o artigo intitulado Cloud Computing Security: A
 Systematic Literature Review~\cite{UPP}, computação em nuvem é um modelo de rede que torna possível o acesso sob demanda de recursos computacionais configuráveis.
 Entre as modalidades principais de serviços de computação em nuvem, temos três categorias mais relevantes:
@@ -99,11 +99,11 @@ Entre as modalidades principais de serviços de computação em nuvem, temos tr�
   \item \textbf{IaaS(\emph{Infrastructure as a Service}):} essa é a maneira que dá mais responsabilidade ao usuário. Essa modalidade exige que o usuário gerencie de maneira integral máquinas virtualizadas, 
   instale programas necessários, defina configurações e etc. Exemplo disso são máquinas virtuais que rodam sistemas operacionais GNU/Linux e são acessadas remotamente.
   \item \textbf{PaaS(\emph{Plataform as a Service}):} Aqui, o usuário não precisa se preocupar com pacotes de sistema, \emph{softwares} e configurações. Esse sabor de computação em nuvem, tenta 
-  facilitar para desenvolvedores publicarem suas aplicações. Isso significa que se, por exemplo, um usuário quiser publicar uma aplicação, não vai precisar se preocupar em
-  instalar compiladores nem pacotes necessários para rodar a aplicação naquela determinada linguagem.
+  facilitar para que desenvolvedores consigam publicar suas aplicações. Isso significa que se, por exemplo, um usuário quiser publicar uma aplicação, não é necessário se preocupar em
+  instalar compiladores e pacotes necessários para rodar a aplicação naquela determinada linguagem.
   \item \textbf{SaaS(\emph{Software as a Service}):} essa é a modalidade que traz menos autonomia para o desenvolvedor, sendo que, através dela, todo o recurso é gerenciado pelo provedor de 
   nuvem que é consumido. Alguns exemplos que podemos citar para ilustrar são bancos de dados como serviço, onde o usuário não se preocupa com nenhum tipo de infraestrutura, 
-  somente usa o endereço que o provedor cede e faz uso das possibilidades de armazenamento que a plataforma oferece.
+  somente usa o endereço que o provedor cede para o usuário usufruir das possibilidades de armazenamento que a plataforma oferece.
 
 \end{itemize}
 
@@ -119,50 +119,48 @@ Entre as vantagens de se adotar um modelo de computação em nuvem ao invés de 
 
 \end{itemize}
 
-Entre os principais provedores de nuvem pública atualmente temos a Microsoft Azure\footnote{Plataforma de Computação em Nuvem da Microsoft https://azure.microsoft.com/}, 
-Amazon Web Services\footnote{Plataforma de Computação em Nuvem da Amazon https://aws.amazon.com/} e Google Cloud Platform\footnote{Plataforma de Computação em Nuvem do Google https://cloud.google.com/}, 
-oferecendo opções extremamente diversas para computação em nuvem, desde máquinas virtuais até mesmo bancos de dados gerenciados, onde a preocupação de gerenciamento fica totalmente
-do lado do provedor do serviço.
+Entre os principais provedores de nuvem pública atualmente temos a Microsoft Azure\footnote{Plataforma de computação em nuvem da Microsoft https://azure.microsoft.com/}, 
+Amazon Web Services\footnote{Plataforma de computação em nuvem da Amazon https://aws.amazon.com/} e Google Cloud Platform\footnote{Plataforma de computação em nuvem do Google https://cloud.google.com/}, 
+oferecendo opções extremamente diversas para computação em nuvem, desde máquinas virtuais até mesmo bancos de dados gerenciados.
 
 Aplicações de alta performance computacional, ou HPC\footnote{do inglês \emph{High-Performance Computing}}, são uma gama de programas que necessitam de muito poder computacional para 
 completar seus objetivos. Entre essas tarefas, estão o processamento de dados sísmicos, que são obtidos de maneira bruta e precisam de um trabalho muito pesado de tratamento
-para que algumas conclusões possam ser feitas a partir dele. Segundo K. Paladugu e S. Mukka~\cite{HPC}, Supercomputação é usada para realizar operações matemáticas em alta velocidade. HPC é como supercomputação,
-mas com o poder computacional de cluster computacionais.
+para que algumas conclusões possam ser feitas a partir deles. Segundo K. Paladugu e S. Mukka~\cite{HPC}, supercomputação é usada para realizar operações matemáticas em alta velocidade. HPC é como supercomputação,
+mas com o poder computacional de \emph{cluster} computacionais.
 Ainda hoje, muitas dessas operações são feitas em servidores em institutos de pesquisas, por exemplo, podendo levar
-a um custo excessivo, trabalho excessivo para gerenciamento de infraestrutura além de baixíssima agilidade e flexibilidade quanto à infraestrutura. Assim, tais aplicações podem 
+a um custo excessivo, muito trabalho para gerenciamento de infraestrutura além de baixíssima agilidade e flexibilidade quanto à arquitetura. Assim, tais aplicações podem 
 tirar muito proveito dos provedores de nuvem citados acima.
 
 \section{Objetivos}
-Esse trabalho tem como objetivo desenvolver uma plataforma \emph{open source} que torne extremamente simples para usuários que não conhecem conceitos de Computação em Nuvem rodarem suas aplicações.
-Entre os princípios do ~\emph{open source} citado no Debian Social Contract~\cite{BP}: Redistribuição livre, o software deve ser distribuído com o código fonte, trabalhos derivados, entre outros.
-A princípio, foram usadas aplicações sísmicas para a prova de conceito. O desejado para o final da plataforma era que os usuários conseguissem processar 
-os trabalhos sísmico sem necessariamente conhecer plataformas de Nuvem.  
+Esse trabalho tem como objetivo desenvolver uma plataforma \emph{open source} que torne extremamente simples para usuários que não conhecem conceitos de computação em nuvem 
+executarem suas aplicações nesse tipo de ambiente. 
+O desejado para o final da plataforma era que os usuários consigam processar 
+os trabalhos sísmico sem necessariamente conhecer plataformas de nuvem.  
 Ao final, é esperado a criação de uma plataforma web, que tinha como principais funcionalidades:
 
 \begin{itemize}
-  \item \textbf{Submissão e gerenciamento de dados:} Essa funcionalidade é a responsável pelo ~\emph{upload} de dados sísmicos que serão usados nos processamentos, além de consultar quais foram submetidos, baixá-los e também
+  \item \textbf{Submissão e gerenciamento de dados:} essa funcionalidade é a responsável pelo \emph{upload} de dados sísmicos que serão usados nos processamentos, além de consultar quais foram submetidos, baixá-los e também
   excluí-los, caso necessário. 
-  \item \textbf{Submissão e gerenciamento de binários:} esse componente do projeto é extremamente semelhante com a que detalhamos acima, porém, ao invés dos dados sísmicos, os artefatos que são gerenciados são os 
+  \item \textbf{Submissão e gerenciamento de binários:} esse componente do projeto é extremamente semelhante com o que detalhamos acima, porém, ao invés dos dados sísmicos, os artefatos que são gerenciados são os 
   binários das aplicações que serão utilizados nos processos.
-  \item \textbf{Definição de tarefas sísmicas:} Utilizando os dados e binários submetidos a partir das duas funcionalidades citadas anteriormente, o objetivo era conseguir lançar um processamento que combina os dados e 
+  \item \textbf{Definição de tarefas sísmicas:} utilizando os dados e binários submetidos a partir das duas funcionalidades citadas anteriormente, o objetivo é conseguir lançar um processamento que combina os dados e 
   binários, além dos argumentos necessários.
-  \item \textbf{Obtenção dos resultados:} Ao final dos processos, é desejado que se consiga obter todos os resultados desse de maneira simples e rápida.
+  \item \textbf{Obtenção dos resultados:} ao final dos processos, é desejado que se consiga obter todos os resultados desse de maneira simples e rápida.
 \end{itemize}
 
 \section{Relevância}
-Ao buscar por outras soluções que tem o mesmo intuito da plataforma que esse trabalho tem por objetivo desenvolver, notamos a sua extrema relevância, uma que vez que é muito difícil achar outros programas
-~\emph{open source} que executam tal tarefa.
+Ao buscar por outras soluções que tem o mesmo intuito da plataforma que esse trabalho tem por objetivo desenvolver, notamos a sua extrema relevância, uma que vez que é muito difícil achar outros programas \emph{open source} que executam tal tarefa.
 Além da unicidade que o trabalho possui no cenários atual, ele se torna relevante já que ele pode abstrair os novos conceitos e a curva de aprendizado que vem junto com a computação em nuvem. Assim é possível
 tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso muito mais inteligente dos recursos, baixando custos e aumentando a produtividade.
 
 \section{Arquitetura do Sistema}
-Para o sucesso do projeto, ao começo dele, foi decidido que faríamos uma plataforma \emph{web}. Essa foi a decisão devido à facilidade de desenvolver para esse tipo de plataforma, além do alcance
-gigantesco que plataformas web possuem, já que é praticamente obrigatório nos dispositivos que os usuários poderiam usar para acessar o sistema (celulares e computadores) possuir um
+Para o sucesso do projeto, ao começo dele, foi decidido que faríamos uma plataforma \emph{web}. Essa foi a decisão tomada devido à facilidade de desenvolver para esse tipo de plataforma, além do alcance
+gigantesco que plataformas \emph{web} possuem, já que é praticamente obrigatório nos dispositivos que os usuários poderiam usar para acessar o sistema (celulares e computadores) a existência de um
 navegador de internet instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava totalmente aberto no Github\footnote{Serviço para compartilhamento de código fonte www.github.com}, 
 já que foi uma premissa desde o início do projeto que este seria \emph{open source}.
 
 Ao iniciar a análise do problema, foi possível notar que uma arquitetura de nuvem que se encaixa muito bem nesse problema é a de \emph{Work Queues} (Filas de Trabalho), que segundo Brendan Burns em seu livro
-Designing Distributed Systems, "em um sistema de filas de trabalho existe uma trabalho em lote para ser executado. Cada parte do trabalho é independente do outro e pode ser executado sem nenhuma interação." 
+Designing Distributed Systems, em um sistema de filas de trabalho existe uma trabalho em lote para ser executado. Cada parte do trabalho é independente do outro e pode ser executado sem nenhuma interação. 
 ~\cite{BB}.
 Isso é exatamente o que foi buscado, uma vez que os trabalhos eram intensivos, demoravam um tempo significativo para serem reproduzidos e eram independentes um do outro. Assim, o que gostaríamos era que trabalhos fossem submetidos
 a uma fila e, alguma unidade de computação o usasse para executar uma definição de trabalho.
@@ -179,8 +177,8 @@ A Figura~\ref{fig:archtec} ajuda a explicar como é o funcionamento dessa arquit
 A plataforma foi separada em duas grandes partes:
 
 \begin{itemize}
-  \item \textbf{\emph{Front End}:} A parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. 
-  \item \textbf{\emph{Back End}:} Essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso ao banco de dados, autenticação, processamento de dados,
+  \item \textbf{\emph{Front End}:} a parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. 
+  \item \textbf{\emph{Back End}:} essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso ao banco de dados, autenticação, processamento de dados,
   submissão de dados para a nuvem, etc.
 \end{itemize}
 
@@ -190,13 +188,13 @@ Existem alguns componentes que foram usados em comum entre essas duas partes:
   \item \textbf{Docker\footnote{Programa que realiza virtualização em nível de Sistema Operacional, também conhecido como conteinerização https://www.docker.com/}:} 
   uma maneira muito simples de empacotar as aplicações, isolando dependências, garantindo que o \emph{deploy} sempre é feito da maneira correta. Assim, é possível entregar as aplicações completas, com
   todos os requisitos necessários instalados, o que dá uma agilidade enorme durante o ciclo de desenvolvimento.
-  \item \textbf{Nginx\footnote{Servidor Web \emph{open source} https://www.nginx.com/}:} Servidor \emph{web open source} extremamente escalável e fácil de configurar. Foi usado tanto para servir o \emph{back end} quanto o \emph{front end}. 
+  \item \textbf{Nginx\footnote{Servidor Web \emph{open source} https://www.nginx.com/}:} servidor \emph{web open source} extremamente escalável e fácil de configurar. Foi usado tanto para servir o \emph{back end} quanto o \emph{front end}. 
   A outra opção para esse trabalho seria o Apache Web Server, porém o Nginx se mostrou mais simples e rápido de ter aplicações rodando.
 \end{itemize}
 
 \subsection{\emph{Front End}}
 
-Para o desenvolvimento do \emph{front end}, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, a visão geral das telas, seria:
+Para o desenvolvimento do \emph{front end}, foram definidas de antemão como seria a composição geral das telas e como seria o fluxo da aplicação. Assim, a visão geral das telas, foi definida da seguinte maneira:
 
 \begin{figure}[!h]
   \centering
@@ -234,14 +232,14 @@ as informações mostradas na tela, eram o suficiente.
   \label{fig:statusScreen}
 \end{figure}
 
-O protótipo da tela de status dos trabalhos está mostrada na Figura~\ref{fig:statusScreen}. Extremamente simples a princípio, uma tabela mostrando o status de cada trabalho. 
-
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.2]{Third_screen.eps}
   \caption{Tela de obtenção dos resultados}
   \label{fig:resultsScreen}
 \end{figure}
+
+O protótipo da tela de status dos trabalhos está mostrada na Figura~\ref{fig:statusScreen}. Extremamente simples a princípio, uma tabela mostrando o status de cada trabalho. 
 
 A Figura~\ref{fig:resultScreen} mostra como foi pensada a obtenção dos resultados.
 
@@ -252,32 +250,32 @@ A Figura~\ref{fig:resultScreen} mostra como foi pensada a obtenção dos resulta
   \label{fig:flowScreen}
 \end{figure}
 
-Vale ressaltar que essa ideia inicial foi considerada com poucas das funcionalidades que realmente eram relevantes para a plataforma. Assim, o fluxo de todo o trabalho foi 
+Vale ressaltar que essa ideia inicial foi pensada com poucas funcionalidades que realmente eram relevantes para a plataforma. Assim, o fluxo de todo o trabalho foi 
 repensado para algo mais próximo do representado na Figura~\ref{fig:flowScreen}. Nesse fluxo definido, os quadrados representam as telas, com suas respectivas interações com 
 as camadas de armazenamento, que são necessárias para completar suas tarefas com sucesso. Assim, entrando no detalhe de cada componente da solução:
 
 \begin{itemize}
-  \item \textbf{\emph{Data Management}:} Componente responsável pelo gerenciamento dos dados sísmicos da plataforma. A intenção nesse componente é ser capaz de adicionar, remover e 
+  \item \textbf{\emph{Data Management}:} componente responsável pelo gerenciamento dos dados sísmicos da plataforma. A intenção nesse componente é ser capaz de adicionar, remover e 
   movê-los de um tipo de armazenamento mais caro (porém mais rápido) para um mais barato, ligeiramente mais lento. 
-  \item \textbf{\emph{Flow Management}:} Componente responsável por determinar uma sequencia de passos que devem ser feitas para completar uma tarefa. Diferente das tarefas (\emph{tasks}),
+  \item \textbf{\emph{Flow Management}:} componente responsável por determinar uma sequencia de passos que devem ser feitos para completar uma tarefa (\emph{tasks}). Diferente das tarefas,
   aqui a definição é de um conjunto de \emph{tasks}, encadeadas para obter um resultado maior.
-  \item \textbf{\emph{Tools Management}:} Essa funcionalidade procura realizar o gerenciamento dos binários que serão executados. Assim como o componente responsável pelo gerenciamento
+  \item \textbf{\emph{Tools Management}:} essa funcionalidade procura realizar o gerenciamento dos binários que serão executados. Assim como o componente responsável pelo gerenciamento
   dos dados, esse componente busca dar a possibilidade de adicionar, mover e excluir binários da plataforma.
-  \item \textbf{\emph{Running Tasks}:} Nessa tela, é desejado que o usuário consiga ver qual é o status dos processamentos que iniciou. Status como pendente e pronto são alguns dos 
+  \item \textbf{\emph{Running Tasks}:} nessa tela, é desejado que o usuário consiga ver qual é o status dos processamentos que iniciou. Status como pendente e pronto são alguns dos 
   possíveis.
-  \item \textbf{\emph{New Tasks}:} Responsável por definir novas tarefas a serem rodadas. É desejado que as características necessárias para essa definição sejam binário, dado sísmico 
+  \item \textbf{\emph{New Tasks}:} responsável por definir novas tarefas a serem rodadas. Os atributos necessários para essa definição são binário, dado sísmico 
   e argumentos para a execução acontecer com sucesso. 
-  \item \textbf{\emph{Results}:} Os resultados dos processamentos executados estarão aqui, organizados pela execução que o gerou.
+  \item \textbf{\emph{Results}:} os resultados dos processamentos executados estarão aqui, organizados pela execução que o gerou.
 \end{itemize}
 
 Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o \emph{front end}, foram escolhidas as seguintes tecnologias:
 
 \begin{itemize}
-  \item \textbf{Angular\footnote{\emph{Framework open source} para desenvolvimento \emph{web} https://angular.io/}:} \emph{Framework} para desenvolvimento de aplicações \emph{web open source}, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
+  \item \textbf{Angular\footnote{\emph{Framework open source} para desenvolvimento \emph{web} https://angular.io/}:} \emph{framework} para desenvolvimento de aplicações \emph{web open source}, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
   Typescript\footnote{Linguagem criada pela Microsoft. https://www.typescriptlang.org/}. A escolha desse \emph{framework} aconteceu uma vez que ele é extremamente produtivo e por ser completo, já encapsulando todo o conceito de serviços, estilo de página e 
-  linguagem de marcação, roteamento. Assim, com esse \emph{framework} ainda é necessário conhecer linguagens de marcação como HTML e CSS, mas a junção de todos esses conceitos fica muito mais simples.
-  \item \textbf{Bootstrap\footnote{Conjunto de ferramentas \emph{open source} que ajuda na estilização de páginas https://getbootstrap.com/}:} \emph{Framework} que possui o estilo de vários componentes web prontos, como tabelas, menus laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do Github
-  Estilizar páginas web pode ser um trabalho extremamente complicado e demorado, por isso optamos por usar um \emph{framework}. Existem outros \emph{frameworks} CSS interessantes, porém poucos tem a maturidade do Bootstrap.
+  linguagem de marcação, roteamento, etc. Assim, com esse \emph{framework} ainda é necessário conhecer linguagens de marcação como HTML e CSS, mas a junção de todos esses conceitos fica muito mais simples.
+  \item \textbf{Bootstrap\footnote{Conjunto de ferramentas \emph{open source} que ajuda na estilização de páginas https://getbootstrap.com/}:} \emph{framework} que possui o estilo de vários componentes web prontos, como tabelas, menus laterais, barras superiores, etc. É o que muitos sites usam hoje em dia, como é o caso do Github.
+  Estilizar páginas web pode ser um trabalho extremamente complicado e demorado, por isso optamos por usar um \emph{framework}.
 \end{itemize}
 
 Foi garantido que o \emph{deploy} fosse feito da maneira mais simples e flexível para o cliente. Então, foi usado o servidor \emph{web} Nginx para isso. Além disso, também foi disponibilizado um Dockerfile, que possibilita
@@ -289,26 +287,26 @@ Ao início do desenvolvimento do \emph{back end}, buscamos definir quais seriam 
 para que o \emph{front end} pudesse consumir de forma eficaz e direta, garantindo assim, um total desacoplamento entre os dois componentes. Assim, os componentes que decidimos para o \emph{back end} foram os seguintes:
 
 \begin{itemize}
-  \item \textbf{Python\footnote{https://www.python.org/}:} Linguagem criada por Guido Van Rossum, extremamente relevante nos dias de hoje devido a sua enorme gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
+  \item \textbf{Python\footnote{https://www.python.org/}:} linguagem criada por Guido Van Rossum, extremamente relevante nos dias de hoje devido a sua enorme gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
   desempenho. A escolha dela foi devido principalmente a bibliotecas muito maduras para desenvolvimento de API's \emph{back end}, filas de trabalho distribuídas e conectores com bancos de dados.
 
-  \item \textbf{Flask\footnote{\emph{Framework web open source} para Python http://flask.pocoo.org/}:} Framework para desenvolvimento de APIS para Python. Foi escolhido devido a extrema agilidade para colocar uma API rodando. Além disso, é muito simples entender como a aplicação está funcionando,
-  fator muito crítico para decidirmos na escolha desta, uma vez que o projeto tem como premissa ser \emph{open source} e facilitar o entendimento de todos que o usam. Ao invés de Python/Flask, foram cogitadas também ASP.NET
+  \item \textbf{Flask\footnote{\emph{Framework web open source} para Python http://flask.pocoo.org/}:} framework para desenvolvimento de APIS para Python. Foi escolhido devido a extrema agilidade para colocar uma API rodando. Além disso, é muito simples entender como a aplicação está funcionando,
+  fator muito crítico para decidirmos a escolha desta, uma vez que o projeto tem como premissa ser \emph{open source} e facilitar o entendimento de todos que o usam. Ao invés de Python/Flask, foram cogitadas também ASP.NET
   com C\# e NodeJS. A primeira foi descartada devido a complexidade para simplesmente criarmos uma API. NodeJS não foi escolhido devido a dificuldade que novos programadores podem enfrentar para compreender as
-  funcionalidades em um primeiro momento, quando fossem aumentar o projeto.
+  funcionalidades em um primeiro momento, quando necessitassem aumentar o projeto.
 
-  \item \textbf{Celery\footnote{\emph{Framework open source} para tarefas distribuídas em Python http://www.celeryproject.org/}:} Uma vez escolhido Python e Flask como ferramentas para o desenvolvimento da solução, foi muito natural a escolha do Celery como ferramenta para trabalhar com filas de trabalho. Existem muitos
+  \item \textbf{Celery\footnote{\emph{Framework open source} para tarefas distribuídas em Python http://www.celeryproject.org/}:} uma vez escolhido Python e Flask como ferramentas para o desenvolvimento da solução, foi muito natural a escolha do Celery como ferramenta para filas de trabalho. Existem muitos
   casos de sucesso espalhados pela internet de engenheiros e desenvolvedores que usaram essa combinação com total eficácia. O Celery é um componente do Python que é o responsável por gerenciar, submeter e obter
   resultados de uma fila de trabalho, de uma maneira muito simples. Além disso, dá suporte a vários componentes de mensageria, como por exemplo, RabbitMQ\footnote{Plataforma \emph{open source} de Mensageria https://www.rabbitmq.com/}, 
   Redis, Amazon SQS\footnote{Sistema de mensageria da plataforma AWS https://aws.amazon.com/sqs/}.
 
-  \item \textbf{Redis\footnote{Armazenamento de dados em memória \emph{open source} https://redis.io/}:} Após a escolha de qual biblioteca iríamos usar para facilitar a tarefa de filas de trabalho, que foi o Celery, foi preciso escolher algum componente para a mensageria do projeto, ou seja, o
+  \item \textbf{Redis\footnote{Armazenamento de dados em memória \emph{open source} https://redis.io/}:} após a escolha de qual biblioteca iríamos usar para facilitar a tarefa de filas de trabalho, que foi o Celery, foi preciso escolher algum componente para a mensageria do projeto, ou seja, o
   componente que realmente é responsável por armazenar e distribuir as mensagens relacionadas aos trabalhos submetidos na solução. Entre as opções estavam RabbitMQ, Redis e Amazon SQS. Essas são as que melhor se 
   integravam com o Celery, sendo possível obter todas as suas funcionalidades com qualquer um desses três. Porém, Amazon SQS é uma opção presa a um provedor de nuvem, o que complica o andar do projeto, caso seja 
   preciso usar outra \emph{cloud} diferente da AWS. RabbitMQ e Redis ofereciam funcionalidades muito parecidas, porém o Redis foi escolhido, devido a infinidade de materiais sobre o uso dele e suas outras funcionalidades
   que podem ser tiradas proveito também, como, por exemplo, \emph{cache} e armazenamento de dados em memória.
 
-  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL \emph{open source} https://www.mongodb.com/}:} Para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada tipo de binário e etc., a escolha foi um banco de dados NoSQL, o MongoDB. A escolha deste
+  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL \emph{open source} https://www.mongodb.com/}:} para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada tipo de binário e etc., a escolha foi um banco de dados NoSQL, o MongoDB. A escolha deste
   foi muito direta, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito parecida com os documentos que são guardados nesse tipo de banco, não sendo necessário se preocupar
   em transformar os dados para os esquemas presentes em tabelas SQL, o que agiliza muito o trabalho.
 
@@ -323,7 +321,7 @@ Como dito anteriormente, ao iniciar o projeto, não era desejado que estivéssem
 do modo que foi escolhido para isso, foi criado uma série de scripts em ferramentas específicas para ajudar. Existem dois modelos que estão sendo facilitados:
 
 \begin{itemize}
-  \item \textbf{Kubernetes\footnote{Orquestrador de containêres \emph{open source} https://kubernetes.io/}:} Orquestrador de containêres extremamente famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples, escalável e performática o deploy 
+  \item \textbf{Kubernetes\footnote{Orquestrador de containêres \emph{open source} https://kubernetes.io/}:} orquestrador de containêres extremamente famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples, escalável e performática o \emph{deploy}
   de aplicações baseadas em containêres. Nascida dentro do Google, a partir do Borg, que segundo o paper publicado pelo Google~\cite{BORG}, é um gerenciador de cluster que roda centenas de milhares de processamentos,
   de milhares de diferentes aplicações entre uma série de clusters,
   atualmente está sob a jurisdição da Cloud Native Computing Foundation\footnote{Cloud Native Computing Foundation https://www.cncf.io/} e é \emph{open source}. Foi uma
@@ -350,14 +348,14 @@ Após seguir todo o experimento citado acima, foi alcançado um resultado muito 
 Dada a arquitetura final do projeto mostra na Figura~\ref{fig:finalArch} os componentes mostrados têm, cada um, a seguinte função:
 
 \begin{itemize}
-  \item \textbf{\emph{Web Client}:} componente que roda no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado durante o procedimento, ou seja, todo o código do lado do cliente 
+  \item \textbf{\emph{Web Client}:} componente que é executado no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado durante o procedimento, ou seja, todo o código do lado do cliente 
   foi escrito em Typescript, com o auxílio do \emph{framework} Angular, a estilização das páginas foi feita com Bootstrap e servido via Nginx.
-  \item \textbf{Flask \emph{Back End}:} responsável por receber todas as requisições que saem do front end. Funciona como um gateway. Também foi seguido o plano inicial de escrever todo o \emph{back end} com
+  \item \textbf{Flask \emph{Back End}:} responsável por receber todas as requisições que saem do \emph{front end}. Funciona como um \emph{gateway}. Também foi seguido o plano inicial de escrever todo o \emph{back end} com
   Python, Flask e Celery. Esse é o componente que possui mais responsabilidades: autenticação, comunicação com a fila com o auxílio do Celery, acesso aos Blobs e acesso ao banco.
-  \item \textbf{Linux \emph{Workers}:} Componente que é responsável pela execução propriamente dita dos pedidos de trabalho. Com o auxílio do Celery, espera por pedidos entrarem na fila, e assim que isso acontece, executam. 
-  É possível ter um cluster de máquinas com esse papel, aumentando o paralelismo das execuções.
+  \item \textbf{Linux \emph{Workers}:} componente que é responsável pela execução propriamente dita dos pedidos de trabalho. Com o auxílio do Celery, espera por pedidos entrarem na fila, e assim que isso acontece, os executam. 
+  É possível ter um \emph{cluster} de máquinas com esse papel, aumentando o paralelismo das execuções.
   \item \textbf{\emph{Message queue with Redis}:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramos de desacoplar o \emph{back end} dos Linux \emph{workers}. Assim
-  O \emph{back end} somente precisava submeter uma mensagem com as definições para a execução de um trabalho na fila e algum \emph{worker} obteria essa requisição e faria o processamento necessário. Aqui vale uma observação 
+  O \emph{back end} somente precisava submeter uma mensagem com as definições para a execução de um trabalho na fila e algum \emph{worker} obteria essa requisição, realizando o processamento necessário. Aqui vale uma observação 
   importante: A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o \emph{back end} dos \emph{workers}, a execução de
   processamentos em paralelo e distribuídos, não criando um gargalo na solução, possivelmente ocasionado pelo grande número de pedidos na fila esperando por um único \emph{worker}.
   
@@ -397,7 +395,7 @@ Dada a arquitetura final do projeto mostra na Figura~\ref{fig:finalArch} os comp
   e quando o processamento vai acontecer, pois nesse momento é necessário baixar esses dados para execução em um dos \emph{workers}.
   \item \textbf{seismic-data:} Blob que armazena os dados sísmicos submetidos. Também são acessados pelo componente de gerenciamento de dados quando um novo dado é incluído, excluído e na execução dos 
   trabalhos, já que é necessário baixar esses dados.
-  \item \textbf{seismic-results:} Outro Blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{ utilitário de compressão de dados https://www.gzip.org/} e disponibilizados para download, 
+  \item \textbf{seismic-results:} outro Blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{ utilitário de compressão de dados https://www.gzip.org/} e disponibilizados para \emph{download}, 
   no componente responsável por gerenciar os resultados.
 \end{itemize}
 
@@ -406,7 +404,7 @@ uma conta de armazenamento no Microsoft Azure, com pastas separadas para cada us
 
 \subsection{Rodando a aplicação}
 
-Esta seção é dedicada a explicação de como executar cada componente da plataforma:
+Esta seção é dedicada à explicação de como executar cada componente da plataforma:
 
 \subsubsection{\emph{Front End}}
 
@@ -425,7 +423,7 @@ devem ser rodados são os seguintes:
   $ npm run build -- --output-path=./dist/out --configuration production
 \end{lstlisting}
 
-Isso gerará uma pasta ./dist/out que quando colocadas no caminho /usr/share/nginx/html de um computador com nginx instalado, irá servir a aplicação do \emph{front end}.
+Isso gerará uma pasta ./dist/out que, quando colocadas no caminho /usr/share/nginx/html de um computador com nginx instalado, irá servir a aplicação do \emph{front end}.
 
 Outra maneira de rodar o \emph{front end} é via Docker. Existe um Dockerfile dentro da pasta \emph{front end} que facilita muito o \emph{deploy}. Existem dois comandos que devem ser rodados nesse caso, um
 para construir a imagem do Docker e outro para rodá-la:
@@ -446,7 +444,7 @@ variáveis de ambiente, que são:
 \begin{itemize}
   \item SPASS\_CONNECTION\_STRING: String de conexão do MongoDB que será usado para a aplicação.
   \item SPASS\_DATA\_BLOB\_KEY: Chave referente ao Blob que irá guardar todos os componentes citados anteriormente: resultados, dados e binários.
-  \item SPASS\_CELERY\_BROKER: String de conexão do broker do Celery, que, no caso do nosso experimento é o Redis.
+  \item SPASS\_CELERY\_BROKER: String de conexão do \emph{broker} do Celery, que, no caso do nosso experimento é o Redis.
 \end{itemize}
 
 Assim, após adicionar essas variáveis de ambiente, basta, dentro da pasta \emph{back end}, rodar os seguintes comandos:
@@ -541,7 +539,7 @@ ser selecionado um arquivo, um nome e quais os parâmetros necessários para a e
 \end{figure}
 
 A Figura~\ref{fig:finalTasks} mostra como é a definição de um pedido de processamento que será submetido. Nesse primeiro momento, só é possível escolher um binário e o dado que serão usados, porém como mostra 
-a Figura~\ref{fig:finalDetailedTask}, após selecionar o binário que será executado serão automaticamente carregados quais são os argumentes necessários para a execução com sucesso dessa tarefa. Esses argumentos
+a Figura~\ref{fig:finalDetailedTask}, após selecionar o binário que será executado, serão automaticamente carregados quais são os argumentes necessários para a execução com sucesso dessa tarefa. Esses argumentos
 foram submetidos juntamente com o binário na tela representada pela Figura~\ref{fig:finalTools}.
 
 \begin{figure}[!h]
@@ -564,15 +562,13 @@ Figura~\ref{fig:finalResultsDetail}.
 
 \begin{thebibliography}{99}
 
-\bibitem{BB} B. Burns, {\it Designing Distributed Systems,} O'Reilly Media (2017).
-
-\bibitem{BP} B. Perens et al., {\it Debian Social Contract,} (1997).
-
-\bibitem{BORG} A. Verma, L. Pedrosa  et al., {\it Large-scale cluster management at Google with Borg,} (2015).
-
 \bibitem{UPP} A. Back and Hugo Lindén., {\it Cloud Computing Security: A Systematic Literature Review,} (2015).
 
 \bibitem{HPC} K. Paladugu and S. Mukka, {\it Systematic Literature Review and Survey on High Performance Computing in Cloud,} (2012).
+
+\bibitem{BB} B. Burns, {\it Designing Distributed Systems,} (2017).
+
+\bibitem{BORG} A. Verma, L. Pedrosa  et al., {\it Large-scale cluster management at Google with Borg,} (2015).
 
 \end{thebibliography}
 
