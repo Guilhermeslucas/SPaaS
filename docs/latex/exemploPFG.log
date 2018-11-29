@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  28 NOV 2018 23:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  29 NOV 2018 01:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -532,10 +532,6 @@ File: Third_screen.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-
-LaTeX Warning: Reference `fig:resultScreen' on page 6 undefined on input line 2
-44.
-
 File: tcc_flow.eps Graphic file (type eps)
 <tcc_flow.eps>
 
@@ -628,17 +624,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 3513 strings out of 494930
- 44639 string characters out of 6180168
- 130555 words of memory out of 5000000
- 6759 multiletter control sequences out of 15000+600000
+ 3512 strings out of 494930
+ 44621 string characters out of 6180168
+ 130519 words of memory out of 5000000
+ 6758 multiletter control sequences out of 15000+600000
  16678 words of font info for 47 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  32i,9n,51p,382b,1601s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (20 pages, 63984 bytes).
+Output written on exemploPFG.dvi (20 pages, 63976 bytes).
