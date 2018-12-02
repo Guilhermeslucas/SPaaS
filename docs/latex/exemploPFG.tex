@@ -329,7 +329,7 @@ do modo que foi escolhido para isso, foi criado uma série de scripts em ferrame
   das plataformas que foi visada por ter apresentado relevância nos últimos tempos, com todos os grandes provedores de nuvem oferecendo opções gerenciadas dessa 
   ferramenta.
   \item \textbf{Ansible\footnote{Gerenciador de configuração \emph{open source} https://www.ansible.com/}:} um modelo comum de deploy de aplicações é o baseado em máquinas virtuais. Nesse caso, é bom garantir que todas as dependências necessárias para que a 
-  aplicação rode com sucesso estejam instaladas. Nesse aspecto, o Ansible se mostra extremamente eficaz. Essa ferramenta surgiu da Red Hat e também é mantida \emph{open source}, sendo um
+  aplicação rode com sucesso estejam instaladas. Nesse aspecto, o Ansible se mostra eficaz. Essa ferramenta surgiu da Red Hat e também é mantida \emph{open source}, sendo um
   ótimo gerenciador de configurações, o que torna possível escrever configurações como código, garantindo que a aplicação sempre terá sucesso para ser executada.
 \end{itemize}
 
@@ -346,7 +346,7 @@ do modo que foi escolhido para isso, foi criado uma série de scripts em ferrame
 
 Após seguir todo o experimento citado acima, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está ilustrada na Figura~\ref{fig:finalArch}.
 
-Dada a arquitetura final do projeto mostra na Figura~\ref{fig:finalArch} os componentes mostrados têm, cada um, a seguinte função:
+Dada a arquitetura final do projeto, os componentes ilustrados têm, cada um, a seguinte função:
 
 \begin{itemize}
   \item \textbf{\emph{Web Client}:} componente que é executado no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado durante o procedimento, ou seja, todo o código do lado do cliente 
@@ -355,7 +355,7 @@ Dada a arquitetura final do projeto mostra na Figura~\ref{fig:finalArch} os comp
   Python, Flask e Celery. Esse é o componente que possui mais responsabilidades: autenticação, comunicação com a fila com o auxílio do Celery, acesso aos Blobs e acesso ao banco.
   \item \textbf{Linux \emph{Workers}:} componente que é responsável pela execução propriamente dita dos pedidos de trabalho. Com o auxílio do Celery, esperam por pedidos entrarem na fila, e assim que isso acontece, os executam. 
   É possível ter um \emph{cluster} de máquinas com esse papel, aumentando o paralelismo das execuções.
-  \item \textbf{\emph{Message queue with Redis}:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramos de desacoplar o \emph{back end} dos Linux \emph{workers}. Assim
+  \item \textbf{\emph{Message queue with Redis}:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramos de desacoplar o \emph{back end} dos Linux \emph{workers}.
   O \emph{back end} submete uma mensagem com as definições para a execução de um trabalho na fila e algum \emph{worker} obteria essa requisição, realizando o processamento necessário. Aqui vale uma observação 
   importante: A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o \emph{back end} dos \emph{workers}, a execução de
   processamentos em paralelo e distribuídos, não criando um gargalo na solução, possivelmente ocasionado pelo grande número de pedidos na fila.
@@ -368,7 +368,7 @@ Dada a arquitetura final do projeto mostra na Figura~\ref{fig:finalArch} os comp
   \end{figure}
 
   \item \textbf{toolsCollection:} coleção dentro do banco que guarda informações sobre os binários que estão armazenados. Novos dados são inseridos nela quando um novo binário é armazenado, quando
-  um novo pedido de processamento será incluído e também quando um binário é excluído.
+  um novo pedido de processamento é incluído e também quando um binário é excluído.
   O modelo que está sendo usado para guardar essas informações é o que está na Figura~\ref{fig:toolsCollection}
   
   \begin{figure}[!h]
@@ -394,7 +394,7 @@ Dada a arquitetura final do projeto mostra na Figura~\ref{fig:finalArch} os comp
   \item \textbf{seismic-tools:} Blob usado para armazenar os binários submetidos pelos usuário. Acessado pelo componente de gerenciamento de ferramentas quando uma nova é inserida na plataforma 
   e quando um novo processamento acontece.
   \item \textbf{seismic-data:} Blob que armazena os dados sísmicos submetidos. Também são acessados pelo componente de gerenciamento de dados quando um novo dado é incluído, excluído e na execução dos 
-  trabalhos, já que é necessário baixar esses dados.
+  trabalhos.
   \item \textbf{seismic-results:} outro Blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{ utilitário de compressão de dados https://www.gzip.org/} e disponibilizados para \emph{download}, 
   no componente de resultados.
 \end{itemize}
@@ -423,8 +423,8 @@ devem ser rodados são os seguintes:
   $ npm run build -- --output-path=./dist/out --configuration production
 \end{lstlisting}
 
-Isso gerará uma pasta ./dist/out que, quando colocadas no caminho /usr/share/nginx/html de um computador com nginx instalado, irá servir a aplicação do \emph{front end}.
-
+Isso gerará uma pasta ./dist/out que, quando colocadas no caminho /usr/share/nginx/html de um computador com Nginx instalado, irá servir a aplicação do \emph{front end}.
+Nesses ultimos comandos, o arquivo de variáveis que será usado é o environment.prod.ts.
 Outra maneira de rodar o \emph{front end} é via Docker. Existe um Dockerfile dentro da pasta \emph{front end} que facilita o \emph{deploy}. Existem dois comandos que devem ser rodados nesse caso, um
 para construir a imagem do Docker e outro para rodá-la:
 
@@ -433,7 +433,7 @@ para construir a imagem do Docker e outro para rodá-la:
   $ docker run -p 80:80 my-angular-project:prod
 \end{lstlisting}
 
-Ao acessar o \emph{localhost},a tela inicial do projeto será mostrada.
+Ao acessar o \emph{localhost}, a tela inicial do projeto será mostrada.
 
 \subsubsection{\emph{Back End}}
 
@@ -482,7 +482,7 @@ executar essas tarefas. Para isso, com o Ansible instalado basta executar dentro
 
 \subsection{Telas finais}
 
-Assim, após apresentar a arquitetura final, são apresentados os componentes, com suas respectivas telas. 
+Após apresentar a arquitetura final, ilustramos os componentes, com suas respectivas telas. 
 
 \begin{figure}[!h]
   \centering

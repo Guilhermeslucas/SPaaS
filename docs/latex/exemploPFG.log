@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  2 DEC 2018 16:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  2 DEC 2018 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,12 +542,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 314--314
 File: final_arch.eps Graphic file (type eps)
  <final_arch.eps> [11]
 File: tools_model.eps Graphic file (type eps)
- <tools_model.eps> [12]
+ <tools_model.eps>
 File: results.eps Graphic file (type eps)
  <results.eps>
-File: users_model.eps Graphic file (type eps)
 
-<users_model.eps> [13]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12]
+File: users_model.eps Graphic file (type eps)
+ <users_model.eps> [13]
 Overfull \hbox (37.1024pt too wide) in paragraph at lines 411--413
 \OT1/cmr/m/n/10.95 Para ro-dar o \OT1/cmr/m/it/10.95 front end\OT1/cmr/m/n/10.9
 5 , to-das as vari^^Saveis de am-bi-ente est~ao no ca-mi-nho front-end/src/envi
@@ -590,26 +593,33 @@ File: data_final.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[15]
 File: tools_final.eps Graphic file (type eps)
- <tools_final.eps>
+<tools_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Overfull \hbox (1.06514pt too wide) in paragraph at lines 522--525
 \OT1/cmr/m/n/10.95 s~ao sub-me-ti-dos da se-guinte ma-neira: 1:ex-plica^^Xc~ao 
 do par^ametro 1, 2:ex-plica^^Xc~ao do par^ametro
  []
 
-[16]
+[15]
 File: task_first_final.eps Graphic file (type eps)
  <task_first_final.eps>
-File: task_args_final.eps Graphic file (type eps)
- <task_args_final.eps>
-File: results_final.eps Graphic file (type eps)
- <results_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+File: task_args_final.eps Graphic file (type eps)
+<task_args_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16]
+File: results_final.eps Graphic file (type eps)
+ <results_final.eps>
 File: results_detail_final.eps Graphic file (type eps)
-<results_detail_final.eps>
+ <results_detail_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -618,14 +628,17 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
  3512 strings out of 494930
  44621 string characters out of 6180168
- 126470 words of memory out of 5000000
+ 126180 words of memory out of 5000000
  6758 multiletter control sequences out of 15000+600000
  16678 words of font info for 47 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
  32i,9n,51p,388b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (19 pages, 61140 bytes).
+Output written on exemploPFG.dvi (19 pages, 61124 bytes).
