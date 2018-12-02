@@ -304,11 +304,11 @@ para que o \emph{front end} pudesse consumir de forma eficaz e direta, garantind
   \item \textbf{Redis\footnote{Armazenamento de dados em memória \emph{open source} https://redis.io/}:} após a escolha de qual biblioteca iríamos usar para facilitar a execução das filas de trabalho, que foi o Celery, foi preciso escolher o componente para a mensageria do projeto, ou seja, o
   componente que realmente é responsável por armazenar e distribuir as mensagens relacionadas aos trabalhos submetidos na solução. Entre as opções estavam RabbitMQ, Redis e Amazon SQS. Essas são as que melhor se 
   integravam com o Celery, sendo possível obter todas as suas funcionalidades com os três. Porém, Amazon SQS é uma opção dependente a um provedor de nuvem, o que complica o desenvolvimento do projeto, caso seja 
-  preciso usar outra \emph{cloud} diferente da AWS. RabbitMQ e Redis ofereciam funcionalidades muito parecidas, porém o Redis foi escolhido, devido ã sua documentação e suas outras funcionalidades
+  preciso usar outra \emph{cloud} diferente da AWS. RabbitMQ e Redis ofereciam funcionalidades muito semelhantes, porém o Redis foi escolhido, devido ã sua documentação e suas outras funcionalidades
   que podem ser aproveitadas também, como, por exemplo, \emph{cache} e armazenamento de dados em memória.
 
   \item \textbf{MongoDB\footnote{Banco de Dados NoSQL \emph{open source} https://www.mongodb.com/}:} para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada binário e etc., a escolha foi um banco de dados NoSQL, o MongoDB. A decisão deste
-  foi natural, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito parecida com os documentos que são guardados nesse tipo de banco, não sendo necessário se preocupar
+  foi natural, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito semelhante com os documentos que são guardados nesse tipo de banco, não sendo necessário se preocupar
   em transformar os dados para os esquemas presentes em tabelas SQL.
 
   \item \textbf{Blob Storage\footnote{Armazenamento de caráter genérico no Microsoft Azure https://azure.microsoft.com/en-us/services/storage/blobs/}:} o Blob Storage da Microsoft Azure foi selecionado pois era necessário uma espécie de armazenamento de propósito geral. Aqui ele está sendo usado para armazenamento dos dados sísmicos e
@@ -358,7 +358,7 @@ Dada a arquitetura final do projeto, os componentes ilustrados têm, cada um, a 
   \item \textbf{\emph{Message queue with Redis}:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramos de desacoplar o \emph{back end} dos Linux \emph{workers}.
   O \emph{back end} submete uma mensagem com as definições para a execução de um trabalho na fila e algum \emph{worker} obteria essa requisição, realizando o processamento necessário. Aqui vale uma observação 
   importante: A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o \emph{back end} dos \emph{workers}, a execução de
-  processamentos em paralelo e distribuídos, não criando um gargalo na solução, possivelmente ocasionado pelo grande número de pedidos na fila.
+  processamentos em paralelo e distribuídos, não criando demora na solução, possivelmente ocasionado pelo grande número de pedidos na fila.
   
   \begin{figure}[!h]
     \centering
@@ -369,7 +369,7 @@ Dada a arquitetura final do projeto, os componentes ilustrados têm, cada um, a 
 
   \item \textbf{toolsCollection:} coleção dentro do banco que guarda informações sobre os binários que estão armazenados. Novos dados são inseridos nela quando um novo binário é armazenado, quando
   um novo pedido de processamento é incluído e também quando um binário é excluído.
-  O modelo que está sendo usado para guardar essas informações é o que está na Figura~\ref{fig:toolsCollection}
+  O modelo que está sendo usado para guardar essas informações é o que está na Figura~\ref{fig:toolsCollection}.
   
   \begin{figure}[!h]
     \centering
@@ -395,7 +395,7 @@ Dada a arquitetura final do projeto, os componentes ilustrados têm, cada um, a 
   e quando um novo processamento acontece.
   \item \textbf{seismic-data:} Blob que armazena os dados sísmicos submetidos. Também são acessados pelo componente de gerenciamento de dados quando um novo dado é incluído, excluído e na execução dos 
   trabalhos.
-  \item \textbf{seismic-results:} outro Blob. Esse, responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{ utilitário de compressão de dados https://www.gzip.org/} e disponibilizados para \emph{download}, 
+  \item \textbf{seismic-results:} esse Blob é responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{ utilitário de compressão de dados https://www.gzip.org/} e disponibilizados para \emph{download}, 
   no componente de resultados.
 \end{itemize}
 
@@ -404,7 +404,7 @@ uma conta de armazenamento no Microsoft Azure, com pastas separadas para cada us
 
 \subsection{Rodando a aplicação}
 
-Esta seção é dedicada à explicação de como executar cada componente da plataforma:
+Esta seção é dedicada à explicação de como executar cada componente da plataforma. Desse modo, descreveremos o \emph{front end, back end} e Linux \emph{workers}: 
 
 \subsubsection{\emph{Front End}}
 
@@ -424,7 +424,7 @@ devem ser rodados são os seguintes:
 \end{lstlisting}
 
 Isso gerará uma pasta ./dist/out que, quando colocadas no caminho /usr/share/nginx/html de um computador com Nginx instalado, irá servir a aplicação do \emph{front end}.
-Nesses ultimos comandos, o arquivo de variáveis que será usado é o environment.prod.ts.
+Nesses últimos comandos, o arquivo de variáveis que será usado é o environment.prod.ts.
 Outra maneira de rodar o \emph{front end} é via Docker. Existe um Dockerfile dentro da pasta \emph{front end} que facilita o \emph{deploy}. Existem dois comandos que devem ser rodados nesse caso, um
 para construir a imagem do Docker e outro para rodá-la:
 
@@ -473,7 +473,7 @@ Para os \emph{workers}, dentro da pasta \emph{back end}, basta executar:
 \end{lstlisting}
 
 Nos \emph{workers} também é necessário declarar as mesmas variáveis de ambiente do \emph{back end}, citadas anteriormente. 
-Como a proposta é ter vários workers para executar as tarefas em paralelo, foi criado um \emph{playbook} Ansible, para configurar várias máquinas para 
+Como a proposta é ter vários \emph{workers} para executar as tarefas em paralelo, foi criado um \emph{playbook} Ansible, para configurar várias máquinas para 
 executar essas tarefas. Para isso, com o Ansible instalado basta executar dentro da pasta devops:
 
 \begin{lstlisting}[language=bash]
@@ -500,7 +500,7 @@ Na tela final de \emph{login}, Figura~\ref{fig:finalLogin}, existem dois campos:
   \label{fig:finalCreate}
 \end{figure}
 
- Ao escolher a opção de criar uma conta, o usuário será direcionado é a Figura~\ref{fig:finalCreate}, onde será possível criar uma nova conta com \emph{e-mail} e senha, que deve ser confirmada.
+ Ao escolher a opção de criar uma conta, o usuário será direcionado à Figura~\ref{fig:finalCreate}, onde será possível criar uma nova conta com \emph{e-mail} e senha, que deve ser confirmada.
 
 \begin{figure}[!h]
   \centering
@@ -519,7 +519,7 @@ arquivo que será submetido. Além disso, a tabela abaixo mostra todos os dados 
   \label{fig:finalTools}
 \end{figure}
 
-Parecida com a tela referente aos dados, a Figura~\ref{fig:finalTools} mostra o componente de gerenciamento dos binários. Também deve
+Semelhante a tela referente aos dados, a Figura~\ref{fig:finalTools} mostra o componente de gerenciamento dos binários. Também devem
 ser selecionado um arquivo, um nome e quais os parâmetros necessários para a execução, juntamente com suas explicações. Os parâmetros são submetidos da seguinte maneira: 1:explicação do parâmetro 1,
 2:explicação do parâmetro 2, etc.
 
@@ -538,7 +538,7 @@ ser selecionado um arquivo, um nome e quais os parâmetros necessários para a e
 \end{figure}
 
 A Figura~\ref{fig:finalTasks} mostra como é a definição de um pedido de processamento. Nesse primeiro momento, só é possível escolher um binário e o dado que serão usados, porém como mostra 
-a Figura~\ref{fig:finalDetailedTask}, após selecionar o binário, serão automaticamente carregados quais são os argumentes necessários para a execução dessa tarefa. Esses argumentos
+a Figura~\ref{fig:finalDetailedTask}, após selecionar o binário, serão automaticamente carregados quais são os argumentos necessários para a execução dessa tarefa. Esses argumentos
 foram submetidos juntamente com o binário na tela representada pela Figura~\ref{fig:finalTools}.
 
 \begin{figure}[!h]
@@ -556,7 +556,7 @@ foram submetidos juntamente com o binário na tela representada pela Figura~\ref
 \end{figure}
 
 Na tela de resultados, ilustrada pela Figura~\ref{fig:finalResults}, fica claro como podemos obter os resultados depois de terminados os processamentos. Além disso, caso o usuário queira verificar 
-quais foram os dados, binários e argumentos que geraram aqueles resultados, é possível através do botão de \emph{details}, que gera o Json com as características daquele processamento, como é possível ver na 
+quais foram os dados, binários e argumentos que geraram aqueles resultados, é possível através do botão de \emph{details}, que gera o Json com as características daquele processamento, como ilustrado na 
 Figura~\ref{fig:finalResultsDetail}.
 
 \begin{thebibliography}{99}
