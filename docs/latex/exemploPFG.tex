@@ -151,6 +151,25 @@ Ao buscar por outras soluções que têm o mesmo intuito da plataforma que esse 
 Além da unicidade que o trabalho possui no cenários atual, ele se torna relevante já que ele pode abstrair os novos conceitos e a curva de aprendizado que vem junto com a computação em nuvem. Assim é possível
 tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso mais inteligente dos recursos, baixando custos e aumentando a produtividade.
 
+\section{Definições}
+
+\begin{itemize}
+  \item \textbf{Dado:} dado sísmico de interesse do usuário. Pode ser um dado carregado no sistema pelo usuário ou produzido a partir do processamento de outro dado. 
+  Por exemplo: um dado sísmico que foi carregado pelo usuário.
+  \item \textbf{\emph{Tool}:} ferramenta que é capaz de processar um dado do usuário. Por exemplo: uma ferramenta (CMP) que é capaz de realizar o 
+  empilhamento de dados sísmicos com o método CMP.
+  \item \textbf{Fluxo de processamento:}  é a descrição de como ferramentas devem ser combinadas para realizar operações compostas da aplicação de múltiplas
+  operações em dados sísmicos. Um fluxo pode envolver uma ou mais ferramentas. Um fluxo que envolve múltiplas ferramentas deve descrever o fluxo de
+  dados entre as ferramentas. O fluxo pode ser visto como um grafo dirigido acíclico onde os vértices representam as operações das ferramentas e as arestas o
+  fluxo de dados entre as ferramentas. O usuário pode definir e usar um fluxo para aplicar uma sequência de ferramentas no dado sísmico sem haja a necessidade
+  de intervenção manual ao término da execução de cada ferramenta. A Figura XX ilustra um fluxo de processamento.
+  \item \textbf{Tarefa:} é um conjunto de informações que descreve como um fluxo de processamento de interesse deve ser executado sobre um 
+  dado de interesse. Por exemplo, a tarefa define qual é o fluxo a ser executado, os parâmetros para execução do fluxo, os dados de entrada e 
+  outros detalhes. A tarefa também contém informações sobre sua execução. Por exemplo: se a tarefa já foi finalizada, se houve erro, o tempo de processamento, etc.
+  \item \textbf{Resultados:} são arquivos produzidos pela execução de tarefas. Os resultados podem ser recuperados pelo usuário através de um processo 
+  de download ou transformados em dados para processamento posterior pelo usuário. 
+\end{itemize}
+
 \section{Arquitetura do Sistema}
 Para o sucesso do projeto, ao começo dele, foi decidido que faríamos uma plataforma \emph{web}. Essa decisão  foi tomada devido à facilidade de desenvolver para esse tipo de plataforma, além do alcance que 
 plataformas \emph{web} possuem, já que é praticamente obrigatório nos dispositivos com acesso à Internet (celulares e computadores) a existência de um
@@ -263,6 +282,20 @@ as camadas de armazenamento que são necessárias para completar suas tarefas co
   e argumentos para a execução acontecer com sucesso. 
   \item \textbf{\emph{Results}:} os resultados dos processamentos executados estarão aqui, organizados pela processamento que o gerou.
 \end{itemize}
+
+Assim, as atividades que um usuário deve realizar para que um processamento completo seja exexcutado são os seguintes:
+\begin{enumerate}
+  \item \textbf{Criação de conta:} ao entrar na plataforma, o usuária deverá criar sua conta no módulo de criação de conta, usando um \emph{e-mail} que ainda não está em uso
+  na plataforma e uma senha. 
+  \item \textbf{Login:} Após a criação da conta citada no item anterior, o usuário usará seu \emph{e-mail} e senhas cadastradas para entrar na plataforma.
+  \item \textbf{Submissão do dado sísmico:} uma vez que o usuário foi autenticado na plataforma, ele deverá submeter um dado sísmico que deseja para a execução do processamento. 
+  \item \textbf{Submissão da \emph{Tool}:} além do dado, também é necessário a submissão de uma \emph{Tool} para o processamento.
+  \item \textbf{Criação da tarefa:} com o dado sísmico e a \emph{Tool} submetidas, o usuário deve escolher qual o dado sísmico e \emph{Tool} vão compor o processamento.
+  Além disso, o usuário também definirá quais os argumentos necessários.
+  \item \textbf{Acompanhamento da tarefa:} ao criar a tarefa, o usuário poderá consultar se ela ainda está rodando e esperar até ficar pronta, para coletar os resultados.
+  \item \textbf{Obtenção dos resultados:} ao final, o usuário poderá consultar os resultados que foram gerados. Todos os arquivos gerados estão reunidos em um arquivo
+  disponível para download. 
+\end{enumerate}
 
 \subsection{\emph{Front End}}
 
