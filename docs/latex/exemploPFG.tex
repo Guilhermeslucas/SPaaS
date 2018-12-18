@@ -19,6 +19,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{listings}
+\usepackage{verbatim}
 
 \begin{document}
 
@@ -78,11 +79,10 @@
   engenheiros e desenvolvedores que trabalham em aplicações que 
   necessitam de alto poder computacional.
 
-  Desta forma, o projeto foi iniciado com o objetivo de criar uma plataforma
+  O projeto tem o objetivo de criar uma plataforma
   \emph{open source}, simples e replicável para qualquer 
-  usuário. Os resultados foram muito positivos, alcançando o intuito de criar
-  a plataforma somente com componentes \emph{open source} e replicável em
-  diversas situações.
+  usuário. Os resultados foram muito alcançados, permitindo uma avaliação inicial da plataforma
+  com ferramentas reais de processamento sísmico.
 \end{abstract}
 
 \section{Introdução}
@@ -90,20 +90,20 @@
 Computação em Nuvem é um conceito que está cada vez mais presente no cotidiano de muitas pessoas. Mesmo sem perceber, uma grande quantidade de aplicações que usamos hoje 
 em dia lançam mão desse conceito tão central para o desenvolvimento econômico e tecnológico de nossa sociedade contemporânea. Ele se baseia na capacidade de usarmos o
 poder computacional de serviços como máquinas virtuais, bancos de dados e redes virtuais sem que o usuário tenha máquinas físicas com tais serviços 
-instalados e configurados. Segundo o artigo intitulado Cloud Computing Security: A
-Systematic Literature Review~\cite{UPP}, computação em nuvem é um modelo de rede que torna possível o acesso sob demanda de recursos computacionais configuráveis.
+instalados e configurados. Segundo o artigo intitulado \emph{Cloud Computing Security: A
+Systematic Literature Review}~\cite{UPP}, computação em nuvem é um modelo de rede que torna possível o acesso sob demanda de recursos computacionais configuráveis.
 Entre as modalidades principais de serviços de computação em nuvem, temos três categorias:
 
 \begin{itemize}
 
-  \item \textbf{IaaS(\emph{Infrastructure as a Service}):} essa é a categoria que dá mais responsabilidade ao usuário. Essa exige que o desenvolvedor gerencie de maneira integral máquinas virtualizadas, 
+  \item \textbf{IaaS(\emph{Infrastructure as a Service}):} essa é a categoria que dá mais flexibilidade e responsabilidade ao usuário. Essa exige que o desenvolvedor gerencie de maneira integral máquinas virtualizadas, 
   instale programas necessários, defina configurações e etc. Exemplo disso são máquinas virtuais que rodam sistemas operacionais GNU/Linux e são acessadas remotamente.
-  \item \textbf{PaaS(\emph{Plataform as a Service}):} Aqui, o usuário não precisa se preocupar com pacotes de sistema, \emph{softwares} e configurações. Esse sabor de computação em nuvem, tenta 
+  \item \textbf{PaaS(\emph{Plataform as a Service}):} Aqui, o usuário não precisa se preocupar com pacotes de sistema e configurações de sistema operacional. Esse modelo de negócios visa 
   facilitar para que desenvolvedores consigam publicar suas aplicações. Isso significa que se, por exemplo, um usuário quiser expor uma aplicação, não é necessário
-  instalar compiladores e pacotes necessários para rodar o programa naquela determinada linguagem.
-  \item \textbf{SaaS(\emph{Software as a Service}):} essa é a modalidade que traz menos autonomia para o desenvolvedor, sendo que, através dela, todo o recurso é gerenciado pelo provedor de 
+  instalar compiladores e pacotes necessários para executar o programa naquela determinada linguagem.
+  \item \textbf{SaaS(\emph{Software as a Service}):} esse é o modelo de negócios que traz menos autonomia para o desenvolvedor, sendo que, através dela, todo o recurso é gerenciado pelo provedor de 
   nuvem que é consumido. Um exemplo que podemos citar para ilustrar são os bancos de dados como serviço, onde o usuário não se encarrega de nenhum tipo de infraestrutura, 
-  somente usa o endereço que o provedor cede para o poder usufruir das possibilidades de armazenamento que a plataforma oferece.
+  somente usa o endereço que o provedor cede para poder usufruir das possibilidades de armazenamento que a plataforma oferece.
 
 \end{itemize}
 
@@ -121,10 +121,10 @@ Entre as vantagens de se adotar um modelo de computação em nuvem ao invés de 
 
 Entre os principais provedores de nuvem pública atualmente temos a Microsoft Azure\footnote{Plataforma de computação em nuvem da Microsoft https://azure.microsoft.com/}, 
 Amazon Web Services\footnote{Plataforma de computação em nuvem da Amazon https://aws.amazon.com/} e Google Cloud Platform\footnote{Plataforma de computação em nuvem do Google https://cloud.google.com/}, 
-oferecendo opções diversas para computação em nuvem, desde máquinas virtuais até mesmo bancos de dados gerenciados.
+que oferecem opções diversas para computação em nuvem, desde máquinas virtuais até mesmo bancos de dados gerenciados.
 
-Alto desempenho computacional, ou HPC\footnote{do inglês \emph{High-Performance Computing}}, é um conceito que busca agregar poder de computação, de forma a oferecer um desempenho
-muito maior do que o encontrado em computadores comuns. Um ezemplo de uma aplicação que exige alto poder computacional é o processamento de dados sísmicos.
+Aplicações que exigem alto poder computacional são aplicações que necessitam de muito mais poder de processamento que um computador comum pode oferecer. 
+Um exemplo de uma aplicação que exige alto poder computacional é o processamento de dados sísmicos.
 Várias dessas aplicações são feitas em servidores em institutos de pesquisas, podendo levar
 a um custo excessivo, muito trabalho para gerenciamento de infraestrutura além de pouca agilidade e flexibilidade quanto à arquitetura. Assim, tais aplicações podem 
 tirar muito proveito dos provedores de nuvem citados acima.
@@ -139,38 +139,45 @@ Ao final, é esperado a criação de uma plataforma \emph{web}, que tenha como p
 \begin{itemize}
   \item \textbf{Submissão e gerenciamento de dados:} essa funcionalidade é a responsável pelo \emph{upload} de dados sísmicos que serão usados nos processamentos, além de consultar quais já foram submetidos, baixá-los e também
   excluí-los, caso necessário. 
-  \item \textbf{Submissão e gerenciamento de \emph{Tools}:} esse componente do projeto é semelhante ao que detalhamos acima, porém, ao invés dos dados sísmicos, os artefatos que são gerenciados são as 
-  \emph{Tools} das aplicações que serão utilizados nos processos.
-  \item \textbf{Definição de tarefas sísmicas:} utilizando os dados e \emph{Tools} submetidas a partir das duas funcionalidades citadas anteriormente, o objetivo é conseguir lançar um processamento que combina os dados e 
-  \emph{Tools}, além dos argumentos necessários.
+  \item \textbf{Submissão e gerenciamento de ferramentas:} essa funcionalidade é semelhante ao que detalhamos acima, porém, ao invés dos dados sísmicos, os artefatos que são gerenciados são as 
+  ferramentas de processamento que serão utilizados nos processos.
+  \item \textbf{Definição de tarefas de processamento:} utilizando os dados e as ferramentas submetidas a partir das duas funcionalidades citadas anteriormente, o objetivo é conseguir lançar um processamento que combina os dados e 
+  as ferramentas, além dos argumentos necessários.
   \item \textbf{Obtenção dos resultados:} ao final dos processos, é desejado que se consiga obter todos os seus resultados de maneira simples e rápida.
 \end{itemize}
 
 \section{Relevância}
 Ao buscar por outras soluções que têm o mesmo intuito da plataforma que esse trabalho tem por objetivo desenvolver, notamos a sua relevância, uma que vez que é difícil achar outros programas \emph{open source} que executam tal tarefa.
-Além da unicidade que o trabalho possui no cenários atual, ele se torna relevante já que ele pode abstrair os novos conceitos e a curva de aprendizado que vem junto com a computação em nuvem. Assim é possível
+Além da unicidade que o trabalho possui no cenários atual, permite abstrair os novos conceitos e a curva de aprendizado que vem junto com a computação em nuvem. Assim é possível
 tirar proveito de todos os benefícios que foram citados acima, levando a possibilidade de um uso mais inteligente dos recursos, baixando custos e aumentando a produtividade.
 
-\section{Definições}
+\section{Arquitetura do Sistema}
+
+As seguintes definições serão utilizadas ao longo do texto:
 
 \begin{itemize}
   \item \textbf{Dado:} dado sísmico de interesse do usuário. Pode ser um dado carregado no sistema pelo usuário ou produzido a partir do processamento de outro dado. 
-  Por exemplo: um dado sísmico que foi carregado pelo usuário.
-  \item \textbf{\emph{Tool}:} ferramenta que é capaz de processar um dado do usuário. Por exemplo: uma ferramenta (CMP) que é capaz de realizar o 
+  \item \textbf{Ferramentas de processamento:} ferramenta que é capaz de processar um dado do usuário. Por exemplo: uma ferramenta (CMP) que é capaz de realizar o 
   empilhamento de dados sísmicos com o método CMP.
   \item \textbf{Fluxo de processamento:}  é a descrição de como ferramentas devem ser combinadas para realizar operações compostas da aplicação de múltiplas
   operações em dados sísmicos. Um fluxo pode envolver uma ou mais ferramentas. Um fluxo que envolve múltiplas ferramentas deve descrever o fluxo de
   dados entre as ferramentas. O fluxo pode ser visto como um grafo dirigido acíclico onde os vértices representam as operações das ferramentas e as arestas o
   fluxo de dados entre as ferramentas. O usuário pode definir e usar um fluxo para aplicar uma sequência de ferramentas no dado sísmico sem haja a necessidade
-  de intervenção manual ao término da execução de cada ferramenta. A Figura XX ilustra um fluxo de processamento.
+  de intervenção manual ao término da execução de cada ferramenta. A Figura~\ref{fig:flow} ilustra um fluxo de processamento.
   \item \textbf{Tarefa:} é um conjunto de informações que descreve como um fluxo de processamento de interesse deve ser executado sobre um 
   dado de interesse. Por exemplo, a tarefa define qual é o fluxo a ser executado, os parâmetros para execução do fluxo, os dados de entrada e 
   outros detalhes. A tarefa também contém informações sobre sua execução. Por exemplo: se a tarefa já foi finalizada, se houve erro, o tempo de processamento, etc.
   \item \textbf{Resultados:} são arquivos produzidos pela execução de tarefas. Os resultados podem ser recuperados pelo usuário através de um processo 
-  de download ou transformados em dados para processamento posterior pelo usuário. 
+  de\emph{download} ou transformados em dados para processamento posterior pelo usuário. 
 \end{itemize}
 
-\section{Arquitetura do Sistema}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[scale=0.4]{flow.eps}
+  \caption{Exemplo de fluxo de processamento}
+  \label{fig:archtec}
+\end{figure}
+
 Para o sucesso do projeto, ao começo dele, foi decidido que faríamos uma plataforma \emph{web}. Essa decisão  foi tomada devido à facilidade de desenvolver para esse tipo de plataforma, além do alcance que 
 plataformas \emph{web} possuem, já que é praticamente obrigatório nos dispositivos com acesso à Internet (celulares e computadores) a existência de um
 navegador instalado. Além disso, vale ressaltar que desde o início do projeto todo o código estava aberto no Github\footnote{Serviço para compartilhamento de código https://github.com/Guilhermeslucas/SPaaS}, 
@@ -185,20 +192,19 @@ a uma fila e, alguma unidade de computação o usasse para executar uma tarefa.
   \centering
   \includegraphics[scale=0.4]{arch.eps}
   \caption{Arquitetura inicial do projeto e exemplo de filas da trabalho distribuídas}
-  \label{fig:archtec}
+  \label{fig:flow}
 \end{figure}
 
-A Figura~\ref{fig:archtec} ajuda a explicar como é o funcionamento dessa arquitetura e o desenho inicial do projeto.
+A Figura~\ref{fig:archtec} ilustra o desenho inicial do projeto e arquitetura.
 
 A plataforma foi separada em duas grandes partes:
 
 \begin{itemize}
-  \item \textbf{\emph{Front End}:} a parte que o usuário realmente vê, o código que irá rodar no navegador do seu dispositivo. 
-  \item \textbf{\emph{Back End}:} essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso à camada de armazenamento, autenticação,
-  submissão de dados para a nuvem, etc.
+  \item \textbf{\emph{Front End}:} a parte que o usuário realmente vê, composta pelo código que irá ser executado no navegador do seu dispositivo. 
+  \item \textbf{\emph{Back End}:} essa é a porção da plataforma responsável por características que são invisíveis ao usuário. Entre elas, podemos citar acesso à camada de armazenamento, autenticação, etc.
 \end{itemize}
 
-Existem alguns componentes que foram usados em comum entre essas duas partes:
+Os seguintes componentes que foram usados em comum entre essas duas partes:
 
 \begin{itemize}
   \item \textbf{Docker\footnote{Programa que realiza virtualização em nível de Sistema Operacional, também conhecido como conteinerização https://www.docker.com/}:} 
@@ -210,7 +216,7 @@ Existem alguns componentes que foram usados em comum entre essas duas partes:
 
 \subsection{Projeto Inicial}
 
-Para o desenvolvimento do \emph{front end}, foram definidas de antemão como seria a composição geral das telas e o fluxo da aplicação. Assim, a visão geral das telas, foi definida da seguinte maneira:
+Para o desenvolvimento do \emph{front end}, foram definidas de antemão como seria a composição geral das telas e o fluxo da aplicação. Uma visão geral das telas e seu conteúdo são descritos a seguir:
 
 \begin{figure}[!h]
   \centering
@@ -222,6 +228,7 @@ Para o desenvolvimento do \emph{front end}, foram definidas de antemão como ser
 A Figura~\ref{fig:loginScreen} mostra como definimos quais informações deveriam estar na tela para que o usuário pudesse se conectar à plataforma. Como mostrado, 
 as informações necessárias para entrar no sistema eram \emph{e-mail} e senha que foram previamente cadastrados.
 
+
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.4]{account_reg.eps}
@@ -229,7 +236,7 @@ as informações necessárias para entrar no sistema eram \emph{e-mail} e senha 
   \label{fig:createScreen}
 \end{figure}
 
-A Figura~\ref{fig:createScreen} deixa claro quais foram as informações que eram requeridas para se criar uma conta no sistema, que eram \emph{e-mail} senha e confirmação de senha.
+A Figura~\ref{fig:createScreen} mostra quais foram as informações que eram requeridas para se criar uma conta no sistema, que eram \emph{e-mail} senha e confirmação de senha.
 
 \begin{figure}[!h]
   \centering
@@ -239,8 +246,8 @@ A Figura~\ref{fig:createScreen} deixa claro quais foram as informações que era
 \end{figure}
 
 A Figura~\ref{fig:definitionScreen} exemplifica como imaginamos a tela de definição de um trabalho para ser executado. Nesse primeiro protótipo, foi pensado que somente 
-as informações ilustradas na tela, eram o suficiente. Nessa tela os campos necessários eram o nome do processamento, qual o código seria executado, o comando necessário para rodar
-a aplicação e o dado sísmico.
+as informações ilustradas na tela, eram o suficiente. Nessa tela os campos necessários eram o nome do processamento, qual a ferramenta que seria executada, o comando necessário para executar
+a ferramenta e o dado sísmico.
 
 \begin{figure}[!h]
   \centering
@@ -256,51 +263,54 @@ a aplicação e o dado sísmico.
   \label{fig:resultsScreen}
 \end{figure}
 
-O protótipo da tela de estado dos trabalhos está ilustrada na Figura~\ref{fig:statusScreen}. Simples a princípio, uma tabela mostrando o estado de cada trabalho. 
-
-A Figura~\ref{fig:resultsScreen} mostra como foi pensada a obtenção dos resultados.
+O protótipo da tela de estado dos trabalhos está ilustrada na Figura~\ref{fig:statusScreen}. Simples a princípio, uma tabela mostrando o estado de cada trabalho. A Figura~\ref{fig:resultsScreen} mostra como foi pensada a obtenção dos resultados.
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[scale=0.3]{tcc_flow.eps}
+  \includegraphics[scale=0.4]{comp_flow.eps}
   \caption{Fluxo entre os componentes da plataforma}
   \label{fig:flowScreen}
 \end{figure}
 
-Vale ressaltar que essa ideia inicial foi pensada com poucas funcionalidades para a plataforma. Assim, o fluxo de todo o trabalho definitivo foi 
-repensado para algo mais próximo do representado na Figura~\ref{fig:flowScreen}. Nesse fluxo definido, os quadrados representam as telas, com suas respectivas interações com 
-as camadas de armazenamento que são necessárias para completar suas tarefas com sucesso. Assim, detalhando cada módulo da solução:
+Vale ressaltar que essa ideia inicial visava permitir uma avaliação inicial do conceito. Após essa avaliação, o fluxo de todo o trabalho definitivo foi 
+organizado em módulos como ilustrado na Figura~\ref{fig:flowScreen}. Nessa figura, as caixas representam os módulos, com suas respectivas interações com 
+as camadas de armazenamento. Assim, detalhando cada módulo da solução:
 
 \begin{itemize}
   \item \textbf{\emph{Data Management}:} módulo responsável pelo gerenciamento dos dados sísmicos da plataforma. A intenção nesse módulo é permitir que o usuário possa
   gerir os dados na plataforma, sendo capaz de adicionar, remover e 
   movê-los de um tipo de armazenamento mais caro (porém mais rápido) para um mais barato, e mais lento. 
-  \item \textbf{\emph{Tools Management}:} esse módulo procura realizar o gerenciamento das \emph{Tools} que serão executados. Assim como o módulo responsável pelo gerenciamento
-  dos dados sísmicos, esse módulo busca dar a possibilidade de adicionar, mover e excluir as \emph{Tools} da plataforma.
-  \item \textbf{\emph{Running Tasks}:} nessa tela, é desejado que o usuário consiga ver qual é o estado dos processamentos que iniciou. Estados como Executando e Pronto são alguns dos 
-  possíveis.
-  \item \textbf{\emph{New Tasks}:} o usuário usa esse módulo para criar as tarefas que ele deseja rodar. Os atributos necessários para essa definição são \emph{Tool}, dado sísmico 
-  e argumentos para a execução acontecer com sucesso. 
-  \item \textbf{\emph{Results}:} os resultados dos processamentos executados estarão aqui, organizados pela processamento que o gerou.
+  \item \textbf{\emph{Tools Management}:} esse módulo procura realizar o gerenciamento das ferramentas de processamento que serão executados. Assim como o módulo responsável pelo gerenciamento
+  dos dados sísmicos, esse módulo busca dar a possibilidade de adicionar, mover e excluir as ferramentas de processamento da plataforma.
+  \item \textbf{\emph{Tasks Management}:} módulo responsável pelo gerenciamento das ferramentas. É composto pelas telas abaixo:
+  \begin{itemize}
+    \item \textbf{\emph{Running Tasks}:} nessa tela, é desejado que o usuário consiga ver qual é o estado dos processamentos que iniciou. Estados como Executando e Pronto são alguns dos 
+    possíveis.
+    \item \textbf{\emph{New Tasks}:} o usuário usa essa tela para criar as tarefas que ele deseja executar. Os atributos necessários para essa definição são ferramenta, dado sísmico 
+    e argumentos para a execução acontecer com sucesso. 
+  \end{itemize}
+  \item \textbf{\emph{Results Management}:} os resultados dos processamentos são exibidos por essa tela, organizados pela processamento que o gerou.
+  \item \textbf{\emph{Flow Management}:} esse módulo é o responsável pelo gerenciamento dos fluxos, ou seja, do encadeamento de vários processamentos para a obtenção de 
+  um resultado com maior nível de complexidade.
 \end{itemize}
 
-Assim, as atividades que um usuário deve realizar para que um processamento completo seja executado são os seguintes:
+Assim, as atividades que um usuário deve realizar para que um processamento completo seja executado são as seguintes:
 \begin{enumerate}
   \item \textbf{Criação de conta:} ao entrar na plataforma, o usuária deverá criar sua conta no módulo de criação de conta, usando um \emph{e-mail} que ainda não está em uso
-  na plataforma e uma senha. 
+  na plataforma e uma senha. Essa atividade é necessária apenas uma vez por usuário.
   \item \textbf{Login:} Após a criação da conta citada no item anterior, o usuário usará seu \emph{e-mail} e senhas cadastradas para entrar na plataforma.
-  \item \textbf{Submissão do dado sísmico:} uma vez que o usuário foi autenticado na plataforma, ele deverá submeter um dado sísmico que deseja para a execução do processamento. 
-  \item \textbf{Submissão da \emph{Tool}:} além do dado, também é necessário a submissão de uma \emph{Tool} para o processamento.
-  \item \textbf{Criação da tarefa:} com o dado sísmico e a \emph{Tool} submetidas, o usuário deve escolher qual o dado sísmico e \emph{Tool} vão compor o processamento.
+  \item \textbf{Submissão do dado sísmico:} uma vez que o usuário foi autenticado na plataforma, ele poderá submeter um dado sísmico que deseja processar. 
+  \item \textbf{Submissão da ferramenta:} além do dado, também é necessária a submissão de uma ferramenta para o processamento.
+  \item \textbf{Criação da tarefa:} com o dado sísmico e a ferramenta submetida, o usuário deve escolher qual o dado sísmico e ferramenta vão compor o processamento.
   Além disso, o usuário também definirá quais os argumentos necessários.
-  \item \textbf{Acompanhamento da tarefa:} ao criar a tarefa, o usuário poderá consultar se ela ainda está rodando e esperar até ficar pronta, para coletar os resultados.
-  \item \textbf{Obtenção dos resultados:} ao final, o usuário poderá consultar os resultados que foram gerados. Todos os arquivos gerados estão reunidos em um arquivo
+  \item \textbf{Acompanhamento da tarefa:} ao criar a tarefa, o usuário poderá consultar se ela ainda está executando e esperar até ficar pronta, para coletar os resultados.
+  \item \textbf{Obtenção dos resultados:} ao final, o usuário poderá consultar e recuperar os resultados que foram gerados. Todos os arquivos gerados estão reunidos em um arquivo
   disponível para \emph{download}. 
 \end{enumerate}
 
-\subsection{\emph{Front End}}
+\subsection{Tecnologias utilizadas para \emph{Front End}}
 
-Como tecnologias para o desenvolvimento da nossa plataforma, especificamente para o \emph{front end}, foram escolhidas as seguintes tecnologias:
+Para o desenvolvimento da nossa plataforma, especificamente para o \emph{front end}, foram escolhidas as seguintes tecnologias:
 
 \begin{itemize}
   \item \textbf{Angular\footnote{\emph{Framework open source} para desenvolvimento \emph{web} https://angular.io/}:} \emph{framework} para desenvolvimento de aplicações \emph{web open source}, desenvolvido inicialmente pelo Google e agora também mantido pela comunidade. Usa como linguagem de desenvolvimento o
@@ -319,41 +329,41 @@ Ao início do desenvolvimento do \emph{back end}, buscamos escolher quais seriam
 para que o \emph{front end} pudesse consumir de forma eficaz e direta, garantindo assim, o desacoplamento entre os dois componentes. Assim, os componentes que escolhemos para o \emph{back end} foram os seguintes:
 
 \begin{itemize}
-  \item \textbf{Python\footnote{https://www.python.org/}:} linguagem criada por Guido Van Rossum, muito presente nos dias de hoje devido a sua extensa gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
+  \item \textbf{Python\footnote{https://www.python.org/}:} linguagem criada por Guido Van Rossum, muito presente nos dias de hoje devido à sua extensa gama de aplicações, que vão desde embarcados até sistemas de análise de dados de alto 
   desempenho. A escolha dela foi devido principalmente a bibliotecas maduras para desenvolvimento de API's \emph{back end}, filas de trabalho distribuídas e conectores com bancos de dados.
 
-  \item \textbf{Flask\footnote{\emph{Framework web open source} para Python http://flask.pocoo.org/}:} \emph{framework} para desenvolvimento de APIS para Python. Foi escolhido devido a agilidade para colocar uma API rodando. Além disso, é simples entender como a aplicação está funcionando,
+  \item \textbf{Flask\footnote{\emph{Framework web open source} para Python http://flask.pocoo.org/}:} \emph{framework} para desenvolvimento de APIS para Python. Foi escolhido devido à agilidade para colocar uma API rodando. Além disso, é simples entender como a aplicação está funcionando,
   fator muito crítico para decidirmos a escolha desta, uma vez que o projeto tem como premissa ser \emph{open source}. Foram cogitadas também ASP.NET
-  com C\# e NodeJS. A primeira foi descartada devido a complexidade para criarmos uma API. NodeJS não foi escolhido devido a dificuldade que novos programadores podem enfrentar para compreender as
+  com C\# e NodeJS. A primeira foi descartada devido à complexidade para criarmos uma API. NodeJS não foi escolhido à dificuldade que novos programadores podem enfrentar para compreender as
   funcionalidades em um primeiro momento, quando necessitassem aumentar o projeto.
 
   \item \textbf{Celery\footnote{\emph{Framework open source} para tarefas distribuídas em Python http://www.celeryproject.org/}:} uma vez escolhido Python e Flask como ferramentas para o desenvolvimento da solução, foi natural a escolha do Celery como ferramenta para filas de trabalho. Existem
   casos de sucesso documentados por engenheiros e desenvolvedores que usaram essa combinação com eficácia. O Celery é um componente do Python que é o responsável por gerenciar, submeter e obter
-  resultados de uma fila de trabalho, de uma maneira muito simples. Além disso, dá suporte a vários componentes de mensageria, como por exemplo, RabbitMQ\footnote{Plataforma \emph{open source} de Mensageria https://www.rabbitmq.com/}, 
+  resultados de uma fila de trabalho, de uma maneira muito simples. Além disso, dá suporte a vários componentes de entrega de mensagens, como por exemplo, RabbitMQ\footnote{Plataforma \emph{open source} de Mensageria https://www.rabbitmq.com/}, 
   Redis, Amazon SQS\footnote{Sistema de mensageria da plataforma AWS https://aws.amazon.com/sqs/}.  
 
-  \item \textbf{Redis\footnote{Armazenamento de dados em memória \emph{open source} https://redis.io/}:} após a escolha de qual biblioteca iríamos usar para facilitar a execução das filas de trabalho, que foi o Celery, foi preciso escolher o componente para a mensageria do projeto, ou seja, o
+  \item \textbf{Redis\footnote{Armazenamento de dados em memória \emph{open source} https://redis.io/}:} após a escolha da biblioteca para facilitar a execução das filas de trabalho, a Celery, foi preciso escolher o componente para a entrega de mensagens do projeto, ou seja, o
   componente que realmente é responsável por armazenar e distribuir as mensagens relacionadas aos trabalhos submetidos na solução. Entre as opções estavam RabbitMQ, Redis e Amazon SQS. Essas são as que melhor se 
   integravam com o Celery, sendo possível obter todas as suas funcionalidades com os três. Porém, Amazon SQS é uma opção dependente a um provedor de nuvem, o que complica o desenvolvimento do projeto, caso seja 
   preciso usar outra \emph{cloud} diferente da AWS. RabbitMQ e Redis ofereciam funcionalidades muito semelhantes, porém o Redis foi escolhido, devido à sua documentação e suas outras funcionalidades
   que podem ser aproveitadas também, como, por exemplo, \emph{cache} e armazenamento de dados em memória.
 
-  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL \emph{open source} https://www.mongodb.com/}:} para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada \emph{Tool} e etc., a escolha foi um banco de dados NoSQL, o MongoDB. A decisão deste
+  \item \textbf{MongoDB\footnote{Banco de Dados NoSQL \emph{open source} https://www.mongodb.com/}:} para o armazenamento dos dados de cadastro de usuários, informações sobre argumentos de cada ferramenta e etc., a escolha foi um banco de dados NoSQL, o MongoDB. A escolha deste
   foi natural, uma vez que os dados que estavam trafegando entre um serviço e outro tinham uma estrutura muito semelhante com os documentos que são guardados nesse tipo de banco, não sendo necessário se preocupar
   em transformar os dados para os esquemas presentes em tabelas SQL.
 
   \item \textbf{Blob Storage\footnote{Armazenamento de caráter genérico no Microsoft Azure https://azure.microsoft.com/en-us/services/storage/blobs/}:} o Blob Storage da Microsoft Azure foi selecionado pois era necessário uma espécie de armazenamento de propósito geral. Aqui ele está sendo usado para armazenamento dos dados sísmicos e
-  \emph{Tool}. Foi escolhido devido à integração que possui com Python. Outras opções existentes eram, por exemplo, Amazon S3\footnote{Armazenamento genérico na AWS https://aws.amazon.com/pt/s3/}, que oferece serviços semelhantes. Outra opção era deixar esses dados 
+  ferramenta. Foi escolhido devido à integração que possui com Python. Outras opções existentes eram, por exemplo, Amazon S3\footnote{Armazenamento genérico na AWS https://aws.amazon.com/pt/s3/}, que oferece serviços semelhantes. Outra opção era deixar esses dados 
   no disco de máquinas virtuais e compartilhá-los por meio de servidores, porém, isso aumentaria a complexidade e dificultaria a tarefa de gerenciar esse tipo de infraestrutura.
 \end{itemize}
 
 \subsection{Ferramentas para \emph{Deploy}}
 
 Como dito anteriormente, ao iniciar o projeto, não era desejado que utilizássemos somente um modelo de \emph{deployment}. Assim, para facilitar o \emph{deploy} da aplicação independente
-do modo que foi escolhido para isso, foi criado uma série de \emph{scripts} em ferramentas específicas para ajudar. Existem dois modelos que estão sendo facilitados:
+do modo que foi escolhido para isso, criamos uma série de \emph{scripts} em ferramentas específicas para ajudar. Existem dois modelos que estão sendo facilitados:
 
 \begin{itemize}
-  \item \textbf{Kubernetes\footnote{Orquestrador de \emph{containers} \emph{open source} https://kubernetes.io/}:} orquestrador de \emph{containers} famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples, escalável e performático o \emph{deploy}
+  \item \textbf{Kubernetes\footnote{Orquestrador de \emph{containers} \emph{open source} https://kubernetes.io/}:} orquestrador de \emph{containers} famoso nos dias de hoje, que tem como principal funcionalidade tornar mais simples e escalável o \emph{deploy}
   de aplicações baseadas em \emph{containers}. Nascida dentro do Google, a partir do Borg, que segundo o artigo publicado pelo Google~\cite{BORG}, é um gerenciador de \emph{cluster} que roda centenas de milhares de processamentos,
   de milhares de diferentes aplicações entre uma série de \emph{clusters},
   atualmente está sob a jurisdição da Cloud Native Computing Foundation\footnote{Cloud Native Computing Foundation https://www.cncf.io/} e é \emph{open source}. Foi uma
@@ -370,17 +380,17 @@ do modo que foi escolhido para isso, foi criado uma série de \emph{scripts} em 
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[scale=0.2]{final_arch.eps}
+  \includegraphics[scale=0.4]{final_arch.eps}
   \caption{Arquitetura final do projeto}
   \label{fig:finalArch}
 \end{figure}
 
-Após seguir todo o experimento citado acima, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está ilustrada na Figura~\ref{fig:finalArch}.
+Após combinar todas as tecnologias descritas nas seções anteriores, foi alcançado um resultado muito próximo do esperado. A arquitetura final do projeto, está ilustrada na Figura~\ref{fig:finalArch}.
 
 Dada a arquitetura final do projeto, os componentes ilustrados têm, cada um, a seguinte função:
 
 \begin{itemize}
-  \item \textbf{\emph{Web Client}:} componente que é executado no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado durante o procedimento, ou seja, todo o código do lado do cliente 
+  \item \textbf{\emph{Web Client}:} componente que é executado no lado do cliente. Seguimos com o que foi proposto no início do projeto e explicado nas seções anteriores, ou seja, todo o código do lado do cliente 
   foi escrito em Typescript, com o auxílio do \emph{framework} Angular, a estilização das páginas foi feita com Bootstrap e servido via Nginx.
   \item \textbf{Flask \emph{Back End}:} responsável por receber todas as requisições que saem do \emph{front end}. Funciona como um \emph{gateway}. Também foi seguido o plano inicial de escrever todo o \emph{back end} com
   Python, Flask e Celery. Esse é o componente que possui mais responsabilidades: autenticação, comunicação com a fila com o auxílio do Celery, acesso aos Blobs e acesso ao banco.
@@ -389,45 +399,45 @@ Dada a arquitetura final do projeto, os componentes ilustrados têm, cada um, a 
   \item \textbf{\emph{Message queue with Redis}:} também parte do plano inicial, a fila de mensagens com o Redis foi a maneira mais eficaz e resiliente que encontramos de desacoplar o \emph{back end} dos Linux \emph{workers}.
   O \emph{back end} submete uma mensagem com as definições para a execução de um trabalho na fila e algum \emph{worker} obteria essa requisição, realizando o processamento necessário. Aqui vale uma observação 
   importante: A escolha do Celery e do modelo de filas de trabalhos distribuídas, que já foi explicada anteriormente, torna possível, além de desacoplar o \emph{back end} dos \emph{workers}, a execução de
-  processamentos em paralelo e distribuídos, não criando demora na solução, possivelmente ocasionado pelo grande número de pedidos na fila.
+  processamentos em paralelo e distribuídos, acelerando o processamento de dados.
   
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.5]{tools_model.eps}
-    \caption{Exemplo de um documento presente na coleção de \emph{Tools}}
+    \includegraphics[scale=0.7]{tools_model.eps}
+    \caption{Exemplo de um documento presente na coleção de ferramentas}
     \label{fig:toolsCollection}
   \end{figure}
 
-  \item \textbf{toolsCollection:} coleção dentro do banco que guarda informações sobre as \emph{Tools} que estão armazenadas. Essas informações são nome da \emph{Tool} e
+  \item \textbf{toolsCollection:} coleção dentro do banco que guarda informações sobre as ferramentas que estão armazenadas. Essas informações são nome da ferramenta e
   seus argumentos. Para cada argumento, é armazenado seu nome e descrição.
-  Novos dados são inseridos nela quando uma nova \emph{Tool} é armazenada, quando
-  um novo pedido de processamento é incluído e também quando uma \emph{Tool} é excluída.
-  Um exemplo de descrição de uma \emph{Tool} que segue o modelo esperado está mostrado na Figura~\ref{fig:toolsCollection}.
+  Novos dados são inseridos nela quando uma nova ferramenta é armazenada, quando
+  um novo pedido de processamento é incluído e também quando uma ferramenta é excluída.
+  Um exemplo de descrição de uma ferramenta que segue o modelo esperado está mostrado na Figura~\ref{fig:toolsCollection}.
   
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.5]{results.eps}
+    \includegraphics[scale=0.7]{results.eps}
     \caption{Exemplo de um documento presente na coleção de resultados}
     \label{fig:resultsCollection}
   \end{figure}
 
-  \item \textbf{resultsColleciton:} coleção de documentos no banco que armazena os dados dos resultados, armazena o id do processamento, dado e \emph{Tool} usada, além dos argumentos. 
+  \item \textbf{resultsColleciton:} coleção de documentos no banco que armazena os dados dos resultados, armazena o id do processamento, dado e ferramenta usada, além dos argumentos. 
   Essa coleção é acessada após o término de cada processamento, para salvar as informações do resultado e também para listar resultados. Um exemplo de documento que segue
   o modelo esperado está ilustrado na Figura~\ref{fig:resultsCollection}.
 
   \begin{figure}[!h]
     \centering
-    \includegraphics[scale=0.5]{users_model.eps}
+    \includegraphics[scale=0.7]{users_model.eps}
     \caption{Exemplo de um documento presente da coleção de usuários}
     \label{fig:usersCollection}
   \end{figure}
 
-  \item \textbf{usersCollection:} usada para armazenamento de dados dos usuários, como senha e \emph{e-mail} para autenticação. Um novo registro é criado nessa coleção quando um usuário cria uma nova conta. 
-  A coleção também é acessada para autenticação de um novo usuário. Para que todos esses processos sejam executados com sucesso, um exemplo de documento armazenado com as informações
+  \item \textbf{usersCollection:} coleção usada para armazenamento de dados dos usuários, como senha e \emph{e-mail} para autenticação. Um novo registro é criado nessa coleção quando um usuário cria uma nova conta. 
+  A coleção também é acessada para autenticação de um novo usuário. Um exemplo de documento armazenado com as informações
   dos usuários está ilustrado na Figura~\ref{fig:usersCollection}.
 
-  \item \textbf{seismic-tools:} Blob usado para armazenar as \emph{Tools} submetidas pelos usuário. Acessado pelo componente de gerenciamento de \emph{Tools} quando uma nova é inserida na plataforma 
-  e quando um novo processamento acontece.
+  \item \textbf{seismic-tools:} Blob usado para armazenar as ferramentas submetidas pelos usuário. Acessado pelo componente de gerenciamento de ferramentas quando uma nova é inserida na plataforma ou 
+  quando um novo processamento acontece.
   \item \textbf{seismic-data:} Blob que armazena os dados sísmicos submetidos. Também são acessados pelo componente de gerenciamento de dados quando um novo dado é incluído, excluído e na execução dos 
   trabalhos.
   \item \textbf{seismic-results:} esse Blob é responsável por armazenar os resultados dos processamentos. Todos os resultados são empacotados em um arquivo tar.gz\footnote{ utilitário de compressão de dados https://www.gzip.org/} e disponibilizados para \emph{download}, 
@@ -443,61 +453,63 @@ Esta seção é dedicada à explicação de como executar cada componente da pla
 
 \subsubsection{\emph{Front End}}
 
-Para rodar o \emph{front end}, as variáveis de ambiente estão em front-end/src/environments. Nesse caminho existem dois arquivos, environment.ts e environment.prod.ts.
-O primeiro contém os valores das variáveis de ambiente que serão consideradas durante o desenvolvimento, ou seja, quando o comando
+Para executar o \emph{front end}, as variáveis de ambiente estão em \texttt{front-end/src/environments}. Nesse caminho existem dois arquivos, \texttt{environment.ts} e \texttt{environment.prod.ts}.
+O primeiro contém os valores das variáveis de ambiente que serão consideradas durante o desenvolvimento, ou seja, quando o comando for executado:
 
-\begin{lstlisting}[language=bash]
-  $ ng serve 
-\end{lstlisting}
 
-é usado. Assim, a única variável que deve ser alterada é a apiUrl, que deve apontar para o \emph{back end}. Assim para compilar o projeto e servi-lo usando um servidor \emph{web}, os comandos que 
-devem ser rodados são os seguintes: 
+  \begin{verbatim}
+  $ ng serve
+\end{verbatim}
 
-\begin{lstlisting}[language=bash]
+Assim, a única variável que deve ser alterada é a apiUrl, que deve apontar para o \emph{back end}. Para compilar o projeto e servi-lo usando um servidor \emph{web}, os comandos que 
+devem ser executados no servidor são os seguintes: 
+
+  \begin{verbatim}
   $ npm install 
   $ npm run build -- --output-path=./dist/out
   --configuration production
-\end{lstlisting}
+  \end{verbatim}
 
-Isso gerará uma pasta ./dist/out que, quando colocadas no caminho /usr/share/nginx/html de um computador com Nginx instalado, irá servir a aplicação do \emph{front end}.
-Nesses últimos comandos, o arquivo de variáveis que será usado é o environment.prod.ts.
-Outra maneira de rodar o \emph{front end} é via Docker. Existe um Dockerfile dentro da pasta \emph{front end} que facilita o \emph{deploy}. Existem dois comandos que devem ser rodados nesse caso, um
-para construir a imagem do Docker e outro para rodá-la:
 
-\begin{lstlisting}[language=bash]
+Isso gerará uma pasta \texttt{./dist/out} que, quando colocadas no caminho \texttt{/usr/share/nginx/html} de um computador com Nginx instalado, irá servir a aplicação do \emph{front end}.
+Nesses últimos comandos, o arquivo de variáveis que será usado é o \texttt{environment.prod.ts}.
+Outra maneira de executar o \emph{front end} é via Docker. Existe um Dockerfile dentro da pasta \emph{front end} que facilita o \emph{deploy}. Existem dois comandos que devem ser rodados nesse caso, um
+para construir a imagem do Docker e outro para executá-la:
+
+  \begin{verbatim}
   $ docker build -t my-angular-project:prod .
   $ docker run -p 80:80 my-angular-project:prod
-\end{lstlisting}
+  \end{verbatim}
 
 Ao acessar o \emph{localhost}, a tela inicial do projeto será mostrada.
 
-\subsubsection{\emph{Back End}}
+\subsubsection{Tecnologias utilizadas para o \emph{Back End}}
 
-Aqui, assim como no \emph{front end}, também existe a possibilidade de rodar o código nativamente ou dentro de um \emph{container} Docker. Para executar o \emph{back end} nativamente, dentro da pasta \emph{back end}
-existe o arquivo main.py e o requirements.txt. O arquivo de requirements.txt mostra quais são os pacotes necessários para rodar a aplicação. Também é preciso definir três
+Aqui, assim como no \emph{front end}, também existe a possibilidade de executar o código nativamente ou dentro de um \emph{container} Docker. Para executar o \emph{back end} nativamente, dentro da pasta \emph{back end}
+existe o arquivo \texttt{main.py} e o \texttt{requirements.txt}. O arquivo \texttt{requirements.txt} mostra quais são os pacotes necessários para executar a aplicação. Também é preciso definir três
 variáveis de ambiente, que são:
 
 \begin{itemize}
-  \item SPASS\_CONNECTION\_STRING: String de conexão do MongoDB.
-  \item SPASS\_DATA\_BLOB\_KEY: Chave referente ao Blob que guardará todos os componentes citados anteriormente: resultados, dados e \emph{Tools}.
-  \item SPASS\_CELERY\_BROKER: String de conexão do \emph{broker} do Celery, que, no caso do nosso experimento é o Redis.
+  \item \texttt{SPASS\_CONNECTION\_STRING}: String de conexão do MongoDB.
+  \item \texttt{SPASS\_DATA\_BLOB\_KEY}: Chave referente ao Blob que guardará todos os componentes citados anteriormente: resultados, dados e ferramenta.
+  \item \texttt{SPASS\_CELERY\_BROKER}: String de conexão do \emph{broker} do Celery, que, no caso do nosso experimento é o Redis.
 \end{itemize}
 
-Assim, após adicionar essas variáveis de ambiente, basta, dentro da pasta \emph{back end}, rodar os seguintes comandos:
+Assim, após adicionar essas variáveis de ambiente, basta, dentro da pasta \emph{back end}, executar os seguintes comandos:
 
-\begin{lstlisting}[language=bash]
+  \begin{verbatim}
   $ pip3 install -r requirements.txt
   $ python3 main.py
-\end{lstlisting}
+  \end{verbatim}
 
-Caso a opção seja por rodar o \emph{back end} com Docker, os comandos são:
+Caso a opção seja por executar o \emph{back end} com Docker, os comandos são:
 
-\begin{lstlisting}[language=bash]
+  \begin{verbatim}
   $ docker build -t flask-back .
   $ docker run -p 5000:5000 -e SPASS\_CONNECTION\_STRING="<value>"
   -e SPASS\_DATA\_BLOB\_KEY="<value>"
   -e SPASS\_CELERY\_BROKER="<value>" flask-back
-\end{lstlisting}
+  \end{verbatim}
 
 Nesse caso, o \emph{back end} estará escutando na porta 5000.
 
@@ -505,18 +517,18 @@ Nesse caso, o \emph{back end} estará escutando na porta 5000.
 
 Para os \emph{workers}, dentro da pasta \emph{back end}, basta executar:
 
-\begin{lstlisting}[language=bash]
+  \begin{verbatim}
   $ pip3 install -r requirements.txt
   $ celery worker -A main.celery -l info
-\end{lstlisting}
+  \end{verbatim}
 
 Nos \emph{workers} também é necessário declarar as mesmas variáveis de ambiente do \emph{back end}, citadas anteriormente. 
 Como a proposta é ter vários \emph{workers} para executar as tarefas em paralelo, foi criado um \emph{playbook} Ansible, para configurar várias máquinas para 
 executar essas tarefas. Para isso, com o Ansible instalado basta executar dentro da pasta devops:
 
-\begin{lstlisting}[language=bash]
+  \begin{verbatim}
   $ ansible-playbook worker_config.yaml
-\end{lstlisting}
+  \end{verbatim}
 
 \subsection{Telas finais}
 
@@ -553,11 +565,11 @@ arquivo que será submetido. Além disso, a tabela abaixo mostra todos os dados 
 \begin{figure}[!h]
   \centering
   \includegraphics[scale=0.3]{tools_final.eps}
-  \caption{Tela final de gerenciamento de \emph{Tools}}
+  \caption{Tela final de gerenciamento de ferramentas}
   \label{fig:finalTools}
 \end{figure}
 
-Semelhante a tela referente aos dados, a Figura~\ref{fig:finalTools} mostra o componente de gerenciamento das \emph{Tools}. Também devem
+Semelhante à tela referente aos dados, a Figura~\ref{fig:finalTools} mostra o componente de gerenciamento das ferramentas. Também devem
 ser selecionado um arquivo, um nome e quais os parâmetros necessários para a execução, juntamente com suas explicações. Os parâmetros são submetidos da seguinte maneira: 1:explicação do parâmetro 1,
 2:explicação do parâmetro 2, etc.
 
@@ -575,9 +587,9 @@ ser selecionado um arquivo, um nome e quais os parâmetros necessários para a e
   \label{fig:finalDetailedTask}
 \end{figure}
 
-A Figura~\ref{fig:finalTasks} mostra como é a definição de um pedido de processamento. Nesse primeiro momento, só é possível escolher uma \emph{Tool} e o dado que serão usados, porém como mostra 
-a Figura~\ref{fig:finalDetailedTask}, após selecionar a \emph{Tool}, serão automaticamente carregados quais são os argumentos necessários para a execução dessa tarefa. Esses argumentos
-foram submetidos juntamente com a \emph{Tool} na tela representada pela Figura~\ref{fig:finalTools}.
+A Figura~\ref{fig:finalTasks} mostra como é a definição de um pedido de processamento. Nesse primeiro momento, só é possível escolher uma ferramenta e o dado que serão usados, porém como mostra 
+a Figura~\ref{fig:finalDetailedTask}, após selecionar a ferramenta, serão automaticamente exibidos quais são os parâmetros necessários para a execução dessa tarefa. Esses argumentos
+foram submetidos juntamente com a ferramenta na tela representada pela Figura~\ref{fig:finalTools}.
 
 \begin{figure}[!h]
   \centering
@@ -593,8 +605,8 @@ foram submetidos juntamente com a \emph{Tool} na tela representada pela Figura~\
   \label{fig:finalResultsDetail}
 \end{figure}
 
-Na tela de resultados, ilustrada pela Figura~\ref{fig:finalResults}, fica claro como podemos obter os resultados depois de terminados os processamentos. Além disso, caso o usuário queira verificar 
-quais foram os dados, \emph{Tool} e argumentos que geraram aqueles resultados, é possível através do botão de \emph{details}, que gera o Json com as características daquele processamento, como ilustrado na 
+A tela de resultados, ilustrada pela Figura~\ref{fig:finalResults}, mostra como podemos obter os resultados depois de terminados os processamentos. Além disso, caso o usuário queira verificar 
+quais foram os dados, ferramenta e argumentos que geraram aqueles resultados, o botão de \emph{details}, pode ser usado para gerar o Json com as características daquele processamento, como ilustrado na 
 Figura~\ref{fig:finalResultsDetail}.
 
 \section{Conclusão}
@@ -602,9 +614,11 @@ Ao final do processo de implementação da plataforma, é possível notar que os
 com todo o código fonte aberto desde o início no Github. Todo o \emph{front end} foi desenvolvido com o \emph{framework} Angular, o \emph{back end} construído com Python, Celery e
 Flask. Além disso, usamos o Redis como fila de trabalho para alcançar o objetivo de desacoplar o \emph{front end} do \emph{back end}. Para a camada de armazenamento, usamos o 
 Blob do Microsoft Azure e o banco de dados não relacional, MongoDB.
-Para executar um processamento sísmico, o usuário final não preciso de conhecimento de computação em nuvem, o que também era uma das premissas iniciais do projeto.
+Para executar um processamento sísmico, o usuário final não necessita de conhecimento de computação em nuvem, o que também era uma das premissas iniciais do projeto.
+Executamos a prova de conceito completa no Microsoft Azure. Vale ressaltar que uma pessoa de fora do projeto conseguiu executar o sistema seguindo as instruções desse relatório.
 Como próximos passos do projeto, é desejada a implementação de uma maneira dos resultados dos processamentos serem usados como entrada em outros processamentos. Além disso, existe o
-plano de implementar uma maneira do usuário conseguir analisar as imagens sísmicas geradas na própria interface \emph{web}.
+plano de implementar uma maneira do usuário conseguir analisar as imagens sísmicas geradas na própria interface \emph{web} e a implementação de um módulo responsável pelo fluxo de
+processamento.
 
 \begin{thebibliography}{99}
 

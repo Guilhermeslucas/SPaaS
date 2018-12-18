@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  18 DEC 2018 01:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  18 DEC 2018 16:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -423,50 +423,55 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-(./exemploPFG.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks18
+\verbatim@line=\toks19
+\verbatim@in@stream=\read1
+) (./exemploPFG.aux)
 \openout1 = `exemploPFG.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 23.
-LaTeX Font Info:    ... okay on input line 23.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 \c@lstlisting=\count96
 \TR@Banner=\box28
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 41.
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 42.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 []\T1/cmss/m/n/10.95 UNIVERSIDADE ES-TA-DUAL DE CAM-PI-NAS
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 []\T1/cmss/m/n/14.4 INSTITUTO DE COM-PU-TA-ÇÃO
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 41.
+(Font)              <10.95> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 41.
+(Font)              <8> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 41.
+(Font)              <6> on input line 42.
 \TR@Title=\box29
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <11> on input line 41.
+(Font)              <11> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 41.
+(Font)              <5> on input line 42.
 \TR@NumDate=\box30
 
-Overfull \vbox (27.52089pt too high) detected at line 41
+Overfull \vbox (27.52089pt too high) detected at line 42
  []
 
 \TR@Cover=\box31
@@ -474,16 +479,16 @@ File: logo-unicamp.eps Graphic file (type eps)
 <logo-unicamp.eps>
 File: logo-ic-unicamp.eps Graphic file (type eps)
  <logo-ic-unicamp.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 []\T1/cmss/m/n/14.4 UNIVERSIDADE ES-TA-DUAL DE CAM-PI-NAS
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <20> not available
-(Font)              size <20.74> substituted on input line 41.
+(Font)              size <20.74> substituted on input line 42.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--41
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 []\T1/cmss/m/n/20.74 INSTITUTO DE COM-PU-TA-ÇÃO
  []
 
@@ -491,7 +496,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--41
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 69.
+(Font)              <12> on input line 70.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 99.
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
@@ -502,81 +507,71 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <9> on input line 122.
  [2] [3]
-File: arch.eps Graphic file (type eps)
+File: flow.eps Graphic file (type eps)
 
-<arch.eps>
+<flow.eps>
+File: arch.eps Graphic file (type eps)
+ <arch.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[4]
+[4] [5]
 File: login.eps Graphic file (type eps)
  <login.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: account_reg.eps Graphic file (type eps)
-<account_reg.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <account_reg.eps>
 File: First_screen.eps Graphic file (type eps)
-<First_screen.eps> [5]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
+ <First_screen.eps> [6]
 File: Second_screen.eps Graphic file (type eps)
+
 <Second_screen.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: Third_screen.eps Graphic file (type eps)
-<Third_screen.eps>
+ <Third_screen.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-File: tcc_flow.eps Graphic file (type eps)
-<tcc_flow.eps>
+File: comp_flow.eps Graphic file (type eps)
+<comp_flow.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[6] [7] [8] [9] [10]
-Underfull \hbox (badness 10000) in paragraph at lines 345--345
+[7] [8] [9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 355--355
 [][]\OT1/cmr/m/n/9 Armazenamento de car^^Sater gen^^Serico no Mi-cro-soft Azure
  https://azure.microsoft.com/en-
  []
 
 [11]
 File: final_arch.eps Graphic file (type eps)
- <final_arch.eps> [12]
+ <final_arch.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13]
 File: tools_model.eps Graphic file (type eps)
  <tools_model.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 File: results.eps Graphic file (type eps)
-<results.eps>
+ <results.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[14]
 File: users_model.eps Graphic file (type eps)
-<users_model.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13] [14] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [15]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 497.
+ <users_model.eps> [15]
+Overfull \hbox (0.72224pt too wide) in paragraph at lines 456--458
+\OT1/cmr/m/n/10.95 Para exe-cu-tar o \OT1/cmr/m/it/10.95 front end\OT1/cmr/m/n/
+10.95 , as vari^^Saveis de am-bi-ente est~ao em \OT1/cmtt/m/n/10.95 front-end/s
+rc/environments\OT1/cmr/m/n/10.95 .
+ []
 
 
-(/usr/share/texlive/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 497.
+Overfull \hbox (32.2371pt too wide) in paragraph at lines 474--478
+[]\OT1/cmr/m/n/10.95 Isso ge-rar^^Sa uma pasta \OT1/cmtt/m/n/10.95 ./dist/out \
+OT1/cmr/m/n/10.95 que, quando co-lo-ca-das no ca-mi-nho \OT1/cmtt/m/n/10.95 /us
+r/share/nginx/html
+ []
+
+[16]
 File: final_login.eps Graphic file (type eps)
  <final_login.eps>
 
@@ -592,19 +587,19 @@ File: data_final.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[16]
+[17]
 File: tools_final.eps Graphic file (type eps)
  <tools_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Overfull \hbox (1.06514pt too wide) in paragraph at lines 560--563
+Overfull \hbox (1.06514pt too wide) in paragraph at lines 572--575
 \OT1/cmr/m/n/10.95 s~ao sub-me-ti-dos da se-guinte ma-neira: 1:ex-plica^^Xc~ao 
 do par^ametro 1, 2:ex-plica^^Xc~ao do par^ametro
  []
 
-[17]
+[18]
 File: task_first_final.eps Graphic file (type eps)
  <task_first_final.eps>
 File: task_args_final.eps Graphic file (type eps)
@@ -625,26 +620,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18]
+ [19]
 Overfull \vbox (11.0708pt too high) has occurred while \output is active []
 
 
-[19] [20] (./exemploPFG.aux)
+[20] [21] (./exemploPFG.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 3511 strings out of 494930
- 44616 string characters out of 6180168
- 128997 words of memory out of 5000000
- 6757 multiletter control sequences out of 15000+600000
- 16678 words of font info for 47 fonts, out of 8000000 for 9000
+ 3087 strings out of 494930
+ 40807 string characters out of 6180168
+ 99744 words of memory out of 5000000
+ 6337 multiletter control sequences out of 15000+600000
+ 16846 words of font info for 48 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 32i,9n,51p,388b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,9n,32p,388b,335s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (21 pages, 68440 bytes).
+Output written on exemploPFG.dvi (22 pages, 67488 bytes).
