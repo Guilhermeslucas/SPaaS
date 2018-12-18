@@ -229,7 +229,7 @@ as informações necessárias para entrar no sistema eram \emph{e-mail} e senha 
   \label{fig:createScreen}
 \end{figure}
 
-A Figura~\ref{fig:createScreen} deixa claro quais foram as informações que eram requeridas para se criar uma conta no sistema. 
+A Figura~\ref{fig:createScreen} deixa claro quais foram as informações que eram requeridas para se criar uma conta no sistema, que eram \emph{e-mail} senha e confirmação de senha.
 
 \begin{figure}[!h]
   \centering
@@ -239,7 +239,8 @@ A Figura~\ref{fig:createScreen} deixa claro quais foram as informações que era
 \end{figure}
 
 A Figura~\ref{fig:definitionScreen} exemplifica como imaginamos a tela de definição de um trabalho para ser executado. Nesse primeiro protótipo, foi pensado que somente 
-as informações ilustradas na tela, eram o suficiente.
+as informações ilustradas na tela, eram o suficiente. Nessa tela os campos necessários eram o nome do processamento, qual o código seria executado, o comando necessário para rodar
+a aplicação e o dado sísmico.
 
 \begin{figure}[!h]
   \centering
@@ -261,7 +262,7 @@ A Figura~\ref{fig:resultsScreen} mostra como foi pensada a obtenção dos result
 
 \begin{figure}[!h]
   \centering
-  \includegraphics[scale=0.2]{tcc_flow.eps}
+  \includegraphics[scale=0.4]{tcc_flow.eps}
   \caption{Fluxo entre os componentes da plataforma}
   \label{fig:flowScreen}
 \end{figure}
@@ -454,7 +455,7 @@ devem ser rodados são os seguintes:
 
 \begin{lstlisting}[language=bash]
   $ npm install 
-  $ npm run build -- --output-path=./dist/out\\ 
+  $ npm run build -- --output-path=./dist/out
   --configuration production
 \end{lstlisting}
 
@@ -493,8 +494,8 @@ Caso a opção seja por rodar o \emph{back end} com Docker, os comandos são:
 
 \begin{lstlisting}[language=bash]
   $ docker build -t flask-back .
-  $ docker run -p 5000:5000 -e SPASS\_CONNECTION\_STRING="<value>"\\ 
-  -e SPASS\_DATA\_BLOB\_KEY="<value>"\\
+  $ docker run -p 5000:5000 -e SPASS\_CONNECTION\_STRING="<value>"
+  -e SPASS\_DATA\_BLOB\_KEY="<value>"
   -e SPASS\_CELERY\_BROKER="<value>" flask-back
 \end{lstlisting}
 
@@ -596,6 +597,15 @@ Na tela de resultados, ilustrada pela Figura~\ref{fig:finalResults}, fica claro 
 quais foram os dados, \emph{Tool} e argumentos que geraram aqueles resultados, é possível através do botão de \emph{details}, que gera o Json com as características daquele processamento, como ilustrado na 
 Figura~\ref{fig:finalResultsDetail}.
 
+\section{Conclusão}
+Ao final do processo de implementação da plataforma, é possível notar que os principais objetivos foram alcançados. Foi criada uma aplicação \emph{web} somente com componentes \emph{open source},
+com todo o código fonte aberto desde o início no Github. Todo o \emph{front end} foi desenvolvido com o \emph{framework} Angular, o \emph{back end} construído com Python, Celery e
+Flask. Além disso, usamos o Redis como fila de trabalho para alcançar o objetivo de desacoplar o \emph{front end} do \emph{back end}. Para a camada de armazenamento, usamos o 
+Blob do Microsoft Azure e o banco de dados não relacional, MongoDB.
+Para executar um processamento sísmico, o usuário final não preciso de conhecimento de computação em nuvem, o que também era uma das premissas iniciais do projeto.
+Como próximos passos do projeto, é desejada a implementação de uma maneira dos resultados dos processamentos serem usados como entrada em outros processamentos. Além disso, existe o
+plano de implementar uma maneira do usuário conseguir analisar as imagens sísmicas geradas na própria interface \emph{web}.
+
 \begin{thebibliography}{99}
 
 \bibitem{UPP} A. Back and H. Lindén., {\it Cloud Computing Security: A Systematic Literature Review,} (2015).
@@ -607,5 +617,3 @@ Figura~\ref{fig:finalResultsDetail}.
 \end{thebibliography}
 
 \end{document}
-
-
