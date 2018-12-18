@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  18 DEC 2018 00:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2018.3.17)  18 DEC 2018 01:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -536,10 +536,6 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 File: tcc_flow.eps Graphic file (type eps)
 <tcc_flow.eps>
-Overfull \hbox (36.52931pt too wide) in paragraph at lines 265--266
- [][] 
- []
-
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -549,31 +545,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 345--345
  https://azure.microsoft.com/en-
  []
 
-
-Underfull \vbox (badness 1796) has occurred while \output is active []
-
- [11]
+[11]
 File: final_arch.eps Graphic file (type eps)
-
-<final_arch.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[12]
+ <final_arch.eps> [12]
 File: tools_model.eps Graphic file (type eps)
  <tools_model.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13]
 File: results.eps Graphic file (type eps)
- <results.eps>
-File: users_model.eps Graphic file (type eps)
- <users_model.eps>
+<results.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[14] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: users_model.eps Graphic file (type eps)
+<users_model.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13] [14] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -587,19 +577,24 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 497.
- [16]
 File: final_login.eps Graphic file (type eps)
-
-<final_login.eps>
-File: final_create.eps Graphic file (type eps)
- <final_create.eps>
-File: data_final.eps Graphic file (type eps)
- <data_final.eps>
+ <final_login.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+File: final_create.eps Graphic file (type eps)
+<final_create.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+File: data_final.eps Graphic file (type eps)
+<data_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16]
 File: tools_final.eps Graphic file (type eps)
-<tools_final.eps>
+ <tools_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -609,19 +604,16 @@ Overfull \hbox (1.06514pt too wide) in paragraph at lines 560--563
 do par^ametro 1, 2:ex-plica^^Xc~ao do par^ametro
  []
 
-File: task_first_final.eps Graphic file (type eps)
-<task_first_final.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-File: task_args_final.eps Graphic file (type eps)
-<task_args_final.eps>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
 [17]
+File: task_first_final.eps Graphic file (type eps)
+ <task_first_final.eps>
+File: task_args_final.eps Graphic file (type eps)
+ <task_args_final.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 File: results_final.eps Graphic file (type eps)
- <results_final.eps>
+<results_final.eps>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -630,7 +622,14 @@ File: results_detail_final.eps Graphic file (type eps)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[18] [19] [20] (./exemploPFG.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [18]
+Overfull \vbox (11.0708pt too high) has occurred while \output is active []
+
+
+[19] [20] (./exemploPFG.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.74pt have occurred.
@@ -642,10 +641,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  3511 strings out of 494930
  44616 string characters out of 6180168
- 129636 words of memory out of 5000000
+ 128997 words of memory out of 5000000
  6757 multiletter control sequences out of 15000+600000
  16678 words of font info for 47 fonts, out of 8000000 for 9000
  16 hyphenation exceptions out of 8191
- 32i,9n,51p,389b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 32i,9n,51p,388b,1294s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on exemploPFG.dvi (21 pages, 68272 bytes).
+Output written on exemploPFG.dvi (21 pages, 68440 bytes).
